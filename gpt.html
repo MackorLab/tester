@@ -1,0 +1,609 @@
+<!doctype html>
+
+<head>
+ <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://unpkg.com/@vkontakte/vk-bridge/dist/browser.min.js"></script>
+<script type="text/javascript" src="https://vk.com/js/api/openapi.js?169"></script>
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.7/css/all.css">
+	<script src="https://cdn.staticfile.org/jquery/3.6.3/jquery.min.js"></script>
+	<script src="https://cdn.staticfile.org/markdown-it/13.0.1/markdown-it.min.js"></script>
+
+
+
+</head>
+<style>
+	
+body {
+
+	
+}
+	
+::-webkit-scrollbar {
+  width: 0;
+}	
+	
+	
+/* Оформление боковой панели */
+#side-checkbox {
+    display: none;
+}
+.side-panel {
+    position: fixed;
+    z-index: 99999;
+    top: 0;
+    left: -660px;
+    background: #337AB7;
+    transition: all 0.5s;  
+    width: 620px;
+    height: 100vh;
+    box-shadow: 10px 0 20px rgba(0,0,0,0.4);
+    color: #FFF;
+    padding: 40px 20px;
+     overflow: auto; 
+   
+}
+.side-title {
+    font-size: 20px;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+    border-bottom: 2px solid #BFE2FF;
+    outline: none;
+}
+/* Оформление кнопки на странице */
+.side-button-1-wr {
+  /*  text-align: center;  Контейнер для кнопки, чтобы было удобнее ее разместить */
+}
+.side-button-1 .side-b {
+    margin: 10px;
+    cursor: pointer;
+    border: 2px solid #BFE2FF;
+    border-radius: 10px;
+}
+.side-button-1 .side-b:hover,
+.side-button-1 .side-b:active,
+.side-button-1 .side-b:focus {
+    color: #FFF;
+}
+.side-button-1 .side-b:after,
+.side-button-1 .side-b:before {
+    position: absolute;
+    height: 4px;
+    left: 50%;
+    bottom: -6px;
+    content: "";
+    transition: all 280ms ease-in-out;
+    width: 0;
+}
+.side-button-1 .side-open:after,
+.side-button-1 .side-open:before {
+    background: green;
+}
+.side-button-1 .side-close:after,
+.side-button-1 .side-close:before {
+    background: red;
+}
+.side-button-1 .side-b:before {
+    top: -6px;
+}
+.side-button-1 .side-b:hover:after,
+.side-button-1 .side-b:hover:before {
+    width: 100%;
+    left: 0;
+}
+/* Переключатели кнопки 1 */
+.side-button-1 .side-close {
+    display: none;
+}
+
+#side-checkbox:checked + .side-panel {
+    left: 0;
+}
+/* Оформление кнопки на панеле */
+.side-button-2 {
+    font-size: 30px;
+    border-radius: 20px;
+    position: absolute;
+    z-index: 1;
+    top: 8px;
+    right: 8px;
+    cursor: pointer;
+    transform: rotate(45deg);
+    color: #BFE2FF;   
+    transition: all 280ms ease-in-out;   
+}
+.side-button-2:hover {
+    transform: rotate(45deg) scale(1.1);   
+    color: #FFF;
+} 
+	
+
+	
+
+    a:focus {
+      outline: none;
+    }
+
+    .topmenu {
+      float: left;
+     
+    }
+	
+  
+  
+	
+	
+
+    .topmenu ul, .topmenu li {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .topmenu ul li {
+	background: red;    
+      position: relative;
+      width: 140px;
+	z-index: 999;      
+    }
+
+    .topmenu ul li a {
+      display: block;
+      padding: 10px 10px 10px 30px;
+      cursor: pointer;
+      color: #0000FF;
+      text-decoration: none;
+      border: 1px solid #999;
+      margin: 1px;
+	  
+    }
+
+   .card_less{
+      background: red;    
+      position: relative;
+      width: 438px;
+      height: 100px;   
+      z-index: 9999999;   
+   
+      padding: 10px 10px 10px 30px;
+      cursor: pointer;
+      color: #0000FF;
+      
+      border: 1px solid #999;
+      margin: 1px;
+	  
+    }
+
+    .topmenu ul li ul {
+      display: none;
+      position: absolute;
+      top: 0px;
+      left: 140px;
+    }
+	
+	
+	
+	
+.btn-group {
+    background-color: #4CAF50; /* Green background */
+    border: 1px solid green; /* Green border */
+    color: white; /* White text */
+    padding: 10px 24px; /* Some padding */
+    cursor: pointer; /* Pointer/hand icon */
+    width: 50%; /* Set a width if needed */
+    display: block; /* Make the buttons appear below each other */
+}
+
+.btn-group:not(:last-child) {
+    border-bottom: none; /* Prevent double borders */
+}
+
+/* Add a background color on hover */
+.btn-group:hover {
+    background-color: #3e8e41;
+}
+	
+
+
+
+
+.chat-box {
+		  height: calc(100vh - 238px); /* subtract the space occupied by the navbar and footer */
+		  overflow-y: scroll;
+		}
+		
+		@media only screen and (max-width: 480px) {
+		  .chat-box {
+			height: calc(100vh - 300px); /* adjust the height value as per your requirement */
+			overflow-y: scroll;
+		  }
+		}
+		
+		.message {
+			margin-bottom: 10px;
+			padding: 10px;
+			padding-bottom: 0;
+			border-radius: 10px;
+			display: inline-block;
+			max-width: 85%;
+			word-wrap: break-word;
+			white-space: normal;
+		}
+
+		.left-side {
+			background-color: lightgray;
+			float: left;
+		}
+
+		.right-side {
+			background-color: lightgreen;
+			float: right;
+		}	
+		.popup {
+			position: fixed;
+			bottom: 20vh;
+			left: 50%;
+			transform: translateX(-50%);
+			background-color: rgba(0, 0, 0, 0.6);
+			color: white;
+			border-radius: 5px;
+			padding: 10px 20px;
+			font-size: 16px;
+			display: none;
+		}
+		
+		/* Toggle Switch */
+
+		.switch {
+		  position: relative;
+		  display: inline-block;
+		  width: 60px;
+		  height: 34px;
+		}
+		.switch input {
+		  opacity: 0;
+		  width: 0;
+		  height: 0;
+		}
+		.slider {
+		  position: absolute;
+		  cursor: pointer;
+		  top: 0;
+		  left: 0;
+		  right: 0;
+		  bottom: 0;
+		  background-color: #ccc;
+		  transition: .4s;
+		}
+		.slider:before {
+		  position: absolute;
+		  content: "";
+		  height: 26px;
+		  width: 26px;
+		  left: 4px;
+		  bottom: 4px;
+		  background-color: white;
+		  transition: .4s;
+		}
+		
+
+   
+
+
+    input:checked + .slider:before {
+		  transform: translateX(26px);
+		}
+ 
+		.slider.round {
+		  border-radius: 34px;
+		}
+		.slider.round:before {
+		  border-radius: 50%;
+		}
+
+
+	
+
+
+
+		/* Dark Theme */
+		.dark-mode .dark-theme {
+		  background-color: #333;
+		  color: #fff;
+		}
+
+		.dark-mode .nav{
+		  background-color: #333;
+		  color: #fff;
+		}
+
+		.dark-mode .dark-text {
+		  color: #fff;
+		}
+
+		.dark-mode .card {
+		  background-color: #333;
+		  color: #fff;
+		}
+
+		.dark-mode .popup {
+		  background-color: #fff;
+		  color: #333;
+		}
+    .dark-mode .fa-clipboard {
+		  color: #212529;
+		  background-color: #7cc;
+		  border-color: #5bc2c2
+		}
+
+		
+		.dark-mode .fa-clipboard:hover {
+		  color: #212529;
+		  background-color: #52bebe;
+		  border-color: #8ad3d3
+		}
+
+		.bg-skyblue{
+		background-color: #e3f2fd;
+		}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+</style>
+<body>
+	
+<script>
+vkBridge.send('VKWebAppInit');
+</script>
+	
+	
+
+
+ 
+
+
+
+	
+<div class="container-fluid">
+  <div class="row ">
+    <div class="col-md-12 mb-3">
+      <div class="card mt-3">
+        <div class="card-header row">
+
+         <div class="col-6 ">
+
+          <label class="side-button-1" for="side-checkbox">
+            <img  class="side-b side-open" src="https://i.ibb.co/vQq5Ksb/imgonline-com-ua-Resize-0-ABSda-NZEv.png" alt="">   
+          </label>
+
+            				
+          </div>		
+          
+          
+
+
+
+
+          <div class="col-6 offset-md-3 col-md-3 text-right">	
+            <a  type="button" onclick="window.print()" class="btn  btn-outline-info">💾</a>						
+            <a  type="button" id="submit2"  class="btn btn-outline-danger ">🧹</a>
+          </div>
+        </div>
+        <div class="card-body chat-box rounded p1" id="chatbox"><span id="copy-popup" class="popup">Copied!</span></div>
+        <div class="card-footer">
+          <div class="form-group row">
+            <div class="col-md-10 mb-1">
+              <textarea id="userInput" rows="1" class="form-control dark-theme" placeholder="Пожалуйста введите сообщение..." ></textarea>
+            </div>
+            <div class="col-md-2">
+              <input id="sendButton" type="button" value="ОТПРАВИТЬ" class=" form-control btn btn-success btn-block " />
+            </div>	
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+	
+
+
+
+
+
+
+
+
+
+
+	
+	
+	
+<input type="checkbox" id="side-checkbox" />   
+
+<div class="side-panel">
+    <label class="side-button-2" for="side-checkbox">+</label>   
+    <div class="side-title">Выдвижная панель:</div>
+ 
+
+	
+	
+	<div class="topmenu">
+
+
+       
+            
+            
+           
+
+            <div class="d-flex align-items-center">
+              <input type="text" id="apiKey" value="" class="form-control mr-1 dark-theme" size="55" placeholder="Пожалуйста введите ключ...">
+              <label class="switch mb-0 pl-5">
+                  <input type="checkbox" id="darkModeToggle" >
+                  <span class="slider round"></span>
+              </label>
+          </div>
+  
+          
+
+   
+            
+
+
+
+
+       
+       
+
+
+
+
+
+
+
+<br>
+
+<br>
+
+
+<div class="form-group">
+  <label for="formControlRange">Случайность генерации: <span id="rangeTemp">0.2</span></label>
+  <input type="range" class="form-control-range" id="formControlTemp" min="0" max="1" step="0.01" value="0.2">
+</div>
+
+
+
+
+
+<div class="form-group">
+  <label for="formControlRange">Креативность генерации: <span id="rangeTop_P">0.2</span></label>
+  <input type="range" class="form-control-range" id="formControlTop_P" min="0" max="1" step="0.01" value="0.4">
+</div>
+
+
+
+
+<div class="form-group">
+  <label for="formControlRange">Штраф за повт. фраз: <span id="rangeFr">0.2</span></label>
+  <input type="range" class="form-control-range" id="formControlFr" min="0" max="1" step="0.01" value="0.6">
+</div>
+
+    
+<div class="form-group">
+  <label for="formControlRange">Штраф за повт. слов: <span id="rangeSl">0.2</span></label>
+  <input type="range" class="form-control-range" id="formControlSl" min="0" max="1" step="0.01" value="0.4">
+</div>
+
+
+
+<div class="form-group">
+  <label for="maxTokensInput">Максимальное количество токенов: <span id="maxTokensValue">50</span></label>
+  <input type="number" class="form-control" id="maxTokensInput" min="1" value="2000" step="0.01" >
+</div>
+
+<button type="button" class="btn btn-info">Инфо</button>
+<button type="button" class="btn btn-light">Светлый</button>
+
+
+
+<div>	
+
+
+
+  
+  <button class="btn-group"  style="width:100%"   id="submit">Заказать ключ - 1М слов 👈 500руб.</button>
+ </div>	
+
+
+
+
+
+</div>
+
+
+
+
+   
+
+
+
+
+
+
+	
+
+
+			
+
+	
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.9-1/crypto-js.js"></script>
+	
+	
+	
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  
+
+<script>
+	
+	$(document).ready(function(){
+    $('.topmenu ul li').hover(
+        function() {
+            $(this).addClass("active");
+            $(this).find('ul').stop(true, true); // останавливаем всю текущую анимацию
+            $(this).find('ul').slideDown();
+        },
+        function() {
+            $(this).removeClass("active");        
+            $(this).find('ul').slideUp('fast');
+        }
+    );
+});
+	
+	
+
+	
+	
+	
+	
+	
+	function myFunction() {
+  alert("I am an alert box!");
+}
+	
+</script>
+
+
+
+
+<script type="text/javascript" src="bundle.0c8852b02f725340d372.js"></script></body>
+</html>

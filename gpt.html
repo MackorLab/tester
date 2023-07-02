@@ -60,6 +60,7 @@ body {
 .side-button-1 .side-b {
     margin: 10px;
     cursor: pointer;
+    font-size: 5;
     border: 2px solid #BFE2FF;
     border-radius: 10px;
 }
@@ -416,14 +417,14 @@ vkBridge.send('VKWebAppInit');
             <a  type="button" id="submit2"  class="btn btn-outline-danger ">🧹</a>
           </div>
         </div>
-        <div class="card-body chat-box rounded p1" id="chatbox"><span id="copy-popup" class="popup">Copied!</span></div>
+        <div class="card-body chat-box rounded p1" id="chatbox"><span id="copy-popup" class="popup">Скопировано!</span></div>
         <div class="card-footer">
           <div class="form-group row">
             <div class="col-md-10 mb-1">
               <textarea id="userInput" rows="1" class="form-control dark-theme" placeholder="Пожалуйста введите сообщение..." ></textarea>
             </div>
             <div class="col-md-2">
-              <input id="sendButton" type="button" value="ОТПРАВИТЬ" class=" form-control btn btn-success btn-block " />
+              <input id="sendButton" type="button" value="Отправить" class=" form-control btn btn-success btn-block " />
             </div>	
           </div>
         </div>
@@ -525,7 +526,7 @@ vkBridge.send('VKWebAppInit');
 
 <div class="form-group">
   <label for="maxTokensInput">Максимальное количество токенов: <span id="maxTokensValue">50</span></label>
-  <input type="number" class="form-control" id="maxTokensInput" min="1" value="2000" step="0.01" >
+  <input type="number" class="form-control" id="maxTokensInput" min="1" value="2000" >
 </div>
 
 <button type="button" class="btn btn-info">Инфо</button>

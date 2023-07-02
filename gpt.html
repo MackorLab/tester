@@ -28,10 +28,7 @@
 
 
 	
-body {
-
-	
-}
+body { }
 	
 ::-webkit-scrollbar {
   width: 0;
@@ -47,7 +44,7 @@ body {
     z-index: 99999;
     top: 0;
     left: -660px;
-    background: #1e3882;
+    background: #1b347c;
     transition: all 0.5s;  
     width: 620px;
     height: 100vh;
@@ -412,7 +409,7 @@ vkBridge.send('VKWebAppInit');
          <div class="col-6 ">
 
           <label class="side-button-1" for="side-checkbox">
-            <img  class="side-b side-open" src="https://srv4.imgonline.com.ua/result_img/imgonline-com-ua-Resize-t5tClp9Fl0zhw4.jpg" alt="">   
+            <img  class="side-b side-open" src="https://i.ibb.co/BV3X5Pn/imgonline-com-ua-Resize-t5t-Clp9-Fl0zhw4.jpg" alt="">   
           </label>
 
             				
@@ -462,7 +459,7 @@ vkBridge.send('VKWebAppInit');
 
 <div class="side-panel">
     <label class="side-button-2" for="side-checkbox">+</label>   
-    <div class="side-title">VK-ChatGPT-3.5-Full-Turbo</div>
+    <div class="side-title">VK-ChatGPT-3.5-full-turbo</div>
  
 
 	
@@ -477,7 +474,10 @@ vkBridge.send('VKWebAppInit');
 
             <div class="d-flex align-items-center">
               <input type="text" id="apiKey" value="" class="form-control mr-1 dark-theme" size="55" placeholder="Пожалуйста введите ключ...">
-             
+              <label class="switch mb-0 pl-5">
+                  <input type="checkbox" id="darkModeToggle" >
+                  <span class="slider round"></span>
+              </label>
           </div>
   
           
@@ -534,7 +534,7 @@ vkBridge.send('VKWebAppInit');
 
 
 <div class="form-group">
-  <label for="maxTokensInput">Макс. слов в сообщении: <span id="maxTokensValue">2000</span></label>
+  <label for="maxTokensInput">Макс. слов в сообщении: <span id="maxTokensValue">50</span></label>
   <input type="number" class="form-control" id="maxTokensInput" min="1" value="2000" >
 </div>
 
@@ -563,6 +563,12 @@ vkBridge.send('VKWebAppInit');
 
 
 
+
+<button type="button" class="btn btn-info">Инфо</button>
+<button type="button" class="btn btn-light">Светлый</button>
+
+
+
 <div>	
 
 
@@ -571,13 +577,6 @@ vkBridge.send('VKWebAppInit');
   <button class="btn-group"  style="width:100%"   id="submit">Заказать ключ - 1М слов 👈 500руб.</button>
  </div>	
 
-<div>	
-
-
-
-  
-  <button class="btn-group"  style="width:100%"   id="submit">Если что-то непонятно, пишите, спрашивайте ...</button>
- </div>	
 
 
 

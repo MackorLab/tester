@@ -506,19 +506,20 @@ vkBridge.send('VKWebAppInit');
 
 
 <div class="form-group">
-  <label for="formControlRange">Случайность генерации: <span id="rangeTemp">0.2</span></label>
-  <input type="range" class="form-control-range" id="formControlTemp" min="0" max="1" step="0.01" value="0.2">
+  <label for="formControlRange">Креативность генерации: <span id="rangeTop_P">0.2</span></label>
+  <input type="range" class="form-control-range" id="formControlTop_P" min="0" max="1" step="0.01" value="0.4">
 </div>
+
+
 
 
 
 
 
 <div class="form-group">
-  <label for="formControlRange">Креативность генерации: <span id="rangeTop_P">0.2</span></label>
-  <input type="range" class="form-control-range" id="formControlTop_P" min="0" max="1" step="0.01" value="0.4">
+  <label for="formControlRange">Случайность генерации: <span id="rangeTemp">0.2</span></label>
+  <input type="range" class="form-control-range" id="formControlTemp" min="0" max="1" step="0.01" value="0.2">
 </div>
-
 
 
 
@@ -536,7 +537,7 @@ vkBridge.send('VKWebAppInit');
 
 
 <div class="form-group">
-  <label for="maxTokensInput">Макс. слов в сообщении: <span id="maxTokensValue">2000</span></label>
+  <label for="maxTokensInput">Макс. слов в сообщении: <span id="maxTokensValue">50</span></label>
   <input type="number" class="form-control" id="maxTokensInput" min="1" value="2000" >
 </div>
 
@@ -639,9 +640,6 @@ vkBridge.send('VKWebAppInit');
 }
 	
 </script>
-
-
-
 
 
 

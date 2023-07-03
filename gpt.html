@@ -324,7 +324,7 @@ body { }
 		/* Dark Theme */
 		.dark-mode .dark-theme {
 		  background-color: #ffffff;
-		  color: #fff;
+		  color: #000000;
 		}
 
 		.dark-mode .nav{
@@ -463,7 +463,7 @@ vkBridge.send('VKWebAppInit');
 
 <div class="side-panel">
     <label class="side-button-2" for="side-checkbox">+</label>   
-    <div class="side-title">VK-ChatGPT-3.5-full-turbo</div>
+    <div class="side-title">VK-ChatGPT-3.5-turbo</div>
  
 
 	
@@ -526,22 +526,19 @@ vkBridge.send('VKWebAppInit');
 
 
 
-<div class="form-group">
-  <label for="formControlRange">Штраф за повт. фраз: <span id="rangeFr">0.2</span></label>
-  <input type="range" class="form-control-range" id="formControlFr" min="0" max="1" step="0.01" value="0.6">
-</div>
 
-    
 <div class="form-group">
-  <label for="formControlRange">Штраф за повт. слов: <span id="rangeSl">0.2</span></label>
-  <input type="range" class="form-control-range" id="formControlSl" min="0" max="1" step="0.01" value="0.4">
+  <label for="stopWordInput">Стоп слово или фраза: <span id="stopWordValue">###</span></label>
+  <input type="text" class="form-control" id="stopWordInput" value="###">
 </div>
 
 
 
+
+
 <div class="form-group">
-  <label for="maxTokensInput">Макс. слов в сообщении: <span id="maxTokensValue">2000</span></label>
-  <input type="number" class="form-control" id="maxTokensInput" min="1" value="2000" >
+  <label for="maxTokens_Input">Макс. слов в сообщении: <span id="maxTokensValue">2000</span></label>
+  <input type="number" class="form-control" id="maxTokensInput" min="1" value="2000">
 </div>
 
 
@@ -651,7 +648,6 @@ vkBridge.send('VKWebAppInit');
 }
 	
 </script>
-
 
 
 

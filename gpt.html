@@ -61,7 +61,7 @@ body { }
 }
 .side-panel {
     position: fixed;
-    z-index: 99999;
+    z-index: 9;
     top: 0;
     left: -660px;
     background: #1b347c;
@@ -468,6 +468,33 @@ body { }
 
 
    
+    #recordingIndicator {
+      width: 10px;
+      height: 10px;
+      background-color: rgb(211, 0, 0);
+      border-radius: 50%;
+      display: none;
+      animation: blink 1s infinite;
+    }
+
+    @keyframes blink {
+      50% {
+        opacity: 0;
+      }
+    }
+
+
+
+
+     
+    #submit4 {
+            margin-right: 4px;
+
+             }
+
+
+
+
 
 
 
@@ -510,12 +537,23 @@ vkBridge.send('VKWebAppInit');
           <div class="col-6 offset-md-3 col-md-3 text-right">	
             <a  type="button" onclick="window.print()" class="btn  btn-outline-info">💾</a>						
             <a  type="button" id="submit2"  class="btn btn-outline-danger ">🧹</a>
-            <a  type="button" id="createButton" class="btn btn-outline-danger ">🧮</a>
+            <a  type="button" id="submit3"  class="btn btn-outline-danger ">🎤</a>
+            <span id="recordingIndicator"></span>
           </div>
         </div>
+
+     
+
+
+
         <div class="card-body chat-box rounded p1" id="chatbox"><span id="copy-popup" class="popup">Скопировано!</span></div>
         <div class="card-footer">
+          
+
           <div class="form-group row">
+
+           
+
             <div class="col-md-10 mb-1">
               <textarea id="userInput" rows="1" class="form-control dark-theme" placeholder="Пожалуйста введите сообщение..." ></textarea>
             </div>
@@ -562,7 +600,9 @@ vkBridge.send('VKWebAppInit');
 
             <div class="d-flex align-items-center">
               <input type="text" id="apiKey" value="" class="form-control mr-1 dark-theme" size="55" placeholder="Пожалуйста введите ключ...">
+              <button type="button"  id="submit4" class="btn btn-primary">🔺</button>
               
+
               <label class="switch mb-0 pl-5">
                 <input type="checkbox" id="darkModeToggle" >
                 <span class="slider round"></span>
@@ -573,11 +613,9 @@ vkBridge.send('VKWebAppInit');
           
 
    
-            
+       
 
-
-
-
+          
        
        
 

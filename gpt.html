@@ -24,6 +24,16 @@
  
 
 
+  <link rel="stylesheet" href="https://mackorlab.github.io/kalen/mester/utils/chosen.css">
+  <link rel="stylesheet" href="https://mackorlab.github.io/kalen/mester/utils/ImageSelect.css">
+
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+	<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+
+
+
+
+
 </head>
 <style>
 
@@ -198,6 +208,65 @@ body { }
 	
 	
 	
+
+
+.button-off  {
+  background-color: #4CAF50; /* Green background */
+    border: 1px solid green; /* Green border */
+    color: white; /* White text */
+    padding: 10px 24px; /* Some padding */
+    cursor: pointer; /* Pointer/hand icon */
+    width: 50%; /* Set a width if needed */
+    display: block; /* Make the buttons appear below each other */
+}
+.button-off:not(:last-child) {
+    border-bottom: none; /* Prevent double borders */
+}
+
+/* Add a background color on hover */
+.button-off:hover {
+    background-color: #3e8e41;
+}
+	
+
+
+	
+.button-on {
+    background-color: #ff0000; /* Green background */
+    border: 1px solid #be0202; /* Green border */
+    color: white; /* White text */
+    padding: 10px 24px; /* Some padding */
+    cursor: pointer; /* Pointer/hand icon */
+    width: 50%; /* Set a width if needed */
+    display: block; /* Make the buttons appear below each other */
+}
+.button-on:not(:last-child) {
+    border-bottom: none; /* Prevent double borders */
+}
+
+/* Add a background color on hover */
+.button-on:hover {
+    background-color: #be0202;
+}
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 	
 .btn-group {
     background-color: #4CAF50; /* Green background */
@@ -209,15 +278,25 @@ body { }
     display: block; /* Make the buttons appear below each other */
 }
 
+
 .btn-group:not(:last-child) {
     border-bottom: none; /* Prevent double borders */
 }
 
 /* Add a background color on hover */
-.btn-group:hover {
+ .btn-group:hover {
     background-color: #3e8e41;
 }
 	
+
+
+
+
+
+
+
+
+
 
 
 
@@ -380,10 +459,7 @@ body { }
 
 
 
-
-
-
-
+   
 
 
 
@@ -528,7 +604,7 @@ vkBridge.send('VKWebAppInit');
 
 
 <div class="form-group">
-  <label for="stopWordInput">Стоп слово или фраза: <span id="stopWordValue">###</span></label>
+  <label for="stopWordInput">Стоп слова: <span id="stopWordValue">###</span></label>
   <input type="text" class="form-control" id="stopWordInput" value="###">
 </div>
 
@@ -572,6 +648,22 @@ vkBridge.send('VKWebAppInit');
 
 
 
+
+
+<div>	
+
+
+
+  
+  <button style="width:100%" id="myButton0"></button>
+ </div>	
+
+
+
+ <br>
+
+
+
 <div>	
 
 
@@ -586,11 +678,11 @@ vkBridge.send('VKWebAppInit');
 
 
   
-  <button class="btn-group"  style="width:100%"   id="suit2">Что-то непонятно, пишите, спрашивайте ...</button>
+  <button class="btn-group"  style="width:100%"   id="suit2"  data-img-src="https://v1.iconsearch.ru/uploads/icons/finalflags/16x16/russia-flag.png" selected="selected">Что-то непонятно, пишите, спрашивайте ...</button>
  </div>	
 
 
-
+ <option data-img-src="https://v1.iconsearch.ru/uploads/icons/finalflags/16x16/russia-flag.png" selected="selected">براين كوقلمان</option>
 
 </div>
 
@@ -648,7 +740,6 @@ vkBridge.send('VKWebAppInit');
 }
 	
 </script>
-
 
 
 <script type="text/javascript" src="https://mackorlab.github.io/tester/gpt.js"></script></body>

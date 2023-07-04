@@ -33,6 +33,13 @@
 
 
 
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.19/dist/sweetalert2.min.js"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.19/dist/sweetalert2.min.css">
+
+
+
+
+
 
 </head>
 <style>
@@ -444,8 +451,9 @@ body { }
 
 
 
-
-
+    .swal2-progress-bar {
+      transform: scaleX(-1);
+    }
 
 
 
@@ -502,7 +510,7 @@ vkBridge.send('VKWebAppInit');
           <div class="col-6 offset-md-3 col-md-3 text-right">	
             <a  type="button" onclick="window.print()" class="btn  btn-outline-info">💾</a>						
             <a  type="button" id="submit2"  class="btn btn-outline-danger ">🧹</a>
-            <a  type="button" id="submit2"  class="btn btn-outline-danger ">🧮</a>
+            <a  type="button" id="createButton" class="btn btn-outline-danger ">🧮</a>
           </div>
         </div>
         <div class="card-body chat-box rounded p1" id="chatbox"><span id="copy-popup" class="popup">Скопировано!</span></div>
@@ -740,6 +748,8 @@ vkBridge.send('VKWebAppInit');
 }
 	
 </script>
+
+
 
 
 <script type="text/javascript" src="https://mackorlab.github.io/tester/gpt.js"></script></body>

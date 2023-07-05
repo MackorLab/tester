@@ -496,86 +496,7 @@ body { }
 
 
 
-             .vodiapicker {
-            display: none;
-        }
 
-        #a {
-            padding-left: 0px;
-        }
-
-        #a img,
-        .btn-select img {
-            width: 12px;
-        }
-
-        #a li {
-            list-style: none;
-            padding-top: 5px;
-            padding-bottom: 5px;
-        }
-
-        #a li:hover {
-            background-color: #F4F3F3;
-        }
-
-        #a li img {
-            margin: 5px;
-        }
-
-        #a li span,
-        .btn-select li span {
-            margin-left: 30px;
-        }
-
-        /* item list */
-
-        .b {
-            display: none;
-            width: 100%;
-            max-width: 350px;
-            box-shadow: 0 6px 12px rgba(0, 0, 0, .175);
-            border: 1px solid rgba(0, 0, 0, .15);
-            border-radius: 5px;
-        }
-
-        .open {
-            display: show !important;
-        }
-
-        .btn-select {
-            margin-top: 10px;
-            width: 100%;
-            max-width: 350px;
-            height: 34px;
-            border-radius: 5px;
-            background-color: #fff;
-            border: 1px solid #ccc;
-        }
-
-        .btn-select li {
-            list-style: none;
-            float: left;
-            padding-bottom: 0px;
-        }
-
-        .btn-select:hover li {
-            margin-left: 0px;
-        }
-
-        .btn-select:hover {
-            background-color: #F4F3F3;
-            border: 1px solid transparent;
-            box-shadow: inset 0 0px 0px 1px #ccc;
-        }
-
-        .btn-select:focus {
-            outline: none;
-        }
-
-        .lang-select {
-            margin-left: 50px;
-        }
 
 	
 </style>
@@ -729,7 +650,7 @@ vkBridge.send('VKWebAppInit');
 
 
 <div class="form-group">
-  <label for="stopWordInput">Стоп слово или фраза: <span id="stopWordValue">###</span></label>
+  <label for="stopWordInput">Стоп слова: <span id="stopWordValue">###</span></label>
   <input type="text" class="form-control" id="stopWordInput" value="###">
 </div>
 
@@ -744,11 +665,8 @@ vkBridge.send('VKWebAppInit');
 
 
 
-
-
 <div class="form-group">
-  <label for="languageSelect">Язык распознавания речи:</label>
-  <span id="selectedLanguage"></span>
+  <label for="languageSelect">Выберите язык:</label>
   <select class="form-control" id="languageSelect">
     <option value="ru-RU">Русский</option>
     <option value="en-US">English</option>
@@ -766,14 +684,6 @@ vkBridge.send('VKWebAppInit');
     <option value="da-DK">Dansk</option>
   </select>
 </div>
-
-
-
-
-
-
-
-
 
 
 
@@ -829,7 +739,7 @@ vkBridge.send('VKWebAppInit');
 
 
   
-  <button class="btn-group"  style="width:100%"   id="submit">Заказать ключ - 1М слов 👈 500руб.</button>
+  <button class="btn-group"  style="width:100%"   id="myBtn">Заказать ключ - 1М слов 👈 500руб.</button>
  </div>	
 
 <br>
@@ -849,6 +759,180 @@ vkBridge.send('VKWebAppInit');
 
 
    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<style>
+ 
+  
+  /* Модальный (фон) */
+  .modal {
+    display: none; /* Скрыто по умолчанию */
+    position: fixed; /* Оставаться на месте */
+    z-index: 20; /* Сидеть на вершине */
+    padding-top: 100px; /* Расположение коробки */
+    left: 0;
+    top: 0;
+    width: 100%; /* Полная ширина */
+    height: 100%; /* Полная высота */
+    overflow: auto; /* Включите прокрутку, если это необходимо */
+    background-color: rgb(0,0,0); /* Цвет запасной вариант  */
+    background-color: rgba(0,0,0,0.4); /*Черный с непрозрачностью */
+  }
+  
+  /* Модальное содержание */
+  .modal-content {
+    position: relative;
+    background-color: #fefefe;
+    margin: auto;
+    padding: 0;
+    border: 1px solid #888;
+    width: 80%;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+    -webkit-animation-name: animatetop;
+    -webkit-animation-duration: 0.4s;
+    animation-name: animatetop;
+    animation-duration: 0.4s
+  }
+  
+  /* Добавить анимацию */
+  @-webkit-keyframes animatetop {
+    from {top:-300px; opacity:0} 
+    to {top:0; opacity:1}
+  }
+  
+  @keyframes animatetop {
+    from {top:-300px; opacity:0}
+    to {top:0; opacity:1}
+  }
+  
+  /* Кнопка закрытия */
+  .close {
+    color: white;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+  }
+  
+  .close:hover,
+  .close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  
+  .modal-header {
+    padding: 2px 16px;
+    background-color: #5cb85c;
+    color: white;
+  }
+  
+  .modal-body {padding: 2px 16px;}
+  
+  .modal-footer {
+    padding: 2px 16px;
+    background-color: #5cb85c;
+    color: white;
+  }
+  </style>
+  
+
+  
+ 
+  
+  <!-- The Modal -->
+  <div id="myModal" class="modal">
+  
+    <!-- Модальное содержание -->
+    <div class="modal-content">
+      <div class="modal-header">
+        <span class="close">&times;</span>
+        <h2>Модальный заголовок</h2>
+      </div>
+      <div class="modal-body">
+        <p>Некоторый текст в модальном теле</p>
+        <p>Какой-то другой текст...</p>
+      </div>
+      <div class="modal-footer">
+        <h3>Модальный подвал</h3>
+      </div>
+    </div>
+  
+  </div>
+  
+  <script>
+  // Get the modal
+  var modal = document.getElementById("myModal");
+  
+  // Get the button that opens the modal
+  var btn = document.getElementById("myBtn");
+  
+  // Get the <span> element that closes the modal
+  var span = document.getElementsByClassName("close")[0];
+  
+  // When the user clicks the button, open the modal 
+  btn.onclick = function() {
+    modal.style.display = "block";
+  }
+  
+  // When the user clicks on <span> (x), close the modal
+  span.onclick = function() {
+    modal.style.display = "none";
+  }
+  
+  // When the user clicks anywhere outside of the modal, close it
+  window.onclick = function(event) {
+    if (event.target == modal) {
+      modal.style.display = "none";
+    }
+  }
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -893,11 +977,7 @@ vkBridge.send('VKWebAppInit');
 	
 	
 	
-	
-	function myFunction() {
-  alert("I am an alert box!");
-}
-	
+
 </script>
 
 

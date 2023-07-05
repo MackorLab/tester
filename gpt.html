@@ -496,7 +496,86 @@ body { }
 
 
 
+             .vodiapicker {
+            display: none;
+        }
 
+        #a {
+            padding-left: 0px;
+        }
+
+        #a img,
+        .btn-select img {
+            width: 12px;
+        }
+
+        #a li {
+            list-style: none;
+            padding-top: 5px;
+            padding-bottom: 5px;
+        }
+
+        #a li:hover {
+            background-color: #F4F3F3;
+        }
+
+        #a li img {
+            margin: 5px;
+        }
+
+        #a li span,
+        .btn-select li span {
+            margin-left: 30px;
+        }
+
+        /* item list */
+
+        .b {
+            display: none;
+            width: 100%;
+            max-width: 350px;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, .175);
+            border: 1px solid rgba(0, 0, 0, .15);
+            border-radius: 5px;
+        }
+
+        .open {
+            display: show !important;
+        }
+
+        .btn-select {
+            margin-top: 10px;
+            width: 100%;
+            max-width: 350px;
+            height: 34px;
+            border-radius: 5px;
+            background-color: #fff;
+            border: 1px solid #ccc;
+        }
+
+        .btn-select li {
+            list-style: none;
+            float: left;
+            padding-bottom: 0px;
+        }
+
+        .btn-select:hover li {
+            margin-left: 0px;
+        }
+
+        .btn-select:hover {
+            background-color: #F4F3F3;
+            border: 1px solid transparent;
+            box-shadow: inset 0 0px 0px 1px #ccc;
+        }
+
+        .btn-select:focus {
+            outline: none;
+        }
+
+        .lang-select {
+            margin-left: 50px;
+        }
 
 	
 </style>
@@ -650,7 +729,7 @@ vkBridge.send('VKWebAppInit');
 
 
 <div class="form-group">
-  <label for="stopWordInput">Стоп слова: <span id="stopWordValue">###</span></label>
+  <label for="stopWordInput">Стоп слово или фраза: <span id="stopWordValue">###</span></label>
   <input type="text" class="form-control" id="stopWordInput" value="###">
 </div>
 
@@ -662,6 +741,41 @@ vkBridge.send('VKWebAppInit');
   <label for="maxTokens_Input">Макс. слов в сообщении: <span id="maxTokensValue">2000</span></label>
   <input type="number" class="form-control" id="maxTokensInput" min="1" value="2000">
 </div>
+
+
+
+
+
+<div class="form-group">
+  <label for="languageSelect">Язык распознавания речи:</label>
+  <select class="form-control" id="languageSelect">
+    <option value="ru-RU">Русский</option>
+    <option value="en-US">English</option>
+    <option value="es-ES">Español</option>
+    <option value="fr-FR">Français</option>
+    <option value="de-DE">Deutsch</option>
+    <option value="it-IT">Italiano</option>
+    <option value="ja-JP">日本語</option>
+    <option value="ko-KR">한국어</option>
+    <option value="zh-CN">中文</option>
+    <option value="pt-PT">Português</option>
+    <option value="pt-BR">Português (Brasil)</option>
+    <option value="nl-NL">Nederlands</option>
+    <option value="sv-SE">Svenska</option>
+    <option value="da-DK">Dansk</option>
+  </select>
+</div>
+
+
+
+
+
+
+
+
+
+
+
 
 
 <div class="form-group">
@@ -728,8 +842,7 @@ vkBridge.send('VKWebAppInit');
  </div>	
 
 
- <option data-img-src="https://v1.iconsearch.ru/uploads/icons/finalflags/16x16/russia-flag.png" selected="selected">براين كوقلمان</option>
-
+ 
 </div>
 
 
@@ -786,7 +899,6 @@ vkBridge.send('VKWebAppInit');
 }
 	
 </script>
-
 
 
 

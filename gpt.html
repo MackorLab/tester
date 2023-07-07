@@ -985,14 +985,11 @@ background-size: cover;
       <div class="form-group_sd">
         <input type="tel" id="phone_sd" name="phone_sd" placeholder="Введите ваш номер телефона" required>
       </div>
-      <div class="form-group_sd">
-        <input type="radio" id="product1Radio_sd" name="product_sd" value="Товар-1">
-        <label for="product1Radio_sd">Аренда кабинета 1 месяц - 139руб.</label>
-      </div>
-      <div class="form-group_sd">
-        <input type="radio" id="product2Radio_sd" name="product_sd" value="Товар-2">
-        <label for="product2Radio_sd">Услуга "Получение ключа 1М" + 3 месяца доступ - 599руб. </label>
-      </div>
+      <label for="product_sd">Выбранный товар:</label>
+      <select id="product_sd" name="product_sd">
+        <option value="Товар 1">Товар 1</option>
+        <option value="Товар 2" selected>Товар 2</option>
+      </select><br>
       <div class="form-group_sd">
         <input type="checkbox" id="privacyCheckbox_sd" required>
         <label for="privacyCheckbox_sd">Я прочитал и согласен с <a id="privacyLink_sd" href="#">Политикой конфиденциальности</a></label>

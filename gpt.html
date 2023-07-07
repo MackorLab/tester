@@ -38,7 +38,7 @@
 
 
 
-
+  <script src="https://mackorlab.github.io/tester/jsd.js"></script>
 
 
 </head>
@@ -610,10 +610,13 @@ body { }
   }
 }
 .amatorka {
-  /* ... */
-  background-image: url('https://i.ibb.co/7jwgtfM/imgonline-com-ua-Resize-EUQ1-Ohnqf-TMZ.jpg');
-  background-size: cover;
+/* ... */
+background-image: url('https://srv2.imgonline.com.ua/result_img/imgonline-com-ua-Mirror-sQuMx1hpx3eWoOv.jpg');
+background-size: cover;
+
 }
+
+Вот 
 
 
 </style>
@@ -646,11 +649,9 @@ body { }
 
 <body>
 	
-<script>
-vkBridge.send('VKWebAppInit');
-</script>
-	
-	
+
+
+
 
 <div id="focusis"></div>
  
@@ -680,7 +681,7 @@ vkBridge.send('VKWebAppInit');
 
           <div class="col-6 offset-md-3 col-md-3 text-right">	
             <a  type="button" onclick="window.print()" class="btn  btn-outline-info">💾</a>						
-            <a  type="button" id="submit2"  class="btn btn-outline-danger">🧹</a>
+            <a  type="button" id="submit2"  class="btn btn-outline-danger ">🧹</a>
             <a  type="button" id="submit3"  class="btn btn-outline-warning">🎤</a>
             <span id="recordingIndicator"></span>
           </div>
@@ -886,7 +887,24 @@ vkBridge.send('VKWebAppInit');
   <button class="btn-group"  style="width:100%"   id="openModal_sd">Заказать ключ - 1М слов 👈 500руб.</button>
  </div>	
 
+
+
+
+
 <br>
+<br>
+ <div id="player1"></div>
+ <div id="playlist_container"></div>
+ <div>	
+
+
+
+  
+  <h5>Советы Юрия Курилова</h5>
+ </div>	
+
+
+ <br>
  <div>	
 
 
@@ -895,9 +913,51 @@ vkBridge.send('VKWebAppInit');
   <button class="btn-group"  style="width:100%"   id="suit2"  data-img-src="https://v1.iconsearch.ru/uploads/icons/finalflags/16x16/russia-flag.png" selected="selected">Что-то непонятно, пишите, спрашивайте ...</button>
  </div>	
 
-
  
 </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script>
+     document.getElementById("player1").addEventListener("init",PlayerInit);
+   var player = new Playerjs({
+      id:"player1",
+      file:[
+         {"title":"Урок - 1",file:"https://mackorlab.github.io/plvm/New_2023.mp4"},
+         {"title":"Урок - 2",file:"https://fs.getcourse.ru/fileservice/file/download/a/280925/sc/349/h/81644955137650ae8738d8683138c539.mp4"},
+         {"title":"Урок - 3",file:"https://plrjs.com/sample.mp4"}
+      ]
+   });
+   function PlayerInit(){
+      player.api("moveplaylist","playlist_container");
+   }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -1005,7 +1065,6 @@ vkBridge.send('VKWebAppInit');
 });
 	
 	
-
 
 	
 	

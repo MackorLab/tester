@@ -971,25 +971,27 @@ background-size: cover;
 
 <div id="myModal_sd" class="modal_sd">
   <div class="modal-content_sd">
-
     <div class="amatorka"></div>
-
-
     <span class="close_sd">&times;</span>
     <br><br><br>
     <h2>Форма</h2>
     <form id="myForm_sd">
       <div class="form-group_sd">
-       
         <input type="text" id="name_sd" name="name_sd" placeholder="Введите ваше имя" required>
       </div>
       <div class="form-group_sd">
-      
         <input type="email" id="email_sd" name="email_sd" placeholder="Введите вашу почту" required>
       </div>
       <div class="form-group_sd">
-      
         <input type="tel" id="phone_sd" name="phone_sd" placeholder="Введите ваш номер телефона" required>
+      </div>
+      <div class="form-group_sd">
+        <input type="radio" id="product1Radio_sd" name="product_sd" value="Товар-1">
+        <label for="product1Radio_sd">Товар-1</label>
+      </div>
+      <div class="form-group_sd">
+        <input type="radio" id="product2Radio_sd" name="product_sd" value="Товар-2">
+        <label for="product2Radio_sd">Товар-2</label>
       </div>
       <div class="form-group_sd">
         <input type="checkbox" id="privacyCheckbox_sd" required>
@@ -1003,39 +1005,11 @@ background-size: cover;
         <input type="checkbox" id="openAiCheckbox_sd" required>
         <label for="openAiCheckbox_sd">Я прочитал и согласен с <a id="openAiLink_sd" href="#">Политикой OpenAI</a></label>
       </div>
-     
+    
+      <button id="butSet" type="submit">Отправить</button>
     </form>
-
-    <button id="butSet" type="submit"  onclick="submitForm(event)">Отправить</button>
-
   </div>
 </div>
-
-<div id="privacyModal_sd" class="modal_sd">
-  <div class="modal-content_sd">
-    <span class="close_sd" id="closePrivacy_sd">&times;</span>
-    <h2>Политика конфиденциальности</h2>
-    <p>Текст политики конфиденциальности.</p>
-  </div>
-</div>
-
-<div id="dataProcessingModal_sd" class="modal_sd">
-  <div class="modal-content_sd">
-    <span class="close_sd" id="closeDataProcessing_sd">&times;</span>
-    <h2>Политика обработки персональных данных</h2>
-    <p>Текст политики обработки персональных данных.</p>
-  </div>
-</div>
-
-<div id="openAiModal_sd" class="modal_sd">
-  <div class="modal-content_sd">
-    <span class="close_sd" id="closeOpenAi_sd">&times;</span>
-    <h2>Политика OpenAI</h2>
-    <p>Текст политики обработки персональных данных.</p>
-  </div>
-</div>
-
-
 	
 
 

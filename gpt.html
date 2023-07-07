@@ -156,151 +156,117 @@ body { }
       outline: none;
     }
 
-    .topmenu {
-      float: left;
-     
-    }
-	
-  
-  
-	
-	
-
-    .topmenu ul, .topmenu li {
-      list-style: none;
-      margin: 0;
-      padding: 0;
-    }
-
-    .topmenu ul li {
-	background: red;    
-      position: relative;
-      width: 140px;
-	z-index: 999;      
-    }
-
-    .topmenu ul li a {
-      display: block;
-      padding: 10px 10px 10px 30px;
-      cursor: pointer;
-      color: #0000FF;
-      text-decoration: none;
-      border: 1px solid #999;
-      margin: 1px;
-	  
-    }
-
-   .card_less{
-      background: red;    
-      position: relative;
-      width: 438px;
-      height: 100px;   
-      z-index: 9999999;   
-   
-      padding: 10px 10px 10px 30px;
-      cursor: pointer;
-      color: #0000FF;
-      
-      border: 1px solid #999;
-      margin: 1px;
-	  
-    }
-
-    .topmenu ul li ul {
-      display: none;
-      position: absolute;
-      top: 0px;
-      left: 140px;
-    }
-	
-	
-	
 
 
-.button-off  {
-  background-color: #4CAF50; /* Green background */
-    border: 1px solid green; /* Green border */
-    color: white; /* White text */
-    padding: 10px 24px; /* Some padding */
-    cursor: pointer; /* Pointer/hand icon */
-    width: 50%; /* Set a width if needed */
-    display: block; /* Make the buttons appear below each other */
-}
-.button-off:not(:last-child) {
-    border-bottom: none; /* Prevent double borders */
+
+
+
+
+
+
+
+  .topmenu {
+  float: left;
 }
 
-/* Add a background color on hover */
-.button-off:hover {
-    background-color: #3e8e41;
-}
-	
-
-
-	
-.button-on {
-    background-color: #ff0000; /* Green background */
-    border: 1px solid #be0202; /* Green border */
-    color: white; /* White text */
-    padding: 10px 24px; /* Some padding */
-    cursor: pointer; /* Pointer/hand icon */
-    width: 50%; /* Set a width if needed */
-    display: block; /* Make the buttons appear below each other */
-}
-.button-on:not(:last-child) {
-    border-bottom: none; /* Prevent double borders */
+.topmenu ul,
+.topmenu li {
+  list-style: none;
+  margin: 0;
+  padding: 0;
 }
 
-/* Add a background color on hover */
-.button-on:hover {
-    background-color: #be0202;
+.topmenu ul li {
+  background: red;
+  position: relative;
+  width: 140px;
+  z-index: 999;
 }
-	
 
+.topmenu ul li a {
+  display: block;
+  padding: 10px 10px 10px 30px;
+  cursor: pointer;
+  color: #0000FF;
+  text-decoration: none;
+  border: 1px solid #999;
+  margin: 1px;
+}
 
+.card_less {
+  background: red;
+  position: relative;
+  width: 438px;
+  height: 100px;
+  z-index: 9999999;
+  padding: 10px 10px 10px 30px;
+  cursor: pointer;
+  color: #0000FF;
+  border: 1px solid #999;
+  margin: 1px;
+}
 
+.topmenu ul li ul {
+  display: none;
+  position: absolute;
+  top: 0px;
+  left: 140px;
+}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-	
+.button-off,
+.button-on,
 .btn-group {
-    background-color: #4CAF50; /* Green background */
-    border: 1px solid green; /* Green border */
-    color: white; /* White text */
-    padding: 10px 24px; /* Some padding */
-    cursor: pointer; /* Pointer/hand icon */
-    width: 50%; /* Set a width if needed */
-    display: block; /* Make the buttons appear below each other */
+  background-color: #4CAF50;
+  /* Green background */
+  border: 1px solid green;
+  /* Green border */
+  color: white;
+  /* White text */
+  padding: 10px 24px;
+  /* Some padding */
+  cursor: pointer;
+  /* Pointer/hand icon */
+  width: 100%;
+  /* Set a width if needed */
+  display: block;
+  /* Make the buttons appear below each other */
 }
 
-
+.button-off:not(:last-child),
+.button-on:not(:last-child),
 .btn-group:not(:last-child) {
-    border-bottom: none; /* Prevent double borders */
+  border-bottom: none;
+  /* Prevent double borders */
 }
 
 /* Add a background color on hover */
- .btn-group:hover {
-    background-color: #3e8e41;
+.button-off:hover,
+.button-on:hover,
+.btn-group:hover {
+  background-color: #3e8e41;
 }
-	
 
+/* Медиа-запрос для адаптивности */
+@media (max-width: 767px) {
+  .topmenu ul li {
+    width: 100%;
+  }
 
+  .topmenu ul li a {
+    padding: 10px;
+  }
 
+  .topmenu ul li ul {
+    top: auto;
+    left: 0;
+    right: 0;
+    width: 100%;
+  }
 
-
-
+  .card_less {
+    width: 100%;
+  }
+}
 
 
 
@@ -1100,7 +1066,6 @@ background-size: cover;
 	
 
 </script>
-
 
 
 

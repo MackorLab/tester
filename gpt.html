@@ -60,95 +60,112 @@ body { }
     display: none;
 }
 .side-panel {
-    position: fixed;
-    z-index: 9;
-    top: 0;
-    left: -660px;
-    background: #1b347c;
-    transition: all 0.5s;  
-    width: 620px;
-    height: 100vh;
-    box-shadow: 10px 0 20px rgba(0,0,0,0.4);
-    color: #FFF;
-    padding: 40px 20px;
-     overflow: auto; 
-   
+  position: fixed;
+  z-index: 9;
+  top: 0;
+  left: -660px;
+  background: #1b347c;
+  transition: all 0.5s;
+  width: 620px;
+  height: 100vh;
+  box-shadow: 10px 0 20px rgba(0, 0, 0, 0.4);
+  color: #fff;
+  padding: 40px 20px;
+  overflow: auto;
 }
+
+@media (max-width: 768px) {
+  .side-panel {
+    left: -100%;
+    width: 100%;
+  }
+}
+
 .side-title {
-    font-size: 20px;
-    padding-bottom: 10px;
-    margin-bottom: 20px;
-    border-bottom: 2px solid #BFE2FF;
-    outline: none;
+  font-size: 20px;
+  padding-bottom: 10px;
+  margin-bottom: 20px;
+  border-bottom: 2px solid #bfe2ff;
+  outline: none;
 }
+
 /* Оформление кнопки на странице */
 .side-button-1-wr {
   /*  text-align: center;  Контейнер для кнопки, чтобы было удобнее ее разместить */
 }
+
 .side-button-1 .side-b {
-    margin: 10px;
-    cursor: pointer;
-    font-size: 5;
-    border: 2px solid #BFE2FF;
-    border-radius: 10px;
+  margin: 10px;
+  cursor: pointer;
+  font-size: 5;
+  border: 2px solid #bfe2ff;
+  border-radius: 10px;
 }
+
 .side-button-1 .side-b:hover,
 .side-button-1 .side-b:active,
 .side-button-1 .side-b:focus {
-    color: #FFF;
+  color: #fff;
 }
+
 .side-button-1 .side-b:after,
 .side-button-1 .side-b:before {
-    position: absolute;
-    height: 4px;
-    left: 50%;
-    bottom: -6px;
-    content: "";
-    transition: all 280ms ease-in-out;
-    width: 0;
+  position: absolute;
+  height: 4px;
+  left: 50%;
+  bottom: -6px;
+  content: "";
+  transition: all 280ms ease-in-out;
+  width: 0;
 }
+
 .side-button-1 .side-open:after,
 .side-button-1 .side-open:before {
-    background: green;
+  background: green;
 }
+
 .side-button-1 .side-close:after,
 .side-button-1 .side-close:before {
-    background: red;
+  background: red;
 }
+
 .side-button-1 .side-b:before {
-    top: -6px;
+  top: -6px;
 }
+
 .side-button-1 .side-b:hover:after,
 .side-button-1 .side-b:hover:before {
-    width: 100%;
-    left: 0;
+  width: 100%;
+  left: 0;
 }
+
 /* Переключатели кнопки 1 */
 .side-button-1 .side-close {
-    display: none;
+  display: none;
 }
 
 #side-checkbox:checked + .side-panel {
-    left: 0;
+  left: 0;
 }
+
 /* Оформление кнопки на панеле */
 .side-button-2 {
-    font-size: 30px;
-    border-radius: 20px;
-    position: absolute;
-    z-index: 1;
-    top: 8px;
-    right: 8px;
-    cursor: pointer;
-    transform: rotate(45deg);
-    color: #BFE2FF;   
-    transition: all 280ms ease-in-out;   
+  font-size: 30px;
+  border-radius: 20px;
+  position: absolute;
+  z-index: 1;
+  top: 8px;
+  right: 8px;
+  cursor: pointer;
+  transform: rotate(45deg);
+  color: #bfe2ff;
+  transition: all 280ms ease-in-out;
 }
+
 .side-button-2:hover {
-    transform: rotate(45deg) scale(1.1);   
-    color: #FFF;
-} 
-	
+  transform: rotate(45deg) scale(1.1);
+  color: #fff;
+}
 
 	
 
@@ -196,8 +213,8 @@ body { }
 .card_less {
   background: red;
   position: relative;
-  width: 338px;
-  height: 0px;
+  width: 438px;
+  height: 100px;
   z-index: 9999999;
   padding: 10px 10px 10px 30px;
   cursor: pointer;
@@ -615,12 +632,12 @@ background-size: cover;
 
 <style>
   #player1 {
-    max-width: 50%;
+    max-width: 100%;
     height: auto;
   }
 
   #playlist_container {
-    max-width: 50%;
+    max-width: 100%;
     height: auto;
   }
 </style>

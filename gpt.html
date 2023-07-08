@@ -483,6 +483,8 @@ body { }
 </style>
 
 <style>
+
+
 .modal_sd {
   display: none;
   position: fixed;
@@ -580,6 +582,8 @@ body { }
   border-radius: 50%;
   background-color: #ff5252;
   animation: rotate 2s linear infinite;
+  background-image: url('https://i.ibb.co/tbjBw7y/Screenshot-26-1.jpg');
+  background-size: cover;
 }
 
 @keyframes rotate {
@@ -590,25 +594,6 @@ body { }
     transform: translateX(-50%) rotate(360deg);
   }
 }
-.amatorka {
-/* ... */
-background-image: url('https://i.ibb.co/tbjBw7y/Screenshot-26-1.jpg');
-background-size: cover;
-
-}
-
-@media (max-width: 767px) {
-  .modal-content_sd .close_sd {
-    left: 10px;
-    right: auto;
-  }
-}
-
-
-</style>
-
-
-<style>
 
 #focusis {
   position: fixed;
@@ -620,7 +605,6 @@ background-size: cover;
   pointer-events: auto;
   z-index: 5;
   display: none;
-  
 }
 
 #iconiks {
@@ -630,7 +614,55 @@ background-size: cover;
 
 
 
+.modal_sd input[type="text"],
+.modal_sd input[type="email"],
+.modal_sd input[type="tel"] {
+  padding: 10px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  text-align: center;
+  width: 100%; /* Ширина по умолчанию для телефона и планшета */
+}
+
+@media (min-width: 768px) {
+  /* Для ПК */
+  .modal_sd input[type="text"],
+  .modal_sd input[type="email"],
+  .modal_sd input[type="tel"] {
+    width: 550px; /* Ширина для ПК */
+  }
+}
+
+
+
+.modal_sd form {
+  /* ... остальные свойства ... */
+  align-items: flex-start;
+}
+
+
+
+
+.modal_sd input[type="text"],
+.modal_sd input[type="email"],
+.modal_sd input[type="tel"] {
+  /* ... остальные свойства ... */
+  text-align: left;
+  width: 100%; /* Ширина по умолчанию */
+}
+
+@media (min-width: 768px) {
+  /* ... остальные стили ... */
+  .modal_sd input[type="text"],
+  .modal_sd input[type="email"],
+  .modal_sd input[type="tel"] {
+    /* ... остальные свойства ... */
+    width: 550px; /* Ширина для ПК */
+  }
+}
 </style>
+
+
 
 
 <style>
@@ -918,7 +950,7 @@ background-size: cover;
 
 
   
-  <button class="btn-group"  style="width:100%"   id="openModal_sd">Заказать ключ или аренда кабинета 👈 </button>
+  <button class="btn-group"  style="width:100%"   id="openModal_sd">Заказ ключа или аренда кабинета 👈 </button>
  </div>	
 
 
@@ -945,7 +977,7 @@ background-size: cover;
 
 
   
-  <button class="btn-group"  style="width:100%"   id="suit2"  data-img-src="https://v1.iconsearch.ru/uploads/icons/finalflags/16x16/russia-flag.png" selected="selected">Что-то непонятно, пишите, спрашивайте ...</button>
+  <button class="btn-group"  style="width:100%"   id="suit2" >МЕГА - КУРС Юрия Курилова "Копирайтинг на миллион"</button>
  </div>	
 
  
@@ -994,37 +1026,42 @@ background-size: cover;
 
 
 
-
    
 <div id="myModal_sd" class="modal_sd">
   <div class="modal-content_sd">
+
     <div class="amatorka"></div>
+
+
     <span class="close_sd">&times;</span>
     <br><br><br>
     <h2>Форма</h2>
     <form id="myForm_sd">
       <div class="form-group_sd">
+       
         <input type="text" id="name_sd" name="name_sd" placeholder="Введите ваше имя" required>
       </div>
       <div class="form-group_sd">
+      
         <input type="email" id="email_sd" name="email_sd" placeholder="Введите вашу почту" required>
       </div>
       <div class="form-group_sd">
+      
         <input type="tel" id="phone_sd" name="phone_sd" placeholder="Введите ваш номер телефона" required>
       </div>
       <label for="product_sd">Выбранный товар:</label>
-      <div class="checkbox-group_sd">
+      <div class="checkbox-group_sd" id="checkbox-group_sd_1" >
         <label class="container">
-          <input type="radio" checked="checked" name="product_sd" value="Один">
+          <input type="radio" checked="checked" name="product_sd" value="136">
           <span class="checkmark"></span>
           Аренда кабинета 1 месяц - 136 руб.
         </label>
       </div>
-      <div class="checkbox-group_sd">
+      <div class="checkbox-group_sd" id="checkbox-group_sd_2">
         <label class="container">
-          <input type="radio" name="product_sd" value="Два">
+          <input type="radio" name="product_sd" value="576">
           <span class="checkmark"></span>
-          Услуга получкения ключа + доступ 3 месяца - 576 руб. 
+          Услуга "Получения ключа" + доступ 3 месяца - 576 руб. 
         </label>
       </div>
       <div class="form-group_sd">
@@ -1039,13 +1076,40 @@ background-size: cover;
         <input type="checkbox" id="openAiCheckbox_sd" required>
         <label for="openAiCheckbox_sd">Я прочитал и согласен с <a id="openAiLink_sd" href="#">Политикой OpenAI</a></label>
       </div>
-    
-      <button id="butSet" type="submit">Отправить</button>
+     
     </form>
+
+    <button id="butSet" type="submit"  onclick="submitForm(event)">Отправить</button>
+
+  </div>
+</div>
+
+<div id="privacyModal_sd" class="modal_sd">
+  <div class="modal-content_sd">
+    <span class="close_sd" id="closePrivacy_sd">&times;</span>
+    <h2>Политика конфиденциальности</h2>
+    <p>Текст политики конфиденциальности.</p>
+  </div>
+</div>
+
+<div id="dataProcessingModal_sd" class="modal_sd">
+  <div class="modal-content_sd">
+    <span class="close_sd" id="closeDataProcessing_sd">&times;</span>
+    <h2>Политика обработки персональных данных</h2>
+    <p>Текст политики обработки персональных данных.</p>
+  </div>
+</div>
+
+<div id="openAiModal_sd" class="modal_sd">
+  <div class="modal-content_sd">
+    <span class="close_sd" id="closeOpenAi_sd">&times;</span>
+    <h2>Политика OpenAI</h2>
+    <p>Текст политики обработки персональных данных.</p>
   </div>
 </div>
 
 	
+
 
 
 			
@@ -1085,6 +1149,7 @@ background-size: cover;
 	
 
 </script>
+
 
 
 

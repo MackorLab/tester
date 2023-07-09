@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html>
+  <head>
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+    <meta charset="UTF-8" />
+    <style>
+      .message {
+        margin-bottom: 10px;
+        padding: 10px;
+        border-radius: 5px;
+      }
+      .sent {
+        background-color: #d2f3fc;
+      }
+      .received {
+        background-color: #f1f1f1;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="chat"></div>
+    <input id="messageInput" type="text" placeholder="Введите сообщение" onkeydown="if(event.keyCode==13){return false;}"  />
+
+
+    <button id="sendButton">Отправить</button>
+    <br /><br />
+
+    <label for="ControlRange">лимит истории Роли: <span id="rangeКRoles_Ch">5</span></label>
+    <input id="limitInputBaseRole" type="number" placeholder="Лимит сообщений исстории Ролей" />
+    
+    <button id="resetBaseRole">Очистить историю Ролей</button>
+    <button id="resetBasePage">Очистить историю  Востановления</button>
+
+
+<div id="basePageCount"></div>
+
+<script>
+$(document).ready(function() {
+    $("input[type=text]").keydown(function(event){
+      if(event.keyCode == 13){
+        event.preventDefault();
+          return false;
+          }
+      });
+ });
+
+</script>
+
+
+<script>
+
+
+
+
+
+
+
+
+
+const chatDiv = document.getElementById('chat');
+const messageInput = document.getElementById('messageInput');
+const sendButton = document.getElementById('sendButton');
+const resetBaseRoleButton = document.getElementById('resetBaseRole');
+const resetBasePageButton = document.getElementById('resetBasePage');
+const basePageCountDiv = document.getElementById('basePageCount');
+const limitInputBaseRole = document.getElementById('limitInputBaseRole');
+const rangeКRoles_Ch = document.getElementById('rangeКRoles_Ch');
+
+let roleMessageLimit = 10;
+let roleChatHistory = [];
+let restoreChatHistory = [];
+
+function saveMessageToRoleHistory(message, role) {
+  roleChatHistory.push({ content: message, role });
+  if (roleChatHistory.length > roleMessageLimit) {
+    roleChatHistory.shift();
+  }
+  localStorage.setItem('baseRole', JSON.stringify(roleChatHistory));
+}
+
+function saveMessageToRestoreHistory(message, role) {
+  restoreChatHistory.push({ content: message, role });
+  localStorage.setItem('basePage', JSON.stringify(restoreChatHistory));
+  updateBasePageCount();
+}
+
+function showMessage(message, className, isAssistant) {
+  const receivedMessage = document.createElement('div');
+  receivedMessage.className = `message ${className}`;
+  chatDiv.appendChild(receivedMessage);
+
+  if (isAssistant) {
+    const messageLines = message.split('\n');
+    for (const line of messageLines) {
+      const lineElement = document.createElement('div');
+      lineElement.textContent = line;
+      receivedMessage.appendChild(lineElement);
+    }
+  } else {
+    receivedMessage.textContent = message;
+  }
+
+  chatDiv.scrollTop = chatDiv.scrollHeight;
+}
+
+async function sendMessage() {
+  const message = messageInput.value.trim();
+  const apiKey = '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';
+  if (message !== '') {
+    messageInput.value = '';
+
+    showMessage(message, 'user', false);
+
+    const isMessageDuplicate = roleChatHistory.some((msg) => msg.content === message);
+    if (!isMessageDuplicate) {
+      saveMessageToRoleHistory(message, 'user');
+      saveMessageToRestoreHistory(message, 'user');
+    }
+
+    const formattedMessages = roleChatHistory.concat(restoreChatHistory).map((msg) => ({
+      role: msg.role,
+      content: msg.content,
+    }));
+
+    const response = await fetch('https://api.openai.com/v1/chat/completions', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${apiKey}`,
+      },
+      body: JSON.stringify({
+        model: 'gpt-3.5-turbo',
+        messages: formattedMessages,
+        temperature: 0.6,
+        top_p: 0,
+        max_tokens: 2000
+      }),
+    });
+
+    const data = await response.json();
+    console.log(data);
+
+    const reply = data.choices[0].message.content;
+
+    showMessage(reply, 'received', true);
+
+    const isReplyDuplicate = roleChatHistory.some((msg) => msg.content === reply);
+    if (!isReplyDuplicate) {
+      saveMessageToRoleHistory(reply, 'assistant');
+      saveMessageTo
+restoreChatHistory(reply, 'assistant');
+}
+}
+}
+
+sendButton.addEventListener('click', sendMessage);
+messageInput.addEventListener('keydown', (event) => {
+if (event.key === 'Enter') {
+sendMessage();
+}
+});
+
+function setRoleMessageLimit() {
+const limit = parseInt(limitInputBaseRole.value);
+if (!isNaN(limit)) {
+roleMessageLimit = limit;
+localStorage.setItem('roleMessageLimit', roleMessageLimit);
+rangeКRoles_Ch.textContent = roleMessageLimit.toString();
+}
+}
+
+function resetRoleChatHistory() {
+roleChatHistory = [];
+localStorage.removeItem('baseRole');
+chatDiv.innerHTML = '';
+saveMessageToRoleHistory('', 'user'); // Сохранить пустое сообщение для сброса истории роли
+}
+
+function resetRestoreChatHistory() {
+restoreChatHistory = [];
+localStorage.removeItem('basePage');
+chatDiv.innerHTML = '';
+updateBasePageCount();
+}
+
+function updateBasePageCount() {
+const count = restoreChatHistory.length;
+basePageCountDiv.textContent = count.toString();
+}
+
+limitInputBaseRole.addEventListener('input', setRoleMessageLimit);
+
+function loadRestoreChatHistory() {
+const restoreChatHistoryData = JSON.parse(localStorage.getItem('basePage')) || [];
+restoreChatHistory = restoreChatHistoryData;
+for (const message of restoreChatHistoryData) {
+showMessage(message.content, message.role, false);
+}
+updateBasePageCount();
+}
+
+resetBaseRoleButton.addEventListener('click', resetRoleChatHistory);
+resetBasePageButton.addEventListener('click', resetRestoreChatHistory);
+
+loadRestoreChatHistory();
+
+
+
+</script>
+</body> 
+
+</html> 

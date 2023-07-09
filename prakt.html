@@ -22,7 +22,7 @@
   </head>
   <body>
     <div id="chat"></div>
-    <input id="messageInput" type="text" placeholder="Введите сообщение" onkeydown="if(event.keyCode==13){return false;}"  />
+    <input id="messageInput" type="text" placeholder="Введите сообщение" />
 
 
     <button id="sendButton">Отправить</button>
@@ -37,17 +37,7 @@
 
 <div id="basePageCount"></div>
 
-<script>
-$(document).ready(function() {
-    $("input[type=text]").keydown(function(event){
-      if(event.keyCode == 13){
-        event.preventDefault();
-          return false;
-          }
-      });
- });
 
-</script>
 
 
 <script>
@@ -107,8 +97,9 @@ function showMessage(message, className, isAssistant) {
 }
 
 async function sendMessage() {
+  const sendButton = document.getElementById('sendButton');
   const message = messageInput.value.trim();
-  const apiKey = 'sk';
+  const apiKey = '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';
   if (message !== '') {
     messageInput.value = '';
 
@@ -125,6 +116,9 @@ async function sendMessage() {
       content: msg.content,
     }));
 
+    // Изменение внешнего вида кнопки на время запроса
+    sendButton.classList.add('sending');
+
     const response = await fetch('https://api.openai.com/v1/chat/completions', {
       method: 'POST',
       headers: {
@@ -136,7 +130,7 @@ async function sendMessage() {
         messages: formattedMessages,
         temperature: 0.6,
         top_p: 0,
-        max_tokens: 2000
+        max_tokens: 200
       }),
     });
 
@@ -150,10 +144,20 @@ async function sendMessage() {
     const isReplyDuplicate = roleChatHistory.some((msg) => msg.content === reply);
     if (!isReplyDuplicate) {
       saveMessageToRoleHistory(reply, 'assistant');
-      saveMessageTo
-restoreChatHistory(reply, 'assistant');
-}
-}
+      saveMessageToRestoreChatHistory(reply, 'assistant');
+    }
+
+    // Подсчет слов в сообщении пользователя
+    const wordsInUserMessage = message.split(' ').length;
+    console.log('Количество слов в сообщении пользователя:', wordsInUserMessage);
+
+    // Подсчет слов в ответе ассистента
+    const wordsInAssistantReply = reply.split(' ').length;
+    console.log('Количество слов в ответе ассистента:', wordsInAssistantReply);
+
+    // Возврат внешнего вида кнопки после завершения запроса
+    sendButton.classList.remove('sending');
+  }
 }
 
 sendButton.addEventListener('click', sendMessage);

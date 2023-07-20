@@ -707,7 +707,7 @@ animation: blink 1s infinite;
       background-color: #4CAF50; /* Green background */
       border: 1px solid green; /* Green border */
       color: white; /* White text */
-      padding: 10px 24px; /* Some padding */
+      padding: 6px 24px; /* Some padding */
       cursor: pointer; /* Pointer/hand icon */
       float: left; /* Float the buttons side by side */
   }
@@ -719,12 +719,12 @@ animation: blink 1s infinite;
       display: table;
   }
   
-  .btn-group button:not(:last-child) {
+  .btn4-group button:not(:last-child) {
       border-right: none; /* Prevent double borders */
   }
   
   /* Add a background color on hover */
-  .btn-group button:hover {
+  .btn4-group button:hover {
       background-color: #3e8e41;
   }
   </style>
@@ -951,32 +951,57 @@ animation: blink 1s infinite;
     <button id="outTot" type="button" class="btn btn-outline-primary">
       🎭 <span id="outTotB" class="badge badge-light">0</span>
     </button>
+ 
    
+    
+
+    <a type="button" id="resetBasePage" class="btn btn-outline-danger">🧹</a>
     <a type="button" onclick="window.print()" class="btn btn-outline-info">💾</a>
    
     
 
-    <div class="chat-panel">
-      <div class="chat-osnov" id="chat"></div>
-      
-      <form id="messageForm">
-        <div class="input-container">
-          <textarea id="messageInput" placeholder="Введите сообщение"> </textarea>
-          <div class="btn4-group" style="width:100%">
-            <button  style="width:80%" type="submit" id="sendButton">Отправить</button>
+  
+  </div>
+
+
+
+
+
+
+  <br>
+
+  <div class="chat-panel">
+    <div class="chat-osnov" id="chat"></div>
     
-            
-    
-            <a type="button"  style="width:15%" id="submitRec" class="btn btn-outline-warning">🎤</a>
-            <span id="recordingIndicator"  style="width:5"></span>
-    
-          </div>
-       
+    <form id="messageForm">
+      <div class="input-container">
+        <textarea id="messageInput" placeholder="Введите сообщение"></textarea>
         </div>
-      </form>
-      <br><br>
-    </div>
-      
+  
+  
+        <div class="btn4-group" style="width:100%">
+        
+          <button  style="width:80%" type="submit" id="sendButton">Отправить</button>
+          <a type="button" id="submitRec" style="width:18%" class="btn btn-outline-warning">🎤</a>
+          <span id="recordingIndicator"  style="width:1%"></span>
+        </div>
+  
+    </form>
+    <br><br>
+  </div>
+    
+
+
+
+
+
+
+
+
+</div>
+
+
+  
   
   
 
@@ -1115,6 +1140,8 @@ animation: blink 1s infinite;
   }
     
   </script>
+  
+  
   
   
   

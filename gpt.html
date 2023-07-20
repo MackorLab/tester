@@ -38,8 +38,8 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.19/dist/sweetalert2.min.css">
 
 
-<script src="https://mackorlab.github.io/tester/playerjs.js"></script>
 
+  <script src="https://mackorlab.github.io/tester/playerjs.js"></script>
 
 
 </head>
@@ -702,7 +702,32 @@ animation: blink 1s infinite;
 
 
 
-
+<style>
+  .btn4-group button {
+      background-color: #4CAF50; /* Green background */
+      border: 1px solid green; /* Green border */
+      color: white; /* White text */
+      padding: 10px 24px; /* Some padding */
+      cursor: pointer; /* Pointer/hand icon */
+      float: left; /* Float the buttons side by side */
+  }
+  
+  /* Clear floats (clearfix hack) */
+  .btn4-group:after {
+      content: "";
+      clear: both;
+      display: table;
+  }
+  
+  .btn-group button:not(:last-child) {
+      border-right: none; /* Prevent double borders */
+  }
+  
+  /* Add a background color on hover */
+  .btn-group button:hover {
+      background-color: #3e8e41;
+  }
+  </style>
 
 
 
@@ -888,9 +913,6 @@ animation: blink 1s infinite;
 
 
 
-
-
-
   <div>
     <button class="btn-group" style="width:100%">Диплом</button>
   </div>
@@ -932,30 +954,33 @@ animation: blink 1s infinite;
    
     <a type="button" onclick="window.print()" class="btn btn-outline-info">💾</a>
    
-    <a type="button" id="submitRec" class="btn btn-outline-warning">🎤</a>
+    
 
-    <span id="recordingIndicator"></span>
-  </div>
-</div>
-
-<br>
-
-<div class="chat-panel">
-  <div class="chat-osnov" id="chat"></div>
-  
-  <form id="messageForm">
-    <div class="input-container">
-      <textarea id="messageInput" placeholder="Введите сообщение"></textarea>
-      <button type="submit" id="sendButton">Отправить</button>
+    <div class="chat-panel">
+      <div class="chat-osnov" id="chat"></div>
+      
+      <form id="messageForm">
+        <div class="input-container">
+          <textarea id="messageInput" placeholder="Введите сообщение"> </textarea>
+          <div class="btn4-group" style="width:100%">
+            <button  style="width:80%" type="submit" id="sendButton">Отправить</button>
+    
+            
+    
+            <a type="button"  style="width:15%" id="submitRec" class="btn btn-outline-warning">🎤</a>
+            <span id="recordingIndicator"  style="width:5"></span>
+    
+          </div>
+       
+        </div>
+      </form>
+      <br><br>
     </div>
-  </form>
-  <br><br>
-</div>
+      
   
   
-  
-  
-  
+
+ 
 
   
   

@@ -325,7 +325,7 @@
    }
    
    .assistant {
-     background-color: #b0d5e7;
+     background-color: #ffffff;
    }
    
    .message.received {
@@ -378,7 +378,7 @@
      flex-grow: 1;
      margin-bottom: 10px;  /* Отступ снизу */
      height: 80px; /* Увеличение высоты поля ввода */
-     border: 2px solid blue; /* Синяя рамка в 2 пикселя */
+     border: 2px solid rgb(180, 180, 180); /* Синяя рамка в 2 пикселя */
      padding: 5px; /* Внутренний отступ */
      overflow-y: auto; /* Включение скролла в поле ввода */
      resize: vertical; /* Разрешение вертикального изменения размера */
@@ -412,7 +412,7 @@
    }
    
    #chat::-webkit-scrollbar-thumb {
-     background-color: blue; /* Цвет скроллбара */
+     background-color: rgb(180, 180, 180); /* Цвет скроллбара */
      border-radius: 4px;
    }
    
@@ -437,7 +437,7 @@
      flex-grow: 1;
      margin-right: 10px;
      height: 80px; /* Увеличение высоты поля ввода */
-     border: 2px solid blue; /* Синяя рамка в 2 пикселя */
+     border: 2px solid rgb(180, 180, 180);/* Синяя рамка в 2 пикселя */
      padding: 5px; /* Внутренний отступ */
      overflow-y: auto; /* Включение скролла в поле ввода */
      resize: vertical; /* Разрешение вертикального изменения размера */
@@ -450,7 +450,7 @@
    }
    
    .input-container textarea::-webkit-scrollbar-thumb {
-     background-color: blue; /* Цвет скроллбара */
+     background-color: rgb(180, 180, 180);/* Цвет скроллбара */
      border-radius: 4px;
    }
    
@@ -926,7 +926,7 @@ animation: blink 1s infinite;
 
 <div id="scrollHeightPanel">
   <br>
-  <div class="col-12 offset-md-5 col-md-7 text-right">
+  <div class="col-12 offset-md-6 col-md-6 text-right">
     <label class="switch mb-0 pl-5">
       <input type="checkbox" id="darkMode_H_T">
       <span class="slider round"></span>
@@ -955,7 +955,7 @@ animation: blink 1s infinite;
    
     
 
-   
+    <a type="button" id="resetBasePage" class="btn btn-outline-danger">🧹</a>
     <a type="button" onclick="window.print()" class="btn btn-outline-info">💾</a>
    
     

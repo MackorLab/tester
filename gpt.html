@@ -22,6 +22,7 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Arizonia&display=swap">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap">
  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.3/html2pdf.bundle.js"></script>
 
 
   <link rel="stylesheet" href="https://mackorlab.github.io/kalen/mester/utils/chosen.css">
@@ -38,116 +39,99 @@
 
 
 
-  <script src="https://mackorlab.github.io/tester/jsd.js"></script>
+  <script src="https://mackorlab.github.io/tester/playerjs.js"></script>
 
 
 </head>
+
+
 <style>
-
-
-
-
 	
-body { }
-	
+  body {
+  
+    
+}
+  
 ::-webkit-scrollbar {
   width: 0;
 }	
-	
-	
+  
+  
 /* Оформление боковой панели */
 #side-checkbox {
     display: none;
 }
 .side-panel {
-  position: fixed;
-  z-index: 9;
-  top: 0;
-  left: -660px;
-  background: #1b347c;
-  transition: all 0.5s;
-  width: 620px;
-  height: 100vh;
-  box-shadow: 10px 0 20px rgba(0, 0, 0, 0.4);
-  color: #fff;
-  padding: 40px 20px;
-  overflow: auto;
+    position: fixed;
+    z-index: 6;
+    top: 0;
+    left: -660px;
+    background: #337AB7;
+    transition: all 0.5s;  
+    width: 620px;
+    height: 100vh;
+    box-shadow: 10px 0 20px rgba(0,0,0,0.4);
+    color: #FFF;
+    padding: 40px 20px;
+     overflow: auto; 
+   
 }
-
-@media (max-width: 768px) {
-  .side-panel {
-    left: -100%;
-    width: 100%;
-  }
-}
-
 .side-title {
-  font-size: 20px;
-  padding-bottom: 10px;
-  margin-bottom: 20px;
-  border-bottom: 2px solid #bfe2ff;
-  outline: none;
+    font-size: 20px;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+    border-bottom: 2px solid #BFE2FF;
+    outline: none;
 }
-
 /* Оформление кнопки на странице */
 .side-button-1-wr {
   /*  text-align: center;  Контейнер для кнопки, чтобы было удобнее ее разместить */
 }
-
 .side-button-1 .side-b {
-  margin: 10px;
-  cursor: pointer;
-  font-size: 5;
-  border: 2px solid #bfe2ff;
-  border-radius: 10px;
+    margin: 10px;
+    cursor: pointer;
+    border: 2px solid #BFE2FF;
+    border-radius: 10px;
 }
-
 .side-button-1 .side-b:hover,
 .side-button-1 .side-b:active,
 .side-button-1 .side-b:focus {
-  color: #fff;
+    color: #FFF;
 }
-
 .side-button-1 .side-b:after,
 .side-button-1 .side-b:before {
-  position: absolute;
-  height: 4px;
-  left: 50%;
-  bottom: -6px;
-  content: "";
-  transition: all 280ms ease-in-out;
-  width: 0;
+    position: absolute;
+    height: 4px;
+    left: 50%;
+    bottom: -6px;
+    content: "";
+    transition: all 280ms ease-in-out;
+    width: 0;
 }
-
 .side-button-1 .side-open:after,
 .side-button-1 .side-open:before {
-  background: green;
+    background: green;
 }
-
 .side-button-1 .side-close:after,
 .side-button-1 .side-close:before {
-  background: red;
+    background: red;
 }
-
 .side-button-1 .side-b:before {
-  top: -6px;
+    top: -6px;
 }
-
 .side-button-1 .side-b:hover:after,
 .side-button-1 .side-b:hover:before {
-  width: 100%;
-  left: 0;
+    width: 100%;
+    left: 0;
 }
-
 /* Переключатели кнопки 1 */
 .side-button-1 .side-close {
-  display: none;
+    display: none;
 }
 
 #side-checkbox:checked + .side-panel {
-  left: 0;
+    left: 0;
 }
-
 /* Оформление кнопки на панеле */
 .side-button-2 {
     font-size: 30px;
@@ -155,7 +139,7 @@ body { }
     position: absolute;
     z-index: 1;
     top: 8px;
-    left: 8px; /* Изменено с right на left */
+    right: 8px;
     cursor: pointer;
     transform: rotate(45deg);
     color: #BFE2FF;   
@@ -165,322 +149,369 @@ body { }
     transform: rotate(45deg) scale(1.1);   
     color: #FFF;
 } 
+  
 
-	
+  
 
     a:focus {
       outline: none;
     }
 
+    .topmenu {
+      float: left;
+     
+    }
+  
+  
+  
+  
+  
 
+    .topmenu ul, .topmenu li {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
 
+    .topmenu ul li {
+  background: red;    
+      position: relative;
+      width: 140px;
+  z-index: 999;      
+    }
 
+    .topmenu ul li a {
+      display: block;
+      padding: 10px 10px 10px 30px;
+      cursor: pointer;
+      color: #0000FF;
+      text-decoration: none;
+      border: 1px solid #999;
+      margin: 1px;
+    
+    }
 
+   .card_less{
+      background: red;    
+      position: relative;
+      width: 438px;
+      height: 100px;   
+      z-index: 9999999;   
+   
+      padding: 10px 10px 10px 30px;
+      cursor: pointer;
+      color: #0000FF;
+      
+      border: 1px solid #999;
+      margin: 1px;
+    
+    }
 
-
-
-
-
-  .topmenu {
-  float: left;
-}
-
-.topmenu ul,
-.topmenu li {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-
-.topmenu ul li {
-  background: red;
-  position: relative;
-  width: 140px;
-  z-index: 999;
-}
-
-.topmenu ul li a {
-  display: block;
-  padding: 10px 10px 10px 30px;
-  cursor: pointer;
-  color: #0000FF;
-  text-decoration: none;
-  border: 1px solid #999;
-  margin: 1px;
-}
-
-.card_less {
-  background: red;
-  position: relative;
-  width: 438px;
-  height: 100px;
-  z-index: 9999999;
-  padding: 10px 10px 10px 30px;
-  cursor: pointer;
-  color: #0000FF;
-  border: 1px solid #999;
-  margin: 1px;
-}
-
-.topmenu ul li ul {
-  display: none;
-  position: absolute;
-  top: 0px;
-  left: 140px;
-}
-
-
-.button-off,
-.button-on,
+    .topmenu ul li ul {
+      display: none;
+      position: absolute;
+      top: 0px;
+      left: 140px;
+    }
+  
+  
+  
+  
 .btn-group {
-  background-color: #4CAF50;
-  /* Green background */
-  border: 1px solid green;
-  /* Green border */
-  color: white;
-  /* White text */
-  padding: 10px 24px;
-  /* Some padding */
-  cursor: pointer;
-  /* Pointer/hand icon */
-  width: 100%;
-  /* Set a width if needed */
-  display: block;
-  /* Make the buttons appear below each other */
+    background-color: #4CAF50; /* Green background */
+    border: 1px solid green; /* Green border */
+    color: white; /* White text */
+    padding: 10px 24px; /* Some padding */
+    cursor: pointer; /* Pointer/hand icon */
+    width: 50%; /* Set a width if needed */
+    display: block; /* Make the buttons appear below each other */
 }
 
-.button-off:not(:last-child),
-.button-on:not(:last-child),
 .btn-group:not(:last-child) {
-  border-bottom: none;
-  /* Prevent double borders */
+    border-bottom: none; /* Prevent double borders */
 }
 
 /* Add a background color on hover */
-.button-off:hover,
-.button-on:hover,
 .btn-group:hover {
-  background-color: #3e8e41;
+    background-color: #3e8e41;
 }
-/* Медиа-запрос для адаптивности */
-@media (max-width: 767px) {
-  .topmenu ul li {
-    width: 100%;
-  }
+  
+    
+  </style>
 
-  .topmenu ul li a {
-    padding: 10px;
-  }
 
-  .topmenu ul li ul {
-    top: auto;
+
+<style>
+
+
+ 
+  /* Toggle Switch */
+  .switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+  }
+  .switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+  .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
     left: 0;
     right: 0;
-    width: 100%;
+    bottom: 0;
+    background-color: #ccc;
+    transition: .4s;
+  }
+  .slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    transition: .4s;
+  }
+  input:checked + .slider {
+    background-color: green; /* Измените цвет на зеленый */
+  }
+  input:checked + .slider:before {
+    transform: translateX(26px);
+  }
+  .slider.round {
+    border-radius: 34px;
+  }
+  .slider.round:before {
+    border-radius: 50%;
   }
 
-  .card_less {
-    width: 100%;
+  .side-button-1-wr {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    z-index: 99999;
   }
+
+
+
+</style>
+
+
+
+
+<style>
+   .chat-panel {
+     margin: 0 auto;
+     max-width: 800px;
+     padding: 0 20px;
+   }
+   
+   #chat {
+     max-height: 500px;
+     overflow-y: auto;
+   }
+   
+   .message {
+     border: 2px solid #dedede;
+     border-radius: 5px;
+     padding: 10px;
+     margin: 10px 0;
+     overflow: hidden;
+   }
+   
+   .assistant {
+     background-color: #b0d5e7;
+   }
+   
+   .message.received {
+  background-color: #b0d5e7;
 }
 
 
 
-
-
-
-.chat-box {
-		  height: calc(100vh - 238px); /* subtract the space occupied by the navbar and footer */
-		  overflow-y: scroll;
-		}
-		
-		@media only screen and (max-width: 480px) {
-		  .chat-box {
-			height: calc(100vh - 300px); /* adjust the height value as per your requirement */
-			overflow-y: scroll;
-		  }
-		}
-		
-		.message {
-			margin-bottom: 10px;
-			padding: 10px;
-			padding-bottom: 0;
-			border-radius: 10px;
-			display: inline-block;
-			max-width: 85%;
-			word-wrap: break-word;
-			white-space: normal;
-		}
-
-		.left-side {
-			background-color: lightgray;
-			float: left;
-		}
-
-		.right-side {
-			background-color: lightgreen;
-			float: right;
-		}	
-		.popup {
-			position: fixed;
-			bottom: 20vh;
-			left: 50%;
-			transform: translateX(-50%);
-			background-color: rgba(0, 0, 0, 0.6);
-			color: white;
-			border-radius: 5px;
-			padding: 10px 20px;
-			font-size: 16px;
-			display: none;
-		}
-		
-		/* Toggle Switch */
-
-		.switch {
-		  position: relative;
-		  display: inline-block;
-		  width: 60px;
-		  height: 34px;
-		}
-		.switch input {
-		  opacity: 0;
-		  width: 0;
-		  height: 0;
-		}
-		.slider {
-		  position: absolute;
-		  cursor: pointer;
-		  top: 0;
-		  left: 0;
-		  right: 0;
-		  bottom: 0;
-		  background-color: #ccc;
-		  transition: .4s;
-		}
-		.slider:before {
-		  position: absolute;
-		  content: "";
-		  height: 26px;
-		  width: 26px;
-		  left: 4px;
-		  bottom: 4px;
-		  background-color: white;
-		  transition: .4s;
-		}
-		
-
+   .user {
+     background-color: #f1f1f1;
+   }
    
-
-
-    input:checked + .slider:before {
-		  transform: translateX(26px);
-		}
- 
-		.slider.round {
-		  border-radius: 34px;
-		}
-		.slider.round:before {
-		  border-radius: 50%;
-		}
-
-
-	
-
-
-
-		/* Dark Theme */
-		.dark-mode .dark-theme {
-		  background-color: #ffffff;
-		  color: #000000;
-		}
-
-		.dark-mode .nav{
-		  background-color: #333;
-		  color: #fff;
-		}
-
-		.dark-mode .dark-text {
-		  color: #fff;
-		}
-
-		.dark-mode .card {
-		  background-color: #333;
-		  color: #fff;
-		}
-
-		.dark-mode .popup {
-		  background-color: #fff;
-		  color: #333;
-		}
-    .dark-mode .fa-clipboard {
-		  color: #212529;
-		  background-color: #7cc;
-		  border-color: #5bc2c2
-		}
-
-		
-		.dark-mode .fa-clipboard:hover {
-		  color: #212529;
-		  background-color: #52bebe;
-		  border-color: #8ad3d3
-		}
-
-		.bg-skyblue{
-		background-color: #e3f2fd;
-		}
-
-
-
-
-    .swal2-progress-bar {
-      transform: scaleX(-1);
-    }
-
-
-
-
-
-
-
-
-
-
-
-
-
+   .message::after {
+     content: "";
+     clear: both;
+     display: table;
+   }
    
-    #recordingIndicator {
-      width: 10px;
-      height: 10px;
-      background-color: rgb(211, 0, 0);
-      border-radius: 50%;
-      display: none;
-      animation: blink 1s infinite;
+   .message img {
+     float: left;
+     max-width: 60px;
+     width: 100%;
+     margin-right: 20px;
+     border-radius: 50%;
+   }
+   
+   .message img.right {
+     float: right;
+     margin-left: 20px;
+     margin-right: 0;
+   }
+   
+   .time-right {
+     float: right;
+     color: #bab3e0;
+   }
+   
+   .time-left {
+     float: left;
+     color: #7e5b5b;
+   }
+   
+   .input-container {
+     display: flex;
+     flex-direction: column;  /* Выравнивание элементов по вертикали */
+     margin-top: 20px;
+   }
+   
+   .input-container textarea {
+     flex-grow: 1;
+     margin-bottom: 10px;  /* Отступ снизу */
+     height: 80px; /* Увеличение высоты поля ввода */
+     border: 2px solid blue; /* Синяя рамка в 2 пикселя */
+     padding: 5px; /* Внутренний отступ */
+     overflow-y: auto; /* Включение скролла в поле ввода */
+     resize: vertical; /* Разрешение вертикального изменения размера */
+     outline: none; /* Удаление стандартного стиля при получении фокуса */
+   }
+   
+   .input-container button {
+     background-color: green; /* Зеленый цвет кнопки */
+     color: white; /* Белый цвет текста кнопки */
+     border: none;
+     padding: 10px 20px;
+     border-radius: 5px;
+     font-weight: bold;
+     cursor: pointer;
+   }
+   
+   /* Адаптивность для мобильных устройств */
+   @media (max-width: 600px) {
+     .input-container {
+       align-items: stretch; /* Выравнивание элементов по ширине */
+     }
+   
+     .input-container textarea {
+       margin-bottom: 0; /* Удаление отступа снизу */
+     }
+   }
+   
+   /* Модификация скроллбара */
+   #chat::-webkit-scrollbar {
+     width: 8px;
+   }
+   
+   #chat::-webkit-scrollbar-thumb {
+     background-color: blue; /* Цвет скроллбара */
+     border-radius: 4px;
+   }
+   
+   /* Адаптивность для мобильных устройств */
+   @media (max-width: 600px) {
+     .chat-panel {
+       padding: 0 10px;
+     }
+   
+     .message img {
+       max-width: 40px;
+       margin-right: 10px;
+     }
+   
+     .message img.right {
+       margin-left: 10px;
+     }
+   }
+   
+   
+   .input-container textarea {
+     flex-grow: 1;
+     margin-right: 10px;
+     height: 80px; /* Увеличение высоты поля ввода */
+     border: 2px solid blue; /* Синяя рамка в 2 пикселя */
+     padding: 5px; /* Внутренний отступ */
+     overflow-y: auto; /* Включение скролла в поле ввода */
+     resize: vertical; /* Разрешение вертикального изменения размера */
+     outline: none; /* Удаление стандартного стиля при получении фокуса */
+   }
+   
+   /* Модификация скроллбара */
+   .input-container textarea::-webkit-scrollbar {
+     width: 8px;
+   }
+   
+   .input-container textarea::-webkit-scrollbar-thumb {
+     background-color: blue; /* Цвет скроллбара */
+     border-radius: 4px;
+   }
+   
+   .message-text,
+.message-received {
+  white-space: pre-wrap;
+}
+.message-received br {
+  display: block;
+  margin: 0;
+  content: '';
+}
+
+.chat-osnov {
+    order: -1;
+  }
+
+
+
+   </style>
+
+
+<style>
+
+#recordingIndicator {
+width: 10px;
+height: 10px;
+background-color: rgb(211, 0, 0);
+border-radius: 50%;
+display: none;
+animation: blink 1s infinite;
+}
+
+  @keyframes blink {
+    50% {
+      opacity: 0;
     }
+  }
 
-    @keyframes blink {
-      50% {
-        opacity: 0;
-      }
-    }
-
-
-
-
-     
-    #submit4 {
-            margin-right: 4px;
-
-             }
+  .message-text br {
+  display: block;
+  margin: 0;
+  content: '';
+}
 
 
+@keyframes blink {
+  0% { opacity: 1; }
+  50% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+.blink {
+  animation: blink 1s infinite;
+}
 
 
-
-
-
-	
 </style>
+
+
+
 
 <style>
 
@@ -604,7 +635,7 @@ body { }
   background-color: rgba(0, 0, 0, 0.5);
   pointer-events: auto;
   z-index: 5;
- 
+  display:none; 
 }
 
 
@@ -669,361 +700,263 @@ body { }
 
 
 
-<style>
-  #player1 {
-    max-width: 100%;
-    height: auto;
-  }
-
-  #playlist_container {
-    max-width: 100%;
-    height: auto;
-  }
-</style>
-
-
-
-
-<style>
 
 
 
 
 
 
-.button-off {
-  background-color: #4CAF50;
-  color: white;
-  border: 1px solid green;
-}
-
-.button-off:hover {
-  background-color: green;
-}
 
 
 
-.button-on {
-  background-color: rgb(255, 0, 0);
-  color: white;
-  border: 1px solid rgb(112, 1, 1);
-}
 
 
-.button-on:hover {
-  background-color: #c40303;
-}
-
-</style>
 
 
 <body>
 	
+  <script>
+  vkBridge.send('VKWebAppInit');
+  </script>
+    
+    
+    
+  
+       
+    <input type="checkbox" id="side-checkbox" />
+
+<div class="side-panel">
+ 
+  <div class="side-title"></div>
+
+
+
+<div>
+  <input type="text" id="apiKey" value="" class="form-control mr-1 dark-theme" size="55" placeholder="Пожалуйста введите ключ...">
+</div>
 
 
 
 
-<div id="focusis"></div>
+
+
+  <div>
+    <button class="btn-group" style="width:100%">Личный кабинет</button>
+  </div>
+
  
 
-
-
-	
-<div class="container-fluid">
-  <div class="row ">
-    <div class="col-md-12 mb-3">
-      <div class="card mt-3">
-        <div class="card-header row">
-
-         <div class="col-6 " id="iconiks">
-
-          <label class="side-button-1" for="side-checkbox">
-            <img  class="side-b side-open" src="https://i.ibb.co/BV3X5Pn/imgonline-com-ua-Resize-t5t-Clp9-Fl0zhw4.jpg" alt="">   
-          </label>
-
-            				
-          </div>		
-          
-          
+  <div class="form-group">
+    <label for="formControlRange">Креативность генерации: <span id="rangeTop_P">0.2</span></label>
+    <input type="range" class="form-control-range" id="formControlTop_P" min="0" max="1" step="0.01" value="0.4">
+  </div>
+  
+  
+  
+  
+  
+  
+  
+  <div class="form-group">
+    <label for="formControlRange">Случайность генерации: <span id="rangeTemp">0.2</span></label>
+    <input type="range" class="form-control-range" id="formControlTemp" min="0" max="1" step="0.01" value="0.2">
+  </div>
 
 
 
-
-          <div class="col-6 offset-md-3 col-md-3 text-right">	
-            <a  type="button" onclick="window.print()" class="btn  btn-outline-info">💾</a>						
-            <a  type="button" id="submit2"  class="btn btn-outline-danger ">🧹</a>
-            <a  type="button" id="submit3"  class="btn btn-outline-warning">🎤</a>
-            <span id="recordingIndicator"></span>
-          </div>
-        </div>
-
-     
+  <div class="form-group">
+    <label for="stopWordInput">Стоп слово или фраза: <span id="stopWordValue">###</span></label>
+    <input type="text" class="form-control" id="stopWordInput" value="###">
+  </div>
+  
+  
 
 
 
-        <div class="card-body chat-box rounded p1" id="chatbox"><span id="copy-popup" class="popup">Скопировано!</span></div>
-        <div class="card-footer">
-          
 
-          <div class="form-group row">
 
-           
 
-            <div class="col-md-10 mb-1">
-              <textarea id="userInput" rows="1" class="form-control dark-theme" placeholder="Пожалуйста введите сообщение..." ></textarea>
-            </div>
-            <div class="col-md-2">
-              <input id="sendButton" type="button" value="Отправить" class=" form-control btn btn-success btn-block " />
-            </div>	
-          </div>
-        </div>
-      </div>
-    </div>
+
+
+
+
+
+  <div class="form-group">
+    <label for="languageSelect">Язык генирации текста:</label>
+    <select class="form-control" id="languageSelect">
+      <option value="ru-RU">Русский</option>
+      <option value="en-US">English</option>
+      <option value="es-ES">Español</option>
+      <option value="fr-FR">Français</option>
+      <option value="de-DE">Deutsch</option>
+      <option value="it-IT">Italiano</option>
+      <option value="ja-JP">日本語</option>
+      <option value="ko-KR">한국어</option>
+      <option value="zh-CN">中文</option>
+      <option value="pt-PT">Português</option>
+      <option value="pt-BR">Português (Brasil)</option>
+      <option value="nl-NL">Nederlands</option>
+      <option value="sv-SE">Svenska</option>
+      <option value="da-DK">Dansk</option>
+    </select>
+  </div>
+
+  <div>
+  <label for="maxLem_Input">Команда отправки: <span id="frazSendOut">30</span></label>
+  <input type="text" id="frazSend"  value="" class="form-control mr-1 dark-theme" size="55" placeholder="Введите фразы через запятую">
+  </div>
+
+
+
+
+
+  <div class="form-group">
+    <label for="fontSelect">Шрифт приложения:</label>
+    <select id="fontSelect" class="form-control">
+      <option value="Roboto">Roboto</option>
+        <option value="Open Sans">Open Sans</option>
+        <option value="Lato">Lato</option>
+        <option value="Montserrat">Montserrat</option>
+        <option value="Oswald">Oswald</option>
+        <option value="Great Vibes">Great Vibes</option>
+        <option value="Arizonia">Arizonia</option>
+        <option value="Pacifico">Pacifico</option>
+        <option value="Arial">Arial</option>
+        <option value="Verdana">Verdana</option>
+        <option value="Georgia">Georgia</option>
+        <option value="Times New Roman">Times New Roman</option>
+        <option value="Courier New">Courier New</option>
+        <option value="Trebuchet MS">Trebuchet MS</option>
+        <option value="Arial Black">Arial Black</option>
+        <option value="Impact">Impact</option>
+        <option value="Comic Sans MS">Comic Sans MS</option>
+    </select>
+  </div>
+  
+
+
+
+
+  <label for="maxLem_Input">Макс. пакетов в роли: <span id="maxLemValue">30</span></label>
+  <input type="number" class="form-control" id="maxLemInput" min="0" value="10">
+
+
+
+  <div>	
+
+
+
+  
+    <button class="btn-group"  style="width:100%"   id="openModal_sd">Заказ ключа, аренды кабинета или консультации 👈 </button>
+   </div>	
+
+
+
+
+  <div>
+    <button class="btn-group" style="width:100%">Экзамен</button>
+  </div>
+
+
+
+
+  <div id="player1"></div>
+  <div id="playlist_container"></div>
+  
+  
+  
+  
+  <script>
+       document.getElementById("player1").addEventListener("init",PlayerInit);
+     var player = new Playerjs({
+        id:"player1",
+        file:[
+           {"title":"Урок - 1",file:"https://mackorlab.github.io/plvm/New_2023.mp4"},
+           {"title":"Урок - 2",file:"https://fs.getcourse.ru/fileservice/file/download/a/280925/sc/349/h/81644955137650ae8738d8683138c539.mp4"},
+           {"title":"Урок - 3",file:"https://plrjs.com/sample.mp4"}
+        ]
+     });
+     function PlayerInit(){
+        player.api("moveplaylist","playlist_container");
+     }
+  </script>
+  
+  
+
+
+
+
+
+
+  <div>
+    <button class="btn-group" style="width:100%">Диплом</button>
   </div>
 </div>
 
-	
+<div class="side-button-1-wr">
+  <label class="side-button-1" for="side-checkbox">
+    <img class="side-b side-open" src="https://i.ibb.co/BV3X5Pn/imgonline-com-ua-Resize-t5t-Clp9-Fl0zhw4.jpg" alt="">
+  </label>
+</div>
+
+<div id="scrollHeightPanel">
+  <br>
+  <div class="col-12 offset-md-6 col-md-6 text-right">
+    <label class="switch mb-0 pl-5">
+      <input type="checkbox" id="darkMode_H_T">
+      <span class="slider round"></span>
+    </label>
+
+
+    <button id="outProm" type="button" class="btn btn-outline-primary">
+      📑 <span id="basePageCount" class="badge badge-light">0</span>
+    </button>
 
 
 
 
+    <button id="outProm" type="button" class="btn btn-outline-primary">
+      🔼 <span id="outPromB" class="badge badge-light">0</span>
+    </button>
 
+    <button id="outComp" type="button" class="btn btn-outline-primary">
+      🔽 <span id="outComB" class="badge badge-light">0</span>
+    </button>
 
-
-
-
-
-	
-	
-	
-<input type="checkbox" id="side-checkbox" />   
-
-<div class="side-panel">
-    <label class="side-button-2" for="side-checkbox">+</label>   
-    <div class="side-title">VK-ChatGPT-3.5-turbo</div>
- 
-
-	
-	
-	<div class="topmenu">
-
-
-       
-            
-            
-           
-
-            <div class="d-flex align-items-center">
-              <input type="text" id="apiKey" value="" class="form-control mr-1 dark-theme" size="55" placeholder="Пожалуйста введите ключ...">
-              <button type="button"  id="submit4" class="btn btn-primary">🔺</button>
-              
-
-              <label class="switch mb-0 pl-5">
-                <input type="checkbox" id="darkModeToggle" >
-                <span class="slider round"></span>
-            </label>
-
-          </div>
-  
-          
-
+    <button id="outTot" type="button" class="btn btn-outline-primary">
+      🎭 <span id="outTotB" class="badge badge-light">0</span>
+    </button>
    
-       
-
-          
-       
-       
-
-
-
-
-
-
-
-<br>
-
-<br>
-
-
-<div class="form-group">
-  <label for="formControlRange">Креативность генерации: <span id="rangeTop_P">0.2</span></label>
-  <input type="range" class="form-control-range" id="formControlTop_P" min="0" max="1" step="0.01" value="0.4">
-</div>
-
-
-
-
-
-
-
-<div class="form-group">
-  <label for="formControlRange">Случайность генерации: <span id="rangeTemp">0.2</span></label>
-  <input type="range" class="form-control-range" id="formControlTemp" min="0" max="1" step="0.01" value="0.2">
-</div>
-
-
-
-
-<div class="form-group">
-  <label for="stopWordInput">Стоп слово или фраза: <span id="stopWordValue">###</span></label>
-  <input type="text" class="form-control" id="stopWordInput" value="###">
-</div>
-
-
-
-
-
-<div class="form-group">
-  <label for="maxTokens_Input">Макс. слов в сообщении: <span id="maxTokensValue">2000</span></label>
-  <input type="number" class="form-control" id="maxTokensInput" min="1" value="2000">
-</div>
-
-
-
-<div class="form-group">
-  <label for="languageSelect">Язык генирации текста:</label>
-  <select class="form-control" id="languageSelect">
-    <option value="ru-RU">Русский</option>
-    <option value="en-US">English</option>
-    <option value="es-ES">Español</option>
-    <option value="fr-FR">Français</option>
-    <option value="de-DE">Deutsch</option>
-    <option value="it-IT">Italiano</option>
-    <option value="ja-JP">日本語</option>
-    <option value="ko-KR">한국어</option>
-    <option value="zh-CN">中文</option>
-    <option value="pt-PT">Português</option>
-    <option value="pt-BR">Português (Brasil)</option>
-    <option value="nl-NL">Nederlands</option>
-    <option value="sv-SE">Svenska</option>
-    <option value="da-DK">Dansk</option>
-  </select>
-</div>
-
-
-
-
-<div class="form-group">
-  <label for="fontSelect">Шрифт приложения:</label>
-  <select id="fontSelect" class="form-control">
-    <option value="Roboto">Roboto</option>
-      <option value="Open Sans">Open Sans</option>
-      <option value="Lato">Lato</option>
-      <option value="Montserrat">Montserrat</option>
-      <option value="Oswald">Oswald</option>
-      <option value="Great Vibes">Great Vibes</option>
-      <option value="Arizonia">Arizonia</option>
-      <option value="Pacifico">Pacifico</option>
-      <option value="Arial">Arial</option>
-      <option value="Verdana">Verdana</option>
-      <option value="Georgia">Georgia</option>
-      <option value="Times New Roman">Times New Roman</option>
-      <option value="Courier New">Courier New</option>
-      <option value="Trebuchet MS">Trebuchet MS</option>
-      <option value="Arial Black">Arial Black</option>
-      <option value="Impact">Impact</option>
-      <option value="Comic Sans MS">Comic Sans MS</option>
-  </select>
-</div>
-
-
-
-
-
-
-
-
-
-
-<div>	
-
-
-
-  
-  <button  style="width:100%" id="myButton0" ></button>
- </div>	
-
-
-
- <br>
-
-
-
-<div>	
-
-
-
-  
-  <button class="btn-group"  style="width:100%"   id="openModal_sd">Заказ ключа, аренды кабинета или консультации 👈 </button>
- </div>	
-
-
-
-
-
-<br>
-<br>
-<div id="player1"></div>
-<div id="playlist_container"></div>
-
-
-
- <br>
- <div>	
-
-
-
-  
-  <button class="btn-group"  style="width:100%"   id="suit2" >МЕГА - КУРС Юрия Курилова "Копирайтинг на миллион"</button>
- </div>	
-
- 
-</div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<script>
-     document.getElementById("player1").addEventListener("init",PlayerInit);
-   var player = new Playerjs({
-      id:"player1",
-      file:[
-         {"title":"Урок - 1",file:"https://mackorlab.github.io/plvm/New_2023.mp4"},
-         {"title":"Урок - 2",file:"https://fs.getcourse.ru/fileservice/file/download/a/280925/sc/349/h/81644955137650ae8738d8683138c539.mp4"},
-         {"title":"Урок - 3",file:"https://plrjs.com/sample.mp4"}
-      ]
-   });
-   function PlayerInit(){
-      player.api("moveplaylist","playlist_container");
-   }
-</script>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    <a type="button" onclick="window.print()" class="btn btn-outline-info">💾</a>
    
+    <a type="button" id="submitRec" class="btn btn-outline-warning">🎤</a>
+
+    <span id="recordingIndicator"></span>
+  </div>
+</div>
+
+<br>
+
+<div class="chat-panel">
+  <div class="chat-osnov" id="chat"></div>
+  
+  <form id="messageForm">
+    <div class="input-container">
+      <textarea id="messageInput" placeholder="Введите сообщение"></textarea>
+      <button type="submit" id="sendButton">Отправить</button>
+    </div>
+  </form>
+  <br><br>
+</div>
+  
+  
+  
+  
+  
+
+  
+  
+     
 <div id="myModal_sd" class="modal_sd">
   <div class="modal-content_sd">
 
@@ -1065,7 +998,7 @@ body { }
         <label class="container">
           <input type="radio" name="product_sd" value="1000">
           <span class="checkmark"></span>
-          Разработка приложения ВК консультация 1 час - 1000 руб. 
+          Разработка приложения ВК консультация 30 мин. - 1000 руб. 
         </label>
       </div>
       <div class="form-group_sd">
@@ -1114,46 +1047,48 @@ body { }
 
 	
 
-
-
-			
-
-	
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.9-1/crypto-js.js"></script>
-	
-	
-	
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  
+  
   
 
-<script>
-	
-	$(document).ready(function(){
-    $('.topmenu ul li').hover(
-        function() {
-            $(this).addClass("active");
-            $(this).find('ul').stop(true, true); // останавливаем всю текущую анимацию
-            $(this).find('ul').slideDown();
-        },
-        function() {
-            $(this).removeClass("active");        
-            $(this).find('ul').slideUp('fast');
-        }
-    );
-});
-	
-	
-
-	
-	
-	
-	
-
-</script>
-
+    
+    
+    
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    
+  
+  <script>
+    
+    $(document).ready(function(){
+      $('.topmenu ul li').hover(
+          function() {
+              $(this).addClass("active");
+              $(this).find('ul').stop(true, true); // останавливаем всю текущую анимацию
+              $(this).find('ul').slideDown();
+          },
+          function() {
+              $(this).removeClass("active");        
+              $(this).find('ul').slideUp('fast');
+          }
+      );
+  });
+    
+    
+  
+    
+    
+    
+    
+    
+    function myFunction() {
+    alert("I am an alert box!");
+  }
+    
+  </script>
+  
+  
 
 
 

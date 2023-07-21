@@ -745,7 +745,19 @@ animation: blink 1s infinite;
   </script>
     
     
-    
+    <div id="focus_xl"></div>
+    <div id="focus_si"></div>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <div id="focusis"></div>
+   
   
        
     <input type="checkbox" id="side-checkbox" />
@@ -757,6 +769,7 @@ animation: blink 1s infinite;
 
 
 <div>
+  <label for="formControlRange">API ключ доступа</label>
   <input type="text" id="apiKey" value="" class="form-control mr-1 dark-theme" size="55" placeholder="Пожалуйста введите ключ...">
 </div>
 
@@ -765,9 +778,17 @@ animation: blink 1s infinite;
 
 
 
-  <div>
-    <button class="btn-group" style="width:100%">Личный кабинет</button>
+
+   
+  <div class="form-group">
+    <label for="languageSelect">Модель ChatGPT:</label>
+    <select class="form-control" id="modelSelect">
+      <option value="gpt-3.5-turbo">4K</option>
+      <option value="gpt-3.5-turbo-16k-0613">16k</option>
+    
+    </select>
   </div>
+ 
 
  
 
@@ -786,6 +807,14 @@ animation: blink 1s infinite;
     <label for="formControlRange">Случайность генерации: <span id="rangeTemp">0.2</span></label>
     <input type="range" class="form-control-range" id="formControlTemp" min="0" max="1" step="0.01" value="0.2">
   </div>
+
+
+  <div class="form-group">
+
+  <label for="maxLem_Input">Макс. пакетов в роли: <span id="maxLemValue">30</span></label>
+  <input type="number" class="form-control" id="maxLemInput" min="0" value="10">
+  </div>
+  
 
 
 
@@ -862,26 +891,12 @@ animation: blink 1s infinite;
 
 
 
-  <label for="maxLem_Input">Макс. пакетов в роли: <span id="maxLemValue">30</span></label>
-  <input type="number" class="form-control" id="maxLemInput" min="0" value="10">
-
-
-
-  <div>	
-
-
-
   
-    <button class="btn-group"  style="width:100%"   id="openModal_sd">Заказ ключа, аренды кабинета или консультации 👈 </button>
-   </div>	
 
 
 
 
-  <div>
-    <button class="btn-group" style="width:100%">Экзамен</button>
-  </div>
-
+ 
 
 
 
@@ -907,14 +922,21 @@ animation: blink 1s infinite;
   </script>
   
   
+  <br>
+
+  <div>	
 
 
 
+  
+    <button class="btn-group"  style="width:100%"   id="openModal_sd">Заказ ключа, аренды кабинета или консультации 👈 </button>
+   </div>	
 
+<br>
 
 
   <div>
-    <button class="btn-group" style="width:100%">Диплом</button>
+    <button class="btn-group" style="width:100%">Задать вопрос</button>
   </div>
 </div>
 

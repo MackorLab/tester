@@ -1,3 +1,4 @@
+
 <!doctype html>
 
 <head>
@@ -731,8 +732,46 @@ animation: blink 1s infinite;
 
 
 
+<style>
+
+.custom-loader {
+  z-index: 9;
+  --d:22px;
+
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  color: #0C6BF4;
+  box-shadow: 
+    calc(1*var(--d))      calc(0*var(--d))     0 0,
+    calc(0.707*var(--d))  calc(0.707*var(--d)) 0 1px,
+    calc(0*var(--d))      calc(1*var(--d))     0 2px,
+    calc(-0.707*var(--d)) calc(0.707*var(--d)) 0 3px,
+    calc(-1*var(--d))     calc(0*var(--d))     0 4px,
+    calc(-0.707*var(--d)) calc(-0.707*var(--d))0 5px,
+    calc(0*var(--d))      calc(-1*var(--d))    0 6px;
+  animation: s7 1s infinite steps(8);
+  display: none;
+}
+
+@keyframes s7 {
+ 
+
+  100% {transform: rotate(1turn)}
+}
 
 
+.parent-container {
+  z-index: 9;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%; /* Высота контейнера, чтобы элемент был по центру экрана */
+  display: none;
+}
+
+
+</style>
 
 
 
@@ -857,7 +896,7 @@ animation: blink 1s infinite;
 
   <div>
   <label for="maxLem_Input">Команда отправки: <span id="frazSendOut">30</span></label>
-  <input type="text" id="frazSend"  value="" class="form-control mr-1 dark-theme" size="55" placeholder="Введите фразы через запятую">
+  <input type="text" id="frazSend"  value="" class="form-control mr-1 dark-theme" size="55" placeholder="Введите команду для отправки">
   </div>
 
 
@@ -986,20 +1025,32 @@ animation: blink 1s infinite;
   </div>
 
 
-
-
-
-
   <br>
 
   <div class="chat-panel">
     <div class="chat-osnov" id="chat"></div>
     
-    <form id="messageForm">
-      <div class="input-container">
-        <textarea id="messageInput" placeholder="Введите сообщение"></textarea>
-        </div>
+
+    <div class="parent-container">
   
+  
+      <div class="custom-loader"></div>
+    </div>
+
+
+
+
+
+    <form id="messageForm">
+
+      
+      <div class="input-container">
+        <textarea id="messageInput" placeholder="Введите сообщение">
+
+        
+        </textarea>
+        </div>
+        
   
         <div class="btn4-group" style="width:100%">
         
@@ -1012,7 +1063,6 @@ animation: blink 1s infinite;
     <br><br>
   </div>
     
-
 
 
 
@@ -1125,6 +1175,28 @@ animation: blink 1s infinite;
   
   
   
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     
     

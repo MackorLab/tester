@@ -752,6 +752,7 @@ animation: blink 1s infinite;
     calc(0*var(--d))      calc(-1*var(--d))    0 6px;
   animation: s7 1s infinite steps(8);
   display: none;
+  
 }
 
 @keyframes s7 {
@@ -761,14 +762,6 @@ animation: blink 1s infinite;
 }
 
 
-.parent-container {
-  z-index: 9;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100%; /* Высота контейнера, чтобы элемент был по центру экрана */
-  display: none;
-}
 
 
 </style>
@@ -1031,17 +1024,22 @@ animation: blink 1s infinite;
     <div class="chat-osnov" id="chat"></div>
     
 
-    <div class="parent-container">
+ 
+
+
+    <div class="d-flex justify-content-center"> 
   
   
-      <div id="loaders" class="custom-loader"></div>
+      <div class="custom-loader" id="loaders"></div>
     </div>
 
 
 
-
-
     <form id="messageForm">
+
+
+
+    
 
       
       <div class="input-container">
@@ -1060,7 +1058,7 @@ animation: blink 1s infinite;
         </div>
   
     </form>
-<br><br>
+    <br><br> <br><br>
   </div>
     
 

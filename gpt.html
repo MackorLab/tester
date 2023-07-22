@@ -767,18 +767,18 @@ svg {
 svg text {
 	animation: stroke 5s infinite alternate;
 	stroke-width: 2;
-	stroke: #55FF5A;
+	stroke: rgb(0, 22, 150);
 	font-size: 50px;
 }
 @keyframes stroke {
 	0%   {
-		fill: rgba(255,255,255,0); stroke: rgba(85,255,90,1);
+		fill: rgba(255,255,255,0); stroke: rgb(0, 22, 150);
 		stroke-dashoffset: 25%; stroke-dasharray: 0 50%; stroke-width: 2;
 	}
-	70%  {fill: rgba(255,255,255,0); stroke: rgba(85,255,90,1); }
-	80%  {fill: rgba(255,255,255,0); stroke: rgba(85,255,90,1); stroke-width: 3; }
+	70%  {fill: rgba(255,255,255,0); stroke: rgb(0, 22, 150); }
+	80%  {fill: rgba(255,255,255,0); stroke: rgb(0, 22, 150); stroke-width: 3; }
 	100% {
-		fill: rgba(255,255,255,1); stroke: rgba(85,255,90,0);
+		fill: rgba(255,255,255,1); stroke: rgb(0, 22, 150);
 		stroke-dashoffset: -25%; stroke-dasharray: 50% 0; stroke-width: 0;
 	}
 }
@@ -838,7 +838,7 @@ svg text {
     <label for="languageSelect">Модель ChatGPT:</label>
     <select class="form-control" id="modelSelect">
       <option value="gpt-3.5-turbo">4K</option>
-      <option value="gpt-3.5-turbo-16k-0613">16k</option>
+      <option value="gpt-3.5-turbo-16k">16k</option>
     
     </select>
   </div>
@@ -869,7 +869,11 @@ svg text {
   <input type="number" class="form-control" id="maxLemInput" min="0" value="10">
   </div>
   
-
+  <div class="form-group">
+    <label for="maxTokens_Input">Макс. слов в сообщении: <span id="maxTokensValue">2000</span></label>
+    <input type="number" class="form-control" id="maxTokensInput" min="1" value="2000">
+  </div>
+  
 
 
   <div class="form-group">
@@ -992,18 +996,30 @@ svg text {
   <div>
     <button class="btn-group" style="width:100%">Задать вопрос</button>
   </div>
+
+
+
+  <div id="wrapp" class="wrapper">
+    <svg>
+      <text x="50%" y="50%" dy=".35em" text-anchor="middle">
+        VK-ChatGPT-3.5 -Turbo
+      </text>
+    </svg>
+  </div>
+
+
+
+
+
+
+
+
 </div>
 
 <br>
 
 
-<div class="wrapper">
-	<svg>
-		<text x="50%" y="50%" dy=".35em" text-anchor="middle">
-			VK-ChatGPT-3.5 -Turbo
-		</text>
-	</svg>
-</div>
+
 
 
 

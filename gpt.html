@@ -923,7 +923,23 @@ position: fixed;
 
 
 
+  <div class="properties">
+    <label for="voice">Голос:</label>
+    <select id="voice"></select>
+    <div></div>
 
+    <label for="pitch">Тональность:</label>
+    <input id="pitch" type="range" min="0.1" max="2" step="0.1" value="1">
+    <output for="pitch">1</output>
+
+    <label for="rate">Скорость:</label>
+    <input id="rate" type="range" min="0.1" max="2" step="0.1" value="1">
+    <output for="rate">1</output>
+
+    <label for="volume">Громкость:</label>
+    <input id="volume" type="range" min="0" max="1" step="0.1" value="1">
+    <output for="volume">1</output>
+  </div>
 
 
 
@@ -1150,8 +1166,8 @@ position: fixed;
   
         <div class="btn4-group" style="width:100%">
         
-          <button  style="width:60%" type="submit" id="sendButton">Отправить</button>
-          <a type="button" id="vocalStart" style="width:18%" class="btn btn-outline-warning">🔈</a>
+          <button  style="width:50%" type="submit" id="sendButton">Отправить</button>
+          <a type="button" id="speak" style="width:18%" class="btn btn-outline-warning">🔈</a>
           <a type="button" id="submitRec" style="width:18%" class="btn btn-outline-warning">🎤</a>
           <span id="recordingIndicator"  style="width:1%"></span>
         </div>

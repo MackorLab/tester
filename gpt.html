@@ -1166,15 +1166,7 @@ position: fixed;
 
 }
 
-#closePen {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  font-size: 24px;
-  color: #000;
-  cursor: pointer;
 
-}
 .codepen-container {
   width: 100%;
   padding-top: 56.25%;
@@ -1203,7 +1195,9 @@ position: fixed;
 
     <div class="overlay" id="CodePenOverlay">
       <div class="modalPen">
+	       <div class="col-12 offset-md-8 col-md-4 text-right">
         <button id="closePen" type="button" class="btn btn-secondary btn-sm">Закрыть</button>
+	       </div>
         <div class="codepen-container">
       <iframe height="300" style="width: 100%;" scrolling="no" title="ChatGPT-CodePen_1" src="https://codepen.io/MackorLab/embed/xxQmwRE?default-tab=html%2Cresult&editable=true&theme-id=dark" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
   See the Pen <a href="https://codepen.io/MackorLab/pen/xxQmwRE">

@@ -1111,7 +1111,7 @@ position: fixed;
       <span class="slider round"></span>
     </label>
 
-    <button id="CodePen" type="button" class="btn btn-outline-dark">CodePen</button>
+    <button id="ShowCodePenButton" type="button" class="btn btn-outline-dark">CodePen</button>
 
     <button id="totTokBut" type="button" class="btn btn-outline-primary">
       <span id="totalTok" class="badge badge-light">0</span>
@@ -1155,7 +1155,55 @@ position: fixed;
 
 
 
+<style>
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  display: none;
+  justify-content: center;
+  align-items: center;
+}
 
+.modalPen {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 5px;
+  position: relative;
+}
+
+.closePen {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 16px;
+  color: #fff;
+  background-color: #000;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.codepen-container {
+  width: 100%;
+  padding-top: 56.25%;
+  position: relative;
+}
+
+.codepen-container iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+
+</style>
 
 
 
@@ -1166,7 +1214,18 @@ position: fixed;
     <div class="chat-osnov" id="chat"></div>
     
 
- 
+    <div class="overlay" id="CodePenOverlay">
+      <div class="modalPen">
+        <div class="closePen">Закрыть</div>
+        <div class="codepen-container">
+          <iframe height="300" style="width: 100%;" scrolling="no" title="ChatGPT-CodePen_1" src="https://codepen.io/MackorLab/embed/xxQmwRE?default-tab=html%2Cresult&theme-id=dark" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
+            See the Pen <a href="https://codepen.io/MackorLab/pen/xxQmwRE">
+            ChatGPT-CodePen_1</a> by VK-ChatGPT-3.5 -Turbo (<a href="https://codepen.io/MackorLab">@MackorLab</a>)
+            on <a href="https://codepen.io">CodePen</a>.
+          </iframe>
+        </div>
+      </div>
+    </div>
 
 
     <div class="d-flex justify-content-center"> 

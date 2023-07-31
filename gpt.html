@@ -811,37 +811,9 @@ position: fixed;
 
 
 <style>
-.overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
 
-  display: none;
 
-}
 
-.closePen {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  font-size: 24px;
-  color: #000;
-  cursor: pointer;
-}
-.codepen-container {
-  width: 100%;
-  padding-top: 56.25%;
-  position: relative;
- margin-top: 36px; /* Высота кнопки в пикселях */	
-}
-.codepen-container iframe {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  
-}
 
 </style>
 
@@ -1139,7 +1111,7 @@ position: fixed;
       <span class="slider round"></span>
     </label>
 
-    <button id="ShowCodePenButton" type="button" class="btn btn-outline-dark">CodePen</button>
+    <button id="ShowCodePenButton" type="button" class="btn btn-outline-dark">👨‍💻</button>
 
     <button id="totTokBut" type="button" class="btn btn-outline-primary">
       <span id="totalTok" class="badge badge-light">0</span>
@@ -1183,7 +1155,40 @@ position: fixed;
 
 
 
+<style>
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
 
+  display: none;
+
+}
+
+#closePen {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 24px;
+  color: #000;
+  cursor: pointer;
+}
+.codepen-container {
+  width: 100%;
+  padding-top: 56.25%;
+  position: relative;
+}
+.codepen-container iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  
+}
+
+
+</style>
 
 
 
@@ -1196,7 +1201,7 @@ position: fixed;
 
     <div class="overlay" id="CodePenOverlay">
       <div class="modalPen">
-        <button type="button" class="btn btn-secondary btn-sm">Закрыть</button>
+        <button id="closePen" type="button" class="btn btn-secondary btn-sm">Закрыть</button>
         <div class="codepen-container">
       <iframe height="300" style="width: 100%;" scrolling="no" title="ChatGPT-CodePen_1" src="https://codepen.io/MackorLab/embed/xxQmwRE?default-tab=html%2Cresult&editable=true&theme-id=dark" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
   See the Pen <a href="https://codepen.io/MackorLab/pen/xxQmwRE">

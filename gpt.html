@@ -3,12 +3,12 @@
 
 <head>
  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="https://unpkg.com/@vkontakte/vk-bridge/dist/browser.min.js"></script>
 <script type="text/javascript" src="https://vk.com/js/api/openapi.js?169"></script>
 
 
-
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css">
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.7/css/all.css">
 	<script src="https://cdn.staticfile.org/jquery/3.6.3/jquery.min.js"></script>
 	<script src="https://cdn.staticfile.org/markdown-it/13.0.1/markdown-it.min.js"></script>
@@ -628,7 +628,7 @@ position: fixed;
   background-color: rgba(0, 0, 0, 0.5);
   pointer-events: auto;
   z-index: 5;
- 
+
 }
 
 
@@ -806,6 +806,41 @@ position: fixed;
       
       
       </style>
+
+
+
+
+<style>
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+.modal {
+  background-color: #fff;
+  padding: 20px;
+  max-width: 800px;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+.hidden {
+  display: none;
+}
+
+
+</style>
+
+
+
 
 
 <body>
@@ -1104,12 +1139,16 @@ position: fixed;
       <span id="totalTok" class="badge badge-light">0</span>
     </button>
  
+    <button id="CodePen" type="button" class="btn btn-outline-dark">CodePen</button>
 
+
+    
 
     <button id="outProm" type="button" class="btn btn-outline-primary">
       📑 <span id="basePageCount" class="badge badge-light">0</span>
     </button>
 
+  
 
 
 
@@ -1135,6 +1174,23 @@ position: fixed;
 
   
   </div>
+
+
+
+<div id="CodePenOut">
+
+  <p class="codepen" data-height="300" data-default-tab="html,result" data-slug-hash="xxQmwRE" data-user="MackorLab" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+    <span>See the Pen <a href="https://codepen.io/MackorLab/pen/xxQmwRE">
+    ChatGPT-CodePen_1</a> by VK-ChatGPT-3.5 -Turbo (<a href="https://codepen.io/MackorLab">@MackorLab</a>)
+    on <a href="https://codepen.io">CodePen</a>.</span>
+  </p>
+  <script async src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script>
+
+
+
+</div>
+
+
 
 
   <br>

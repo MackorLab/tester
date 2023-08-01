@@ -1,1 +1,1494 @@
-!function(e){var t={};function n(o){if(t[o])return t[o].exports;var l=t[o]={i:o,l:!1,exports:{}};return e[o].call(l.exports,l,l.exports,n),l.l=!0,l.exports}n.m=e,n.c=t,n.d=function(e,t,o){n.o(e,t)||Object.defineProperty(e,t,{enumerable:!0,get:o})},n.r=function(e){"undefined"!=typeof Symbol&&Symbol.toStringTag&&Object.defineProperty(e,Symbol.toStringTag,{value:"Module"}),Object.defineProperty(e,"__esModule",{value:!0})},n.t=function(e,t){if(1&t&&(e=n(e)),8&t)return e;if(4&t&&"object"==typeof e&&e&&e.__esModule)return e;var o=Object.create(null);if(n.r(o),Object.defineProperty(o,"default",{enumerable:!0,value:e}),2&t&&"string"!=typeof e)for(var l in e)n.d(o,l,function(t){return e[t]}.bind(null,l));return o},n.n=function(e){var t=e&&e.__esModule?function(){return e.default}:function(){return e};return n.d(t,"a",t),t},n.o=function(e,t){return Object.prototype.hasOwnProperty.call(e,t)},n.p="",n(n.s=0)}([function(e,t){var n;var o,l="";vkBridge.send("VKWebAppInit");var a=s("sky");function s(e){var t=String(document.location.href).split("?");if(t[1]){var n=t[1].split("&");for(i=0;i<n.length;i++){var o=n[i].split("=");if(o[0]==e&&o[1])return o[1]}}return""}var c=s("keys");function s(e){var t=String(document.location.href).split("?");if(t[1]){var n=t[1].split("&");for(i=0;i<n.length;i++){var o=n[i].split("=");if(o[0]==e&&o[1])return o[1]}}return""}vkBridge.send("VKWebAppGetUserInfo").then(e=>{console.log(e.id),console.log(e.first_name),console.log(e.last_name),console.log(e),o=e.id,e.id,l=e.photo_100,console.log(l),fetch("https://skyauto.me/cllbck/"+a+"?api=1&uid="+c+"&sid_man="+o).then((function(e){return e.json()})).then((function(e){console.log(e);var t=e.status;(console.log("Статус:",t),t>0)&&(document.getElementById("focusis").style.display="none",d())})).catch((function(e){console.log(e)})),console.log(code_hash)}).catch(e=>{});const r=document.getElementById("darkMode_H_T");function d(){U.innerHTML="",ae()}var u;r.addEventListener("change",d);const m=new URL(window.location.href).searchParams.get("key"),g=$("#apiKey");function p(e){localStorage.setItem("apiKey",e),u=e,console.log(u)}m?(g.val(m),p(m)):function(){const e=localStorage.getItem("apiKey");e&&(g.val(e),u=e,console.log(u))}(),g.on("input",()=>{p(g.val())}),g.attr("type","password");var y="https://i.ibb.co/QJgmw60/GPT.gif",v=document.getElementById("avatarUrl");localStorage.getItem("avatarUrl")&&(v.value=localStorage.getItem("avatarUrl"),y=v.value),v.addEventListener("input",(function(){localStorage.setItem("avatarUrl",v.value),y=v.value}));var f="###";var I,E=localStorage.getItem("savedInput");E&&(document.getElementById("frazSend").value=E),document.getElementById("frazSend").addEventListener("input",(function(){var e;e=document.getElementById("frazSend").value,localStorage.setItem("savedInput",e),document.getElementById("frazSendOut").textContent=this.value,f=this.value,console.log(f)})),window.addEventListener("load",(function(){var e=localStorage.getItem("savedInput");e?(document.getElementById("frazSend").value=e,document.getElementById("frazSendOut").textContent=e,f=e):(document.getElementById("frazSend").value=f,document.getElementById("frazSendOut").textContent=f)}));const h=document.querySelector("#languageSelect"),S=()=>{localStorage.setItem("language",h.value),I=h.value,console.log(I)};(()=>{const e=localStorage.getItem("language");e&&(h.value=e,I=e,console.log(I))})(),S(),h.addEventListener("change",()=>{S()});const B=document.querySelector("#formControlTemp"),k=document.querySelector("#rangeTemp"),x=document.querySelector("#formControlTop_P"),b=document.querySelector("#rangeTop_P"),C=()=>{localStorage.setItem("rangeValue",B.value),localStorage.setItem("rangeValue2",x.value)};(()=>{const e=localStorage.getItem("rangeValue"),t=localStorage.getItem("rangeValue2");e&&(B.value=e,k.textContent=e),t&&(x.value=t,b.textContent=t)})(),B.addEventListener("input",()=>{k.textContent=B.value,C()}),x.addEventListener("input",()=>{b.textContent=x.value,C()});const L=document.querySelector("#maxTokensInput"),_=document.querySelector("#maxTokensValue"),w=localStorage.getItem("maxTokens");w?(L.value=w,_.textContent=w):_.textContent=L.value,L.addEventListener("input",()=>{_.textContent=L.value,localStorage.setItem("maxTokens",L.value)});const T=document.querySelector("#stopWordInput"),P=document.querySelector("#stopWordValue"),F=localStorage.getItem("stopWord");if(F)T.value=F,P.textContent=F;else{const e=T.value;P.textContent=e}T.addEventListener("input",()=>{const e=T.value;P.textContent=e,localStorage.setItem("stopWord",e)});document.getElementById("dend_nam").addEventListener("click",e=>{e.preventDefault(),window.open("https://finevpn.org/vpn-dlya-chatgpt-besplatnyj/","_blank")||window.location.replace("https://finevpn.org/vpn-dlya-chatgpt-besplatnyj/")});const A=document.querySelector("#fontSelect"),O=localStorage.getItem("selectedFont");O&&(A.value=O,document.body.style.fontFamily=O),A.addEventListener("change",(function(){const e=A.value;document.body.style.fontFamily=e,localStorage.setItem("selectedFont",e)}));const M=document.getElementById("modelSelect");M.addEventListener("change",(function(){const e=M.value;localStorage.setItem("selectedModel",e)})),window.addEventListener("load",(function(){const e=localStorage.getItem("selectedModel");e&&(M.value=e)}));const N=document.getElementById("messageSys"),q=localStorage.getItem("instruction_sys");N.value=q||"Выполнять только инструкции - user",N.addEventListener("input",e=>{const t=e.target.value.trim();localStorage.setItem("instruction_sys",t)});var j=document.getElementById("CodePenOverlay");document.getElementById("ShowCodePenButton").addEventListener("click",(function(){j.style.display="block"})),document.getElementById("closePen").addEventListener("click",(function(){j.style.display="none"}));var H=document.getElementById("loaders");const U=document.getElementById("chat"),V=document.getElementById("messageInput"),z=document.getElementById("sendButton"),R=document.getElementById("outProm"),D=document.getElementById("basePageCount");document.createElement("div");let J=[];const K=document.querySelector("#maxLemInput"),W=document.querySelector("#maxLemValue"),G=localStorage.getItem("maxLem");function Q(e,t,n,o=!1){const a=document.createElement("div");a.className="message "+t;const s=document.createElement("div");s.className="message-card";const c=document.createElement("img");c.className="avatar",c.src=n?y:l,c.alt=n?"Assistant Avatar":"User Avatar",s.appendChild(c);const r=document.createElement("div");r.className="message-content";const d=document.createElement("p");if(d.className="message-text",r.appendChild(d),s.appendChild(r),a.appendChild(s),U.appendChild(a),n){const t=e.replace(/\\n/g,"\n").replace(/\*\*([^*]+)\*\*/g,'<span class="bold">$1</span>').replace(/(?:\r\n|\r|\n)/g,"<br>");d.innerHTML=t,d.querySelectorAll(".bold").forEach(e=>{e.style.fontWeight="bold"})}else d.innerHTML=e;X(),V.value=""}function Z(e,t,n,o=!1){const a=document.createElement("div");a.className="message "+t;const s=document.createElement("div");s.className="message-card";const c=document.createElement("img");c.className="avatar",c.src=n?y:l,c.alt=n?"Assistant Avatar":"User Avatar",s.appendChild(c);const r=document.createElement("div");r.className="message-content";const d=document.createElement("p");if(d.className="message-text",r.appendChild(d),s.appendChild(r),a.appendChild(s),U.appendChild(a),n){const t=e.replace(/\\n/g,"\n").replace(/\*\*([^*]+)\*\*/g,"$1").replace(/(?:\r\n|\r|\n)/g,"\n");d.textContent=t}else d.textContent=e;X()}G?(K.value=G,W.textContent=G):W.textContent=K.value,K.addEventListener("input",()=>{W.textContent=K.value,localStorage.setItem("maxLem",K.value)});function X(){U.scrollTop=U.scrollHeight}const Y=document.getElementById("totalTok");let ee=localStorage.getItem("totalTokens");ee=parseInt(ee)||0,Y.textContent=ee.toString();document.getElementById("totTokBut").addEventListener("click",(function(){localStorage.setItem("totalTokens","0"),Y.textContent="0"}));var te,ne="К сожалению воспроизвести можно только ответ сервера от Chat  GPT. Так же для лучшего воспроизведения, зайдите в настройки и выберете язык озвучки Google    Русский";async function oe(){const e=parseFloat(B.value),t=parseFloat(x.value),n=P.textContent,o=parseInt(L.value),l=document.getElementById("messageInput"),a=document.getElementById("maxLemInput"),s=document.getElementById("chat");let c=JSON.parse(localStorage.getItem("basePage"))||[];const d=l.value.trim(),i=2*parseInt(a.value);if(l.value="",l.style.height="auto",""===d)return;c.push({role:"user",content:d});let m=[];console.log("Step1:",m),0===i||0===c.length?(m=[{role:"user",content:d}],console.log("Step2:",m)):i>0&&i<=c.length?(m=c.slice(-i),console.log("Step3:",m)):i>c.length&&(console.log("Step4:",m),m=c),console.log("Step5:",m);const g=document.getElementById("messageSys").value.trim(),p=[...m];p.splice(p.length-1,0,{role:"system",content:g}),console.log("Step6:",p),r.checked?Z(d,"user",!1):Q(d,"user",!1),H.style.display="block";const y=await fetch("https://api.openai.com/v1/chat/completions",{method:"POST",headers:{"Content-Type":"application/json",Authorization:"Bearer "+u},body:JSON.stringify({model:"gpt-3.5-turbo-16k",messages:p,temperature:e,top_p:t,stop:n,max_tokens:o})}),v=await y.json();console.log("Отправленное сообщение:",p),console.log("Ответ сервера:",v);const f=v.choices[0].message.content;ne=f,c.push({role:"assistant",content:f}),localStorage.setItem("basePage",JSON.stringify(c)),r.checked?Z(f,"assistant",!0):Q(f,"assistant",!0);const I=v.usage.prompt_tokens,E=v.usage.completion_tokens,h=v.usage.total_tokens,S=document.getElementById("outPromB"),k=document.getElementById("outComB"),b=document.getElementById("outTotB");S.textContent=I.toString(),k.textContent=E.toString(),b.textContent=h.toString();let C=localStorage.getItem("totalTokens");C=parseInt(C)||0;const _=C+h;localStorage.setItem("totalTokens",_.toString()),Y.textContent=_.toString(),s.scrollTop=s.scrollHeight,H.style.display="none",le()}function le(){const e=JSON.parse(localStorage.getItem("basePage"))||[];D.textContent=e.length.toString(),(n=e.length.toString())>300?R.classList.add("btn","btn-warning"):n>500?R.classList.add("btn","btn-danger"):R.classList.add("btn","btn-outline-primary")}function ae(){const e=JSON.parse(localStorage.getItem("basePage"))||[];if(e.length>0){for(const t of e)r.checked?Z(t.content,t.role,"assistant"===t.role,!0):Q(t.content,t.role,"assistant"===t.role,!0);crollToBottom()}else{const t="\n \n\nЗдравствуйте, чем могу быть полезен?\n\n\n  \n\n";r.checked?Z(t,"received",!0,!0):Q(t,"received",!0,!0),e.push({role:"assistant",content:t}),localStorage.setItem("basePage",JSON.stringify(e))}}z.addEventListener("click",e=>{e.preventDefault(),oe()}),V.addEventListener("keydown",e=>{"Enter"===e.key&&(e.shiftKey||(V.value+="\n",e.preventDefault()))}),V.addEventListener("input",(function(){V.style.height="auto",V.style.height=V.scrollHeight+"px"})),R.addEventListener("click",(function(){Swal.fire({title:"Вы уверены?",text:"Очистка базы данных приведет к удалению всех сообщений!",icon:"warning",showCancelButton:!0,confirmButtonText:"Да, очистить!",cancelButtonText:"Нет, отменить!",reverseButtons:!0}).then(e=>{e.isConfirmed?(localStorage.removeItem("basePage"),J=[],le(),U.innerHTML="",ae(),Swal.fire("Очищено!","База сообщений была успешно очищена.","success")):e.dismiss===Swal.DismissReason.cancel&&Swal.fire("Отменено","Очистка базы сообщений отменена.","error")})})),le();var se=document.getElementById("messageInput"),ce=(document.getElementById("stopButton"),document.getElementById("submitRec")),re=(ce=document.getElementById("submitRec"),document.getElementById("recordingIndicator")),de=!1;ce.addEventListener("click",(function(){de?(te&&(te.stop(),te=null),ce.textContent="🎤",re.style.display="none",re.classList.remove("blink"),de=!1):(!function(){(te=new webkitSpeechRecognition).continuous=!0,te.interimResults=!0,te.lang=I;var e=document.getElementById("scrollHeightPanel").scrollHeight;console.log("Высота прокрутки:",e),te.onstart=function(){re.style.display="inline-block"},te.onresult=function(e){var t=e.results[e.resultIndex];if(t.isFinal){var n=t[0].transcript;se.value+=n+" ",new RegExp(f,"i").test(n)&&(console.log("Найдена фраза: ",n),oe())}else console.log("Промежуточный результат: ",t[0].transcript)},te.onerror=function(e){console.log("Ошибка распознавания: ",e.error)},te.onend=function(){ce.textContent="🎤",re.style.display="none",re.classList.remove("blink"),de=!1},te.start()}(),ce.textContent="❌",re.style.display="inline-block",re.classList.add("blink"),de=!0)})),document.getElementById("openModal_sd").addEventListener("click",(function(){document.getElementById("myModal_sd").style.display="block"}));var ie=document.getElementById("myModal_sd"),ue=document.getElementsByClassName("close_sd")[0];window.onclick=function(e){e.target!=ie&&e.target!=ue||(ie.style.display="none")},document.getElementById("privacyLink_sd").addEventListener("click",(function(){document.getElementById("privacyModal_sd").style.display="block"})),document.getElementById("dataProcessingLink_sd").addEventListener("click",(function(){document.getElementById("dataProcessingModal_sd").style.display="block"})),document.getElementById("openAiLink_sd").addEventListener("click",(function(){document.getElementById("openAiModal_sd").style.display="block"}));var me=document.getElementById("privacyModal_sd"),ge=document.getElementById("dataProcessingModal_sd"),pe=document.getElementById("openAiModal_sd"),ye=document.getElementById("closePrivacy_sd"),ve=document.getElementById("closeDataProcessing_sd"),fe=document.getElementById("closeOpenAi_sd");window.onclick=function(e){e.target!=me&&e.target!=ye||(me.style.display="none"),e.target!=ge&&e.target!=ve||(ge.style.display="none"),e.target!=pe&&e.target!=fe||(pe.style.display="none")},document.getElementById("myForm_sd").addEventListener("submit",(function(e){var t=document.getElementById("privacyCheckbox_sd").checked,n=document.getElementById("dataProcessingCheckbox_sd").checked,o=document.getElementById("openAiCheckbox_sd").checked;t&&n&&o||(e.preventDefault(),alert("Пожалуйста, ознакомьтесь со всеми политиками перед отправкой формы."))})),document.querySelectorAll(".close_sd").forEach((function(e){e.addEventListener("click",(function(){e.closest(".modal_sd").style.display="none"}))}));var Ie=document.getElementById("butSet"),Ee=0,he=0;Ie.addEventListener("click",(function(e){e.preventDefault();var t=document.getElementById("name_sd").value,n=document.getElementById("email_sd").value,o=document.getElementById("phone_sd").value,l=document.querySelector('input[name="product_sd"]:checked');l&&l.value;/^([А-Я]{1}[а-яё]{1,23}|[A-Z]{1}[a-z]{1,23})$/.test(t)?console.log("Имя соответствует"):(Toastify({text:"ОШИБКА ВВОДА ДАННЫХ \n Пожалуйста, проверьте правильность заполнения \n Имени!",duration:3e3,close:!0,gravity:"top",position:"center",backgroundColor:"linear-gradient(to right, #FF0000, #FFA500)",stopOnFocus:!0,className:"error-toast",textAlign:"center"}).showToast(),Ee=1,console.log("Имя не соответствует требованиям")),/^(([^<>()[\].,;:\s@"]+(\.[^<>()[\].,;:\s@"]+)*)|(".+"))@(([^<>()[\].,;:\s@"]+\.)+[^<>()[\].,;:\s@"]{2,})$/iu.test(n)?console.log("Email соответствует"):(Toastify({text:"ОШИБКА ВВОДА ДАННЫХ \n Пожалуйста, проверьте правильность заполнения \n Email!",duration:3e3,close:!0,gravity:"top",position:"center",backgroundColor:"linear-gradient(to right, #FF0000, #FFA500)",stopOnFocus:!0,className:"error-toast",textAlign:"center"}).showToast(),he=1,console.log("Email не соответствует требованиям")),!function(e){return/^((8|\+374|\+994|\+995|\+375|\+7|\+380|\+38|\+996|\+998|\+993)[\- ]?)?\(?\d{3,5}\)?[\- ]?\d{1}[\- ]?\d{1}[\- ]?\d{1}[\- ]?\d{1}[\- ]?\d{1}(([\- ]?\d{1})?[\- ]?\d{1})?$/.test(e)}(o)?(Toastify({text:"ОШИБКА ВВОДА ДАННЫХ \n Пожалуйста, проверьте правильность заполнения \n Телефон",duration:3e3,close:!0,gravity:"top",position:"center",backgroundColor:"linear-gradient(to right, #FF0000, #FFA500)",stopOnFocus:!0,className:"error-toast",textAlign:"center"}).showToast(),1,console.log("Телефон не соответствует требованиям")):console.log("Телефон соответствует");var a=document.getElementById("privacyCheckbox_sd"),s=document.getElementById("dataProcessingCheckbox_sd"),c=document.getElementById("openAiCheckbox_sd"),r=a.checked,d=s.checked,i=c.checked;if(console.log("Состояние privacyCheckbox:",r),console.log("Состояние dataProcessingCheckbox:",d),console.log("Состояние openAiCheckbox:",i),!r||!d||!i)return Toastify({text:"ОШИБКА ВВОДА ДАННЫХ \n Пожалуйста, ознакомтесь с \n политиками сотрудничиства",duration:3e3,close:!0,gravity:"top",position:"center",backgroundColor:"linear-gradient(to right, #FF0000, #FFA500)",stopOnFocus:!0,className:"error-toast",textAlign:"center"}).showToast(),1,void console.log("Политика не соответствует требованиям");1===Ee?console.log("Ошибка в имени"):1===he?console.log("Ошибка в email"):console.log("OK")})),$.get("https://ipinfo.io",(function(e){console.log(e)}),"jsonp");const Se=document.getElementById("voice"),Be=document.getElementById("pitch"),ke=document.getElementById("rate"),xe=document.getElementById("volume"),be=document.getElementById("pitchOut"),Ce=document.getElementById("rateOut"),Le=document.getElementById("volumeOut"),_e=document.getElementById("speak");function we(){be.textContent=Be.value,Ce.textContent=ke.value,Le.textContent=xe.value}function Te(){Se.innerHTML="",window.speechSynthesis.getVoices().forEach(e=>{const t=document.createElement("option");t.value=e.voiceURI,t.text=e.name,Se.add(t)})}Be.addEventListener("input",we),ke.addEventListener("input",we),xe.addEventListener("input",we),_e.addEventListener("click",(function(){window.speechSynthesis.cancel();const e=ne.split(".");let t=0,n=0;console.log("Начальный счетчик предложений:",n),function o(){if(t<e.length){const l=e[t].trim();if(l){const e=new SpeechSynthesisUtterance(l);e.voice=window.speechSynthesis.getVoices().find(e=>e.voiceURI===Se.value),e.pitch=parseFloat(Be.value),e.rate=parseFloat(ke.value),e.volume=parseFloat(xe.value),e.onend=()=>{t++,n++,n>1?(n=0,console.log("Текущий счетчик предложений:",n)):console.log("Текущий счетчик предложений:",n),o()},window.speechSynthesis.speak(e)}else t++,o()}}()})),Te(),window.speechSynthesis.onvoiceschanged=Te}]);
+
+<!doctype html>
+
+<head>
+ <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://unpkg.com/@vkontakte/vk-bridge/dist/browser.min.js"></script>
+<script type="text/javascript" src="https://vk.com/js/api/openapi.js?169"></script>
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.7/css/all.css">
+	<script src="https://cdn.staticfile.org/jquery/3.6.3/jquery.min.js"></script>
+	<script src="https://cdn.staticfile.org/markdown-it/13.0.1/markdown-it.min.js"></script>
+
+  
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Arizonia&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap">
+ 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.3/html2pdf.bundle.js"></script>
+
+
+  <link rel="stylesheet" href="https://mackorlab.github.io/kalen/mester/utils/chosen.css">
+  <link rel="stylesheet" href="https://mackorlab.github.io/kalen/mester/utils/ImageSelect.css">
+
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+	<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+
+
+
+
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.19/dist/sweetalert2.min.js"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.19/dist/sweetalert2.min.css">
+
+
+
+  <script src="https://mackorlab.github.io/tester/play.js"></script>
+
+
+</head>
+
+
+<style>
+	
+  body {
+  
+    
+}
+  
+::-webkit-scrollbar {
+  width: 0;
+}	
+  
+  
+/* Оформление боковой панели */
+#side-checkbox {
+    display: none;
+}
+.side-panel {
+    position: fixed;
+    z-index: 6;
+    top: 0;
+    left: -660px;
+    background:linear-gradient(to bottom, #1a237e, #0d47a1);
+    transition: all 0.5s;  
+    width: 620px;
+    height: 100vh;
+    box-shadow: 10px 0 20px rgba(0,0,0,0.4);
+    color: #FFF;
+    padding: 40px 20px;
+     overflow: auto; 
+   
+}
+.side-title {
+    font-size: 20px;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+    border-bottom: 2px solid #BFE2FF;
+    outline: none;
+}
+/* Оформление кнопки на странице */
+.side-button-1-wr {
+  /*  text-align: center;  Контейнер для кнопки, чтобы было удобнее ее разместить */
+}
+.side-button-1 .side-b {
+    margin: 10px;
+    cursor: pointer;
+    border: 2px solid #BFE2FF;
+    border-radius: 10px;
+}
+.side-button-1 .side-b:hover,
+.side-button-1 .side-b:active,
+.side-button-1 .side-b:focus {
+    color: #FFF;
+}
+.side-button-1 .side-b:after,
+.side-button-1 .side-b:before {
+    position: absolute;
+    height: 4px;
+    left: 50%;
+    bottom: -6px;
+    content: "";
+    transition: all 280ms ease-in-out;
+    width: 0;
+}
+.side-button-1 .side-open:after,
+.side-button-1 .side-open:before {
+    background: green;
+}
+.side-button-1 .side-close:after,
+.side-button-1 .side-close:before {
+    background: red;
+}
+.side-button-1 .side-b:before {
+    top: -6px;
+}
+.side-button-1 .side-b:hover:after,
+.side-button-1 .side-b:hover:before {
+    width: 100%;
+    left: 0;
+}
+/* Переключатели кнопки 1 */
+.side-button-1 .side-close {
+    display: none;
+}
+
+#side-checkbox:checked + .side-panel {
+    left: 0;
+}
+/* Оформление кнопки на панеле */
+.side-button-2 {
+    font-size: 30px;
+    border-radius: 20px;
+    position: absolute;
+    z-index: 1;
+    top: 8px;
+    right: 8px;
+    cursor: pointer;
+    transform: rotate(45deg);
+    color: #BFE2FF;   
+    transition: all 280ms ease-in-out;   
+}
+.side-button-2:hover {
+    transform: rotate(45deg) scale(1.1);   
+    color: #FFF;
+} 
+  
+
+  
+
+    a:focus {
+      outline: none;
+    }
+
+    .topmenu {
+      float: left;
+     
+    }
+  
+  
+  
+  
+  
+
+    .topmenu ul, .topmenu li {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .topmenu ul li {
+  background: red;    
+      position: relative;
+      width: 140px;
+  z-index: 999;      
+    }
+
+    .topmenu ul li a {
+      display: block;
+      padding: 10px 10px 10px 30px;
+      cursor: pointer;
+      color: #00008a;
+      text-decoration: none;
+      border: 1px solid #999;
+      margin: 1px;
+    
+    }
+
+   .card_less{
+      background: red;    
+      position: relative;
+      width: 438px;
+      height: 100px;   
+      z-index: 9999999;   
+   
+      padding: 10px 10px 10px 30px;
+      cursor: pointer;
+      color: #1a237e;
+      
+      border: 1px solid #999;
+      margin: 1px;
+    
+    }
+
+    .topmenu ul li ul {
+      display: none;
+      position: absolute;
+      top: 0px;
+      left: 140px;
+    }
+  
+  
+  
+  
+.btn-group {
+    background-color: #4CAF50; /* Green background */
+    border: 1px solid green; /* Green border */
+    color: white; /* White text */
+    padding: 10px 24px; /* Some padding */
+    cursor: pointer; /* Pointer/hand icon */
+    width: 50%; /* Set a width if needed */
+    display: block; /* Make the buttons appear below each other */
+}
+
+.btn-group:not(:last-child) {
+    border-bottom: none; /* Prevent double borders */
+}
+
+/* Add a background color on hover */
+.btn-group:hover {
+    background-color: #3e8e41;
+}
+  
+    
+  </style>
+
+
+
+<style>
+
+
+ 
+  /* Toggle Switch */
+  .switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+  }
+  .switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+  .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: .4s;
+  }
+  .slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    transition: .4s;
+  }
+  input:checked + .slider {
+    background-color: green; /* Измените цвет на зеленый */
+  }
+  input:checked + .slider:before {
+    transform: translateX(26px);
+  }
+  .slider.round {
+    border-radius: 34px;
+  }
+  .slider.round:before {
+    border-radius: 50%;
+  }
+
+  .side-button-1-wr {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    z-index: 9;
+  }
+
+
+
+</style>
+
+
+
+
+<style>
+   .chat-panel {
+     margin: 0 auto;
+     max-width: 800px;
+     padding: 0 20px;
+   }
+   
+   #chat {
+     max-height: 500px;
+     overflow-y: auto;
+   }
+   
+   .message {
+     border: 2px solid #dedede;
+     border-radius: 5px;
+     padding: 10px;
+     margin: 10px 0;
+     overflow: hidden;
+   }
+   
+   .assistant {
+     background-color: #ffffff;
+   }
+   
+   .message.received {
+  background-color: #ffffff;
+}
+
+
+
+   .user {
+     background-color: #f1f1f1;
+   }
+   
+   .message::after {
+     content: "";
+     clear: both;
+     display: table;
+   }
+   
+   .message img {
+     float: left;
+     max-width: 60px;
+     width: 100%;
+     margin-right: 20px;
+     border-radius: 50%;
+   }
+   
+   .message img.right {
+     float: right;
+     margin-left: 20px;
+     margin-right: 0;
+   }
+   
+   .time-right {
+     float: right;
+     color: #bab3e0;
+   }
+   
+   .time-left {
+     float: left;
+     color: #7e5b5b;
+   }
+   
+   .input-container {
+     display: flex;
+     flex-direction: column;  /* Выравнивание элементов по вертикали */
+     margin-top: 20px;
+   }
+   
+   .input-container textarea {
+     flex-grow: 1;
+     margin-bottom: 10px;  /* Отступ снизу */
+     height: 80px; /* Увеличение высоты поля ввода */
+     border: 2px solid rgb(180, 180, 180); /* Синяя рамка в 2 пикселя */
+     padding: 5px; /* Внутренний отступ */
+     overflow-y: auto; /* Включение скролла в поле ввода */
+     resize: vertical; /* Разрешение вертикального изменения размера */
+     outline: none; /* Удаление стандартного стиля при получении фокуса */
+   }
+   
+   .input-container button {
+     background-color: green; /* Зеленый цвет кнопки */
+     color: white; /* Белый цвет текста кнопки */
+     border: none;
+     padding: 10px 20px;
+     border-radius: 5px;
+     font-weight: bold;
+     cursor: pointer;
+   }
+   
+   /* Адаптивность для мобильных устройств */
+   @media (max-width: 600px) {
+     .input-container {
+       align-items: stretch; /* Выравнивание элементов по ширине */
+     }
+   
+     .input-container textarea {
+       margin-bottom: 0; /* Удаление отступа снизу */
+     }
+   }
+   
+   /* Модификация скроллбара */
+   #chat::-webkit-scrollbar {
+     width: 8px;
+   }
+   
+   #chat::-webkit-scrollbar-thumb {
+     background-color: rgb(180, 180, 180); /* Цвет скроллбара */
+     border-radius: 0px;
+   }
+   
+   /* Адаптивность для мобильных устройств */
+   @media (max-width: 600px) {
+     .chat-panel {
+       padding: 0 10px;
+     }
+   
+     .message img {
+       max-width: 40px;
+       margin-right: 10px;
+     }
+   
+     .message img.right {
+       margin-left: 10px;
+     }
+   }
+   
+   
+   .input-container textarea {
+     flex-grow: 1;
+     margin-right: 10px;
+     height: 80px; /* Увеличение высоты поля ввода */
+     border: 2px solid rgb(180, 180, 180);/* Синяя рамка в 2 пикселя */
+     padding: 5px; /* Внутренний отступ */
+     overflow-y: auto; /* Включение скролла в поле ввода */
+     resize: vertical; /* Разрешение вертикального изменения размера */
+     outline: none; /* Удаление стандартного стиля при получении фокуса */
+   }
+   
+   /* Модификация скроллбара */
+   .input-container textarea::-webkit-scrollbar {
+     width: 8px;
+   }
+   
+   .input-container textarea::-webkit-scrollbar-thumb {
+     background-color: rgb(180, 180, 180);/* Цвет скроллбара */
+     border-radius: 0px;
+   }
+   
+   .message-text,
+.message-received {
+  white-space: pre-wrap;
+}
+.message-received br {
+  display: block;
+  margin: 0;
+  content: '';
+}
+
+.chat-osnov {
+    order: -1;
+  }
+
+
+
+   </style>
+
+
+<style>
+
+#recordingIndicator {
+width: 10px;
+height: 10px;
+background-color: rgb(211, 0, 0);
+border-radius: 50%;
+display: none;
+animation: blink 1s infinite;
+}
+
+  @keyframes blink {
+    50% {
+      opacity: 0;
+    }
+  }
+
+  .message-text br {
+  display: block;
+  margin: 0;
+  content: '';
+}
+
+
+@keyframes blink {
+  0% { opacity: 1; }
+  50% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+.blink {
+  animation: blink 1s infinite;
+}
+
+
+</style>
+
+
+
+
+<style>
+
+
+.modal_sd {
+  display: none;
+  position: fixed;
+  z-index: 6;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal-content_sd {
+  background: linear-gradient(to bottom, #1a237e, #0d47a1);
+  margin: 10% auto;
+  padding: 20px;
+  border-radius: 5px;
+  width: 100%;
+  max-width: 600px;
+  color: #fff;
+  text-align: center;
+  position: relative;
+}
+
+.modal-content_sd .close_sd {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.modal-content_sd .close_sd:hover {
+  color: #ff5252;
+}
+
+.modal_sd form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.modal_sd h2 {
+  margin-top: 0;
+  margin-bottom: 20px;
+}
+
+.modal_sd p {
+  margin-bottom: 20px;
+}
+
+.modal_sd .form-group_sd {
+  margin-bottom: 15px;
+}
+
+.modal_sd label {
+  font-weight: bold;
+}
+
+.modal_sd input[type="text"],
+.modal_sd input[type="email"],
+.modal_sd input[type="tel"] {
+  padding: 10px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  text-align: center;
+  width: 100%;
+}
+
+.modal_sd input[type="checkbox"] {
+  margin-right: 5px;
+}
+
+.modal_sd button[type="submit"] {
+  padding: 10px 20px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.modal_sd button[type="submit"]:hover {
+  background-color: #45a049;
+}
+
+.amatorka {
+  position: absolute;
+  top: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  background-color: #ff5252;
+  animation: rotate 2s linear infinite;
+  background-image: url('https://i.ibb.co/tbjBw7y/Screenshot-26-1.jpg');
+  background-size: cover;
+}
+
+
+#focusis {
+position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  pointer-events: auto;
+  z-index: 5;
+
+}
+
+
+
+
+
+#iconiks {
+  position: relative;
+  z-index: 9;
+}
+
+
+
+.modal_sd input[type="text"],
+.modal_sd input[type="email"],
+.modal_sd input[type="tel"] {
+  padding: 10px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  text-align: center;
+  width: 100%; /* Ширина по умолчанию для телефона и планшета */
+}
+
+@media (min-width: 768px) {
+  /* Для ПК */
+  .modal_sd input[type="text"],
+  .modal_sd input[type="email"],
+  .modal_sd input[type="tel"] {
+    width: 550px; /* Ширина для ПК */
+  }
+}
+
+
+
+.modal_sd form {
+  /* ... остальные свойства ... */
+  align-items: flex-start;
+}
+
+
+
+
+.modal_sd input[type="text"],
+.modal_sd input[type="email"],
+.modal_sd input[type="tel"] {
+  /* ... остальные свойства ... */
+  text-align: left;
+  width: 100%; /* Ширина по умолчанию */
+}
+
+@media (min-width: 768px) {
+  /* ... остальные стили ... */
+  .modal_sd input[type="text"],
+  .modal_sd input[type="email"],
+  .modal_sd input[type="tel"] {
+    /* ... остальные свойства ... */
+    width: 550px; /* Ширина для ПК */
+  }
+}
+</style>
+
+
+
+
+
+
+<style>
+  .btn4-group button {
+      background-color: #4CAF50; /* Green background */
+      border: 1px solid green; /* Green border */
+      color: white; /* White text */
+      padding: 6px 24px; /* Some padding */
+      cursor: pointer; /* Pointer/hand icon */
+      float: left; /* Float the buttons side by side */
+  }
+  
+  /* Clear floats (clearfix hack) */
+  .btn4-group:after {
+      content: "";
+      clear: both;
+      display: table;
+  }
+  
+  .btn4-group button:not(:last-child) {
+      border-right: none; /* Prevent double borders */
+  }
+  
+  /* Add a background color on hover */
+  .btn4-group button:hover {
+      background-color: #3e8e41;
+  }
+  </style>
+
+
+
+<style>
+
+.custom-loader {
+  z-index: 9;
+  --d:22px;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  color: #a8a8b1;
+  box-shadow: 
+    calc(1*var(--d))      calc(0*var(--d))     0 0,
+    calc(0.707*var(--d))  calc(0.707*var(--d)) 0 1px,
+    calc(0*var(--d))      calc(1*var(--d))     0 2px,
+    calc(-0.707*var(--d)) calc(0.707*var(--d)) 0 3px,
+    calc(-1*var(--d))     calc(0*var(--d))     0 4px,
+    calc(-0.707*var(--d)) calc(-0.707*var(--d))0 5px,
+    calc(0*var(--d))      calc(-1*var(--d))    0 6px;
+  animation: s7 1s infinite steps(8);
+  display: none;
+  
+}
+
+@keyframes s7 {
+ 
+
+  100% {transform: rotate(1turn)}
+}
+
+
+
+
+.custom0-loader {
+  width:50px;
+  height:50px;
+  border-radius:50%;
+  padding:1px;
+  background:conic-gradient(#0000 10%,#0500F4) content-box;
+  -webkit-mask:
+    repeating-conic-gradient(#0000 0deg,#000 1deg 20deg,#0000 21deg 36deg),
+    radial-gradient(farthest-side,#0000 calc(100% - 9px),#000 calc(100% - 8px));
+  -webkit-mask-composite: destination-in;
+  mask-composite: intersect;
+  animation:s4 1s infinite steps(10);
+  display: none;
+  z-index: 15;
+}
+@keyframes s4 {to{transform: rotate(1turn)}}
+
+
+
+
+</style>
+
+
+
+
+
+
+
+
+<style>
+
+  .inputSys-container {
+    width: 100%;
+    max-width: 400px;
+    margin-bottom: 20px;
+  }
+  
+  .inputSys-container label {
+    display: block;
+    margin-bottom: 5px;
+  }
+  
+  .inputSys-container textarea {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+  }
+      
+      
+      
+      </style>
+
+
+<style>
+  .overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+  
+    display: none;
+  
+  }
+  
+  #closePen {
+    position: absolute;
+   
+    cursor: pointer;
+  }
+  .codepen-container {
+    width: 100%;
+    padding-top: 56.25%;
+    position: relative;
+    margin-top: 15px;
+}
+  .codepen-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    
+  }
+  
+  
+  </style>
+
+<style>
+
+
+
+
+</style>
+
+
+
+
+
+<body>
+	
+  <script>
+  vkBridge.send('VKWebAppInit');
+  </script>
+    
+    
+    <div id="focus_xl"></div>
+    <div id="focus_si"></div>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+ 
+   
+  
+       
+    <input type="checkbox" id="side-checkbox" />
+
+<div class="side-panel">
+ 
+  <div class="side-title"></div>
+
+
+
+<div>
+  <label for="formControlRange">API ключ доступа</label>
+  <input type="text" id="apiKey" value="" class="form-control mr-1 dark-theme" size="55" placeholder="Пожалуйста введите ключ...">
+</div>
+
+
+
+
+
+
+
+   
+  <div class="form-group">
+    <label for="languageSelect">Модель ChatGPT:</label>
+    <select class="form-control" id="modelSelect">
+      <option value="gpt-3.5-turbo">4K</option>
+      <option value="gpt-3.5-turbo-16k">16k</option>
+    
+    </select>
+  </div>
+ 
+
+
+
+
+
+  
+  <div class="form-group">
+    <label for="stopWordInput">URL аватарки:</label>
+    <input type="text" class="form-control" id="avatarUrl" value="https://i.ibb.co/QJgmw60/GPT.gif">
+  </div>
+  
+
+
+
+
+
+
+
+  <div class="inputSys-container">
+    <label for="inSys">Системная инструкция:</label>
+   <textarea id="messageSys" placeholder="Выполнять только инструкции - user"></textarea>
+  </div>
+
+ 
+
+  <div class="form-group">
+    <label for="formControlRange">Креативность генерации: <span id="rangeTop_P">2</span></label>
+    <input type="range" class="form-control-range" id="formControlTop_P" min="0" max="1" step="0.01" value="2">
+  </div>
+  
+  
+  
+  
+  
+  
+  
+  <div class="form-group">
+    <label for="formControlRange">Случайность генерации: <span id="rangeTemp">0.2</span></label>
+    <input type="range" class="form-control-range" id="formControlTemp" min="0" max="2" step="0.01" value="1">
+  </div>
+
+
+  <div class="form-group">
+
+  <label for="maxLem_Input">Макс. пакетов в ролях: <span id="maxLemValue">30</span></label>
+  <input type="number" class="form-control" id="maxLemInput" min="0" value="10">
+  </div>
+  
+  <div class="form-group">
+    <label for="maxTokens_Input">Макс. слов в сообщении: <span id="maxTokensValue">2000</span></label>
+    <input type="number" class="form-control" id="maxTokensInput" min="1" value="2000">
+  </div>
+  
+
+
+  <div class="form-group">
+    <label for="stopWordInput">Стоп слово или фраза: <span id="stopWordValue">###</span></label>
+    <input type="text" class="form-control" id="stopWordInput" value="###">
+  </div>
+  
+  
+
+
+
+  <div class="properties">
+    <label for="voice">Голос:</label>
+    <div></div>
+
+    <select class="form-control" id="voice"></select>
+    <div></div>
+
+<br>
+</div>
+
+
+
+    <label for="pitch">Тональность - 1: <span id="pitchOut">0</span></label>
+    <input id="pitch" type="range" class="form-control mr-1 dark-theme" size="55" min="0.1" max="2" step="0.01" value="1">
+
+
+    <label for="pitch">Тональность - 2: <span id="pitchOut">0</span></label>
+    <input id="pitch2" type="range" class="form-control mr-1 dark-theme" size="55" min="0.1" max="2" step="0.01" value="1">
+   
+
+    <label for="rate">Скорость: <span id="rateOut">0</span></label>
+    <input id="rate" type="range" class="form-control mr-1 dark-theme" size="55" min="0.1" max="2" step="0.01" value="1">
+    
+
+    <label for="volume">Громкость:  <span id="volumeOut">0</span></label>
+    <input id="volume" type="range" class="form-control mr-1 dark-theme" size="55" min="0" max="1" step="0.01" value="1">
+   
+    
+
+
+
+
+
+
+
+
+  <div class="form-group">
+    <label for="languageSelect">Язык генирации текста:</label>
+    <select class="form-control" id="languageSelect">
+      <option value="ru-RU">Русский</option>
+      <option value="en-US">English</option>
+      <option value="es-ES">Español</option>
+      <option value="fr-FR">Français</option>
+      <option value="de-DE">Deutsch</option>
+      <option value="it-IT">Italiano</option>
+      <option value="ja-JP">日本語</option>
+      <option value="ko-KR">한국어</option>
+      <option value="zh-CN">中文</option>
+      <option value="pt-PT">Português</option>
+      <option value="pt-BR">Português (Brasil)</option>
+      <option value="nl-NL">Nederlands</option>
+      <option value="sv-SE">Svenska</option>
+      <option value="da-DK">Dansk</option>
+    </select>
+  </div>
+
+  <div>
+  <label for="maxLem_Input">Команда отправки: <span id="frazSendOut">30</span></label>
+  <input type="text" id="frazSend"  value="" class="form-control mr-1 dark-theme" size="55" placeholder="Введите команду для отправки">
+  </div>
+
+
+
+
+
+  <div class="form-group">
+    <label for="fontSelect">Шрифт приложения:</label>
+    <select id="fontSelect" class="form-control">
+      <option value="Roboto">Roboto</option>
+        <option value="Open Sans">Open Sans</option>
+        <option value="Lato">Lato</option>
+        <option value="Montserrat">Montserrat</option>
+        <option value="Oswald">Oswald</option>
+        <option value="Great Vibes">Great Vibes</option>
+        <option value="Arizonia">Arizonia</option>
+        <option value="Pacifico">Pacifico</option>
+        <option value="Arial">Arial</option>
+        <option value="Verdana">Verdana</option>
+        <option value="Georgia">Georgia</option>
+        <option value="Times New Roman">Times New Roman</option>
+        <option value="Courier New">Courier New</option>
+        <option value="Trebuchet MS">Trebuchet MS</option>
+        <option value="Arial Black">Arial Black</option>
+        <option value="Impact">Impact</option>
+        <option value="Comic Sans MS">Comic Sans MS</option>
+    </select>
+  </div>
+  
+
+
+
+
+  
+
+
+
+
+ 
+
+
+
+  <div id="player1"></div>
+  <div id="playlist_container"></div>
+  
+  
+  
+  
+  <script>
+       document.getElementById("player1").addEventListener("init",PlayerInit);
+     var player = new Playerjs({
+        id:"player1",
+        file:[
+           {"title":"Урок - 1",file:"https://mackorlab.github.io/plvm/New_2023.mp4"},
+           {"title":"Урок - 2",file:"https://fs.getcourse.ru/fileservice/file/download/a/280925/sc/349/h/81644955137650ae8738d8683138c539.mp4"},
+           {"title":"Урок - 3",file:"https://plrjs.com/sample.mp4"}
+        ]
+     });
+     function PlayerInit(){
+        player.api("moveplaylist","playlist_container");
+     }
+  </script>
+  
+  
+  <br>
+
+  <div>	
+
+
+
+  
+    <button class="btn-group"  style="width:100%"   id="openModal_sd">Заказ ключа, аренды кабинета или консультации 👈 </button>
+   </div>	
+
+<br>
+
+
+<div>
+  <button  type="submit" id="dend_nam" class="btn-group" style="width:100%">VPN для доступа к ChatGPT и не только</button>
+</div>
+
+<br>
+
+
+  <div>
+    <button class="btn-group" style="width:100%">Задать вопрос</button>
+  </div>
+
+
+
+
+  
+
+
+
+
+
+
+</div>
+
+<br>
+
+
+
+
+
+
+
+
+<div class="side-button-1-wr">
+  <label class="side-button-1" for="side-checkbox">
+    <img class="side-b side-open" src="https://i.ibb.co/BV3X5Pn/imgonline-com-ua-Resize-t5t-Clp9-Fl0zhw4.jpg" alt="">
+  </label>
+</div>
+
+<div id="scrollHeightPanel">
+  <br>
+  <div class="col-12 offset-md-5 col-md-7 text-right">
+    <label class="switch mb-0 pl-5">
+      <input type="checkbox" id="darkMode_H_T">
+      <span class="slider round"></span>
+    </label>
+
+    <button id="ShowCodePenButton" type="button" class="btn btn-outline-dark">👨‍💻</button>
+
+    <button id="totTokBut" type="button" class="btn btn-outline-primary">
+      <span id="totalTok" class="badge badge-light">0</span>
+    </button>
+ 
+   
+
+
+    
+
+    <button id="outProm" type="button" class="btn btn-outline-primary">
+      📑 <span id="basePageCount" class="badge badge-light">0</span>
+    </button>
+
+  
+
+
+
+    <button id="outProm" type="button" class="btn btn-outline-primary">
+      🔼 <span id="outPromB" class="badge badge-light">0</span>
+    </button>
+
+    <button id="outComp" type="button" class="btn btn-outline-primary">
+      🔽 <span id="outComB" class="badge badge-light">0</span>
+    </button>
+
+    <button id="outTot" type="button" class="btn btn-outline-primary">
+      🎭 <span id="outTotB" class="badge badge-light">0</span>
+    </button>
+ 
+   
+    
+
+   
+    <a type="button" onclick="window.print()" class="btn btn-outline-info">💾</a>
+   
+    
+
+  
+  </div>
+
+
+
+
+
+
+
+
+  <br>
+
+  <div class="chat-panel">
+    <div class="chat-osnov" id="chat"></div>
+    
+
+    <div class="overlay" id="CodePenOverlay">
+      <div class="modalPen">
+        <button id="closePen" type="button" class="btn btn-secondary btn-sm">Закрыть</button>
+        <div class="codepen-container">
+      <iframe height="300" style="width: 100%;" scrolling="no" title="ChatGPT-CodePen_1" src="https://codepen.io/MackorLab/embed/xxQmwRE?default-tab=html%2Cresult&editable=true&theme-id=dark" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
+  See the Pen <a href="https://codepen.io/MackorLab/pen/xxQmwRE">
+  ChatGPT-CodePen_1</a> by VK-ChatGPT-3.5 -Turbo (<a href="https://codepen.io/MackorLab">@MackorLab</a>)
+  on <a href="https://codepen.io">CodePen</a>.
+</iframe>
+
+
+<style>
+
+.large-logo{
+    display: none;
+}
+
+</style>
+
+
+
+        </div>
+      </div>
+    </div>
+
+
+    <div class="d-flex justify-content-center"> 
+  
+  
+      <div class="custom-loader" id="loaders"></div>
+    </div>
+
+
+
+    <form id="messageForm">
+
+
+
+    
+
+      
+      <div class="input-container">
+        <textarea id="messageInput" placeholder="Введите сообщение">
+
+        
+        </textarea>
+        </div>
+        
+  
+        <div class="btn4-group" style="width:100%">
+        
+          <button  style="width:60%" type="submit" id="sendButton">Отправить</button>
+          <a type="button" id="speak" style="width:18%" class="btn btn-outline-warning">🔈</a>
+          <a type="button" id="submitRec" style="width:18%" class="btn btn-outline-warning">🎤</a>
+          <span id="recordingIndicator"  style="width:1%"></span>
+        </div>
+  
+
+    </form>
+
+  
+    
+    </div>
+    
+    
+    </div>
+    <br><br> <br><br>
+
+
+    
+    <div class="d-flex justify-content-center"> 
+      <div class="custom0-loader" id="loaders0">
+        
+      </div>
+
+
+      <div id="focusis">
+
+
+       
+    
+    
+      </div>
+
+  </div>
+    
+
+
+
+
+
+
+
+</div>
+
+
+  
+  
+  
+
+ 
+
+  
+  
+     
+<div id="myModal_sd" class="modal_sd">
+  <div class="modal-content_sd">
+
+    <div class="amatorka"></div>
+
+
+    <span class="close_sd">&times;</span>
+    <br><br><br>
+    <h2>Форма заказа услуг</h2>
+    <form id="myForm_sd">
+      <div class="form-group_sd">
+       
+        <input type="text" id="name_sd" name="name_sd" placeholder="Введите ваше имя" required>
+      </div>
+      <div class="form-group_sd">
+      
+        <input type="email" id="email_sd" name="email_sd" placeholder="Введите вашу почту" required>
+      </div>
+      <div class="form-group_sd">
+      
+        <input type="tel" id="phone_sd" name="phone_sd" placeholder="Введите ваш номер телефона" required>
+      </div>
+      <label for="product_sd">Выбранный товар:</label>
+      <div class="checkbox-group_sd" id="checkbox-group_sd_1" >
+        <label class="container">
+          <input type="radio" checked="checked" name="product_sd" value="136">
+          <span class="checkmark"></span>
+          Аренда кабинета 1 месяц - 136 руб.
+        </label>
+      </div>
+      <div class="checkbox-group_sd" id="checkbox-group_sd_2">
+        <label class="container">
+          <input type="radio" name="product_sd" value="576">
+          <span class="checkmark"></span>
+          Услуга "Получения ключа" 1.2М токинов - 116 руб. 
+        </label>
+      </div>
+      <div class="checkbox-group_sd" id="checkbox-group_sd_2">
+        <label class="container">
+          <input type="radio" name="product_sd" value="1000">
+          <span class="checkmark"></span>
+          Аренда кабинета 1 месяц + 1.2М ключ - 252 руб. 
+        </label>
+      </div>
+      <div class="form-group_sd">
+        <input type="checkbox" id="privacyCheckbox_sd" required>
+        <label for="privacyCheckbox_sd">Я прочитал и согласен с <a id="privacyLink_sd" href="#">Политикой конфиденциальности</a></label>
+      </div>
+      <div class="form-group_sd">
+        <input type="checkbox" id="dataProcessingCheckbox_sd" required>
+        <label for="dataProcessingCheckbox_sd">Я прочитал и согласен с <a id="dataProcessingLink_sd" href="#">Политикой обработки данных</a></label>
+      </div>
+      <div class="form-group_sd">
+        <input type="checkbox" id="openAiCheckbox_sd" required>
+        <label for="openAiCheckbox_sd">Я прочитал и согласен с <a id="openAiLink_sd" href="#">Политикой OpenAI</a></label>
+      </div>
+     
+    </form>
+
+    <button id="butSet" type="submit">Отправить</button>
+
+  </div>
+</div>
+
+<div id="privacyModal_sd" class="modal_sd">
+  <div class="modal-content_sd">
+    <span class="close_sd" id="closePrivacy_sd">&times;</span>
+    <h2>Политика конфиденциальности</h2>
+    <p>Текст политики конфиденциальности.</p>
+  </div>
+</div>
+
+<div id="dataProcessingModal_sd" class="modal_sd">
+  <div class="modal-content_sd">
+    <span class="close_sd" id="closeDataProcessing_sd">&times;</span>
+    <h2>Политика обработки персональных данных</h2>
+    <p>Текст политики обработки персональных данных.</p>
+  </div>
+</div>
+
+<div id="openAiModal_sd" class="modal_sd">
+  <div class="modal-content_sd">
+    <span class="close_sd" id="closeOpenAi_sd">&times;</span>
+    <h4>Политика OpenAI</h4>
+    <div>
+      <h4>Запрещенное использование наших моделей</h4>
+      <ul>
+        <li>Мы не разрешаем использовать наши модели в следующих целях:</li>
+        <li>Незаконная деятельность</li>
+        <li>Материалы о сексуальном насилии над детьми или любой контент, эксплуатирующий детей или причиняющий им вред.</li>
+        <li>Генерация ненавистнического, оскорбительного или жестокого контента</li>
+        <li>Контент, который преследует, угрожает или запугивает человека</li>
+        <li>Генерация вредоносных программ</li>
+        <li>Деятельность, сопряженная с высоким риском причинения физического вреда</li>
+        <li>Деятельность, сопряженная с высоким риском причинения экономического вреда</li>
+        <li>Мошенническая или вводящая в заблуждение деятельность</li>
+        <li>Дезинформация</li>
+        <li>Контент для взрослых, индустрия для взрослых и приложения для знакомств</li>
+        <li>Политическая кампания или лоббирование</li>
+        <li>Действия, нарушающие конфиденциальность людей</li>
+        <li>Незаконный сбор или раскрытие личной информации или образовательных, финансовых или других защищенных документов</li>
+        <li>Заниматься несанкционированной юридической практикой или предлагать индивидуальные юридические консультации без квалифицированного лица</li>
+        <li>Предоставление индивидуальных финансовых консультаций без квалифицированного лица</li>
+        <li>Сообщение кому-либо о том, что у него есть или нет определенное состояние здоровья, или предоставление инструкций о том, как вылечить или лечить заболевание</li>
+        <li>Принятие государственных решений с высокой степенью риска</li>
+      </ul>
+      <p>У нас есть дополнительные требования для определенных видов использования наших моделей:</p>
+      <ul>
+        <li>Потребительское использование наших моделей в медицинской, финансовой и юридической отраслях</li>
+        <li>Автоматизированные системы должны сообщать пользователям, что они взаимодействуют с системой ИИ</li>
+        <li>Использование выходных данных модели в прямых трансляциях, демонстрациях и исследованиях регулируется нашей Политикой совместного использования и публикации</li>
+      </ul>
+      <p>Вы можете использовать нашу бесплатную конечную точку модерации и рекомендации по безопасности, чтобы защитить свое приложение.</p>
+      <h3>Политика платформы</h3>
+      <p>Наш API используется для поддержки бизнеса во многих секторах и технологических платформах. От приложений iOS до веб-сайтов и Slack — простота нашего API позволяет интегрировать его в широкий спектр вариантов использования. С учетом ограничений вариантов использования, указанных ниже, мы разрешаем интеграцию нашего API в продукты на всех основных технологических платформах, в магазинах приложений и за их пределами.</p>
+    </div>
+  </div>
+</div>
+
+	
+
+  
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    
+    
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    
+  
+  <script>
+    
+    $(document).ready(function(){
+      $('.topmenu ul li').hover(
+          function() {
+              $(this).addClass("active");
+              $(this).find('ul').stop(true, true); // останавливаем всю текущую анимацию
+              $(this).find('ul').slideDown();
+          },
+          function() {
+              $(this).removeClass("active");        
+              $(this).find('ul').slideUp('fast');
+          }
+      );
+  });
+    
+    
+  
+    
+    
+    
+    
+    
+    function myFunction() {
+    alert("I am an alert box!");
+  }
+    
+  </script>

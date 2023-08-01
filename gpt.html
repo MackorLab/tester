@@ -2,7 +2,7 @@
 <!doctype html>
 
 <head>
- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+ <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="https://unpkg.com/@vkontakte/vk-bridge/dist/browser.min.js"></script>
 <script type="text/javascript" src="https://vk.com/js/api/openapi.js?169"></script>
@@ -1166,12 +1166,18 @@ position: fixed;
 
 }
 
-
+#closePen {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 24px;
+  color: #000;
+  cursor: pointer;
+}
 .codepen-container {
   width: 100%;
   padding-top: 56.25%;
   position: relative;
- margin-top: 15px; /* Высота кнопки в пикселях */	
 }
 .codepen-container iframe {
   position: absolute;
@@ -1195,9 +1201,7 @@ position: fixed;
 
     <div class="overlay" id="CodePenOverlay">
       <div class="modalPen">
-	       <div class="col-12 offset-md-8 col-md-4 text-right">
         <button id="closePen" type="button" class="btn btn-secondary btn-sm">Закрыть</button>
-	       </div>
         <div class="codepen-container">
       <iframe height="300" style="width: 100%;" scrolling="no" title="ChatGPT-CodePen_1" src="https://codepen.io/MackorLab/embed/xxQmwRE?default-tab=html%2Cresult&editable=true&theme-id=dark" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
   See the Pen <a href="https://codepen.io/MackorLab/pen/xxQmwRE">
@@ -1206,7 +1210,16 @@ position: fixed;
 </iframe>
 
 
-	
+<style>
+
+.large-logo{
+    display: none;
+}
+
+</style>
+
+
+
         </div>
       </div>
     </div>

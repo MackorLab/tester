@@ -1,42 +1,51 @@
 <!DOCTYPE html>
-<html>
+<html lang="ru">
+
 <head>
-    <!-- Подключаем стили Tabulator -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/tabulator/4.9.3/css/tabulator.min.css" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TODO</title>
 
-    <style>
-        /* Задаем размеры контейнера таблицы */
-        #table {
-            height: 300px;
-        }
-    </style>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.19/dist/sweetalert2.min.js"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.19/dist/sweetalert2.min.css">
+
+
+
+
+
+
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+  <script defer src="todo-app.js"></script>
+  <!-- Запускаем функцию создания приложения -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      let defArray = [                    //создадим список дел по умолчанию
+        {
+          id: 1,
+          name: 'Освоить ',
+          done: true
+        },
+        {
+          id: 2,
+          name: 'Посмотреть видео ',
+          done: true 
+        },
+      
+      ]
+      createTodoApp(document.getElementById('todo-app'), 'Список дел', 'my-list', defArray);
+    });
+  </script>
 </head>
+
 <body>
-    <h1>Моя таблица с помощью Tabulator.js</h1>
-
-    <div id="table"></div>
-
-    <!-- Подключаем скрипт Tabulator -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/tabulator/4.9.3/js/tabulator.min.js"></script>
-
-    <script>
-        // Создаем экземпляр Tabulator
-        var table = new Tabulator("#table", {
-            data: [], // Передайте массив данных вместо пустого массива, если у вас есть данные для отображения
-            columns: [
-                { title: 'Статья', field: 'title', width: 550 },
-                { title: 'Количество голосов', field: 'countRates', align: 'left', formatter: 'progress' },
-                { title: 'Средняя оценка', field: 'rating' }
-            ]
-        });
-
-        // Добавляем данные в таблицу
-        var data = [
-            { title: 'Статья 1', countRates: 10, rating: 4.5 },
-            { title: 'Статья 2', countRates: 5, rating: 3.2 },
-            { title: 'Статья 3', countRates: 8, rating: 4.0 }
-        ];
-        table.setData(data);
-    </script>
+  <!-- mb-5 нужен для расставления отступов (margin-bottom) -->
+  <div class="container mb-5">
+   
+  </div>
+  <div id="todo-app" class="container"></div>
 </body>
+
 </html>

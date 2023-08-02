@@ -1,4 +1,3 @@
-
 <!doctype html>
 
 <head>
@@ -819,6 +818,42 @@ position: fixed;
   
   }
   
+#closeProm {
+    position: absolute;
+    top: 35px;
+    right: 20px;
+    cursor: pointer;
+}
+  .codeprom-container {
+    width: 100%;
+    padding-top: 56.25%;
+    position: relative;
+    margin-top: 55px;
+}
+  .codeprom-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    
+  }
+  
+  
+  
+  </style>
+
+<style>
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+  
+    display: none;
+  
+  }
+  
 #closePen {
     position: absolute;
     top: 35px;
@@ -839,13 +874,6 @@ position: fixed;
     
   }
   
-  
-  
-  </style>
-
-<style>
-
-
 
 
 </style>
@@ -1150,7 +1178,7 @@ position: fixed;
       <input type="checkbox" id="darkMode_H_T">
       <span class="slider round"></span>
     </label>
-
+    <button id="ShowPromButton" type="button" class="btn btn-outline-dark">📝</button>
     <button id="ShowCodePenButton" type="button" class="btn btn-outline-dark">👨‍💻</button>
 
     <button id="totTokBut" type="button" class="btn btn-outline-primary">
@@ -1204,6 +1232,33 @@ position: fixed;
 
   <div class="chat-panel">
     <div class="chat-osnov" id="chat"></div>
+
+
+
+
+    <div class="overlay" id="PromOverlay">
+      <div class="modalProm">
+        <button id="closeProm" type="button" class="btn btn-primary btn-lg">Закрыть</button>
+        <div class="codeprom-container">
+      <iframe height="300" style="width: 100%;" scrolling="no" title="ChatGPT-CodePen_1" src="https://codepen.io/MackorLab/embed/xxQmwRE?default-tab=html%2Cresult&editable=true&theme-id=dark" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
+  See the Pen <a href="https://codepen.io/MackorLab/pen/xxQmwRE">
+  ChatGPT-CodePen_1</a> by VK-ChatGPT-3.5 -Turbo (<a href="https://codepen.io/MackorLab">@MackorLab</a>)
+  on <a href="https://codepen.io">CodePen</a>.
+</iframe>
+
+
+
+
+
+        </div>
+      </div>
+    </div>
+
+
+
+
+
+
     
 
     <div class="overlay" id="CodePenOverlay">
@@ -1217,13 +1272,6 @@ position: fixed;
 </iframe>
 
 
-<style>
-
-.large-logo{
-    display: none;
-}
-
-</style>
 
 
 

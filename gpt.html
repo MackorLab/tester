@@ -1,5 +1,4 @@
 
-
 <!doctype html>
 
 <head>
@@ -42,6 +41,28 @@
 
 
   <script src="https://mackorlab.github.io/tester/play.js"></script>
+
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      let defArray = [
+{
+id: 1,
+name: 'Подробно распиши, как эффективно использовать социальные медиа для продвижения вашего бизнеса. Улучшите свою стратегию SMM с помощью тактик, которые позволят вам достичь большей видимости, привлечь новых клиентов и укрепить отношения с существующими клиентами. Изучите популярные платформы социальных медиа, создайте уникальный контент и следите за результатами, чтобы достичь успеха в вашей SMM-стратегии.',
+done: true
+},
+{
+id: 2,
+name: 'Посмотреть видео ',
+done: true
+},
+]
+      createTodoApp(document.getElementById('todo-app'), 'Заметки и ПРОМТы', 'my-list', defArray);
+    });
+  </script>
+</head>
+
+
 
 
 </head>
@@ -1242,12 +1263,15 @@ position: fixed;
       <div class="modalPen">
         <button id="closeProm" type="button" class="btn btn-primary btn-sm">Закрыть</button>
         <div class="codeprom">
-      <iframe height="300" style="width: 100%;" scrolling="no" title="ChatGPT-CodePen_1" src="https://codepen.io/MackorLab/embed/xxQmwRE?default-tab=html%2Cresult&editable=true&theme-id=dark" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
-  See the Pen <a href="https://codepen.io/MackorLab/pen/xxQmwRE">
-  ChatGPT-CodePen_1</a> by VK-ChatGPT-3.5 -Turbo (<a href="https://codepen.io/MackorLab">@MackorLab</a>)
-  on <a href="https://codepen.io">CodePen</a>.
-</iframe>
-
+      
+        
+        
+          <!-- mb-5 нужен для расставления отступов (margin-bottom) -->
+          <div class="container mb-5">
+           
+          </div>
+          <div id="todo-app" class="container"></div>
+        
 
 
 

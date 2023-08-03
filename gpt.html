@@ -1131,7 +1131,7 @@ position: fixed;
 
   <div>	
 
-
+<div id="vk_allow_messages_from_community"></div>
 
   
     <button class="btn-group"  style="width:100%"   onclick="openModals()"   id="openModal_sd">Заказ ключа, аренды кабинета или консультации 👈 </button>
@@ -1144,11 +1144,87 @@ position: fixed;
 <script>
 
 function openModals() {
-    document.getElementById("myModal_sd").style.display = "block";
+
+
+
+
+	vkBridge.send("VKWebAppAllowMessagesFromGroup", {"group_id": 217669590, "key": "cc964fabb0e1d7092"})
+	
+
+		.then(data => {
+	
+		console.log(data);
+		if (data.result == true) {
+
+// открываем окно если подписался. 
+document.getElementById("myModal_sd").style.display = "block";
+
+			
+             
+            
+            
+            
+vkBridge.send('VKWebAppJoinGroup', {
+  group_id: 217669590
+  })
+  .then((data) => { 
+    if (data.result) {
+      // Пользователь подписался на сообщество
+    }
+  })
+  .catch((error) => {
+    // Ошибка
+    console.log(error);
+  });           
+            
+            
+            
+            
+            
+            
+            
+	
+	VK.Widgets.AllowMessagesFromCommunity("vk_allow_messages_from_community", {height: 30}, 217669590);
+    
+    VK.Observer.subscribe("widgets.allowMessagesFromCommunity.allowed", function f(userId) {
+        console.log(userId);
+        console.log("allowed");
+        
+        // действие если отписался
+        
+        
+        
+        
+        
+      });
+      VK.Observer.subscribe("widgets.allowMessagesFromCommunity.denied", function f(userId) {
+        console.log(userId);
+        console.log("denied");
+      });
+    
+    
+	  }
+	 
+	  })
+	  .catch(error => {
+		// Handling an error
+        dalRedir();
+        
+	  });
+
+
+
+
+
+
+
+
+	
  
   
 }
 </script>
+
 
 
 

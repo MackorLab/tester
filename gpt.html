@@ -1148,7 +1148,7 @@ function openModals() {
 
 
 
-	vkBridge.send("VKWebAppAllowMessagesFromGroup", {"group_id": 217669590, "key": "cc964fabb0e1d7092"})
+	vkBridge.send("VKWebAppAllowMessagesFromGroup", {"group_id": 221489796, "key": "cc964fabb0e1d7092"})
 	
 
 		.then(data => {
@@ -1165,7 +1165,7 @@ document.getElementById("myModal_sd").style.display = "block";
             
             
 vkBridge.send('VKWebAppJoinGroup', {
-  group_id: 217669590
+  group_id: 221489796
   })
   .then((data) => { 
     if (data.result) {
@@ -1184,7 +1184,7 @@ vkBridge.send('VKWebAppJoinGroup', {
             
             
 	
-	VK.Widgets.AllowMessagesFromCommunity("vk_allow_messages_from_community", {height: 30}, 217669590);
+	VK.Widgets.AllowMessagesFromCommunity("vk_allow_messages_from_community", {height: 30}, 221489796);
     
     VK.Observer.subscribe("widgets.allowMessagesFromCommunity.allowed", function f(userId) {
         console.log(userId);

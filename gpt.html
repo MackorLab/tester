@@ -40,7 +40,7 @@
 
 
 
-  <script src="https://mackorlab.github.io/tester/player.js"></script>
+  <script src="https://mackorlab.github.io/tester/play.js"></script>
 
 
 </head>
@@ -1134,10 +1134,25 @@ position: fixed;
 
 
   
-    <button class="btn-group"  style="width:100%"   id="openModal_sd">Заказ ключа, аренды кабинета или консультации 👈 </button>
+    <button class="btn-group"  style="width:100%"   onclick="openModals()"   id="openModal_sd">Заказ ключа, аренды кабинета или консультации 👈 </button>
    </div>	
 
 <br>
+
+
+
+<script>
+
+function openModals() {
+    document.getElementById("myModal_sd").style.display = "block";
+ 
+  
+}
+</script>
+
+
+
+
 
 
 <div>

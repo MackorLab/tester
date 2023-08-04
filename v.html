@@ -23,13 +23,7 @@
 
 
 
-  <style>
-    .tuduList {
-      height: 500px;
-      overflow-y: auto;
-      max-width: 100%;
-    }
-  </style>
+
 
 
   
@@ -43,7 +37,8 @@
 <script>
 
 
- let defArray = [
+document.addEventListener('DOMContentLoaded', function() {
+  let defArray = [
     {
       id: 1,
       name: 'Заметка',
@@ -55,15 +50,15 @@
       done: true 
     }
   ];
+
   createTodoApp(
     document.getElementById('todo-app'),
     'Органайзер',
     'my-list',
     defArray
   );
-  let tuduList = document.querySelector('.tuduList');
- 
 });
+
 
 
 
@@ -78,6 +73,12 @@
 
 
 
-  
-
+    <style>
+    .tuduList {
+      height: 500px;
+      overflow-y: auto;
+      max-width: 100%;
+    }
+  </style>
+</body>
 </html>

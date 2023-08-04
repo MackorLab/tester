@@ -52,3 +52,82 @@
     </script>
   </body>
 </html>
+
+
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Генератор изображений</title>
+	<style>
+		.image-container {
+			margin-top: 20px;
+		}
+	</style>
+</head>
+<body>
+	<h1>Генератор изображений</h1>
+	<input type="text" id="inputText" placeholder="Введите текст">
+	<button onclick="generateImage()">Сгенерировать изображение</button>
+	<div id="imageContainer" class="image-container"></div>
+
+	<script>
+		async function query(data) {
+			const height = 512;
+			const width = 512;
+			const samples = 1;
+			const steps = 50;
+
+			data = {
+				...data,
+				height,
+				width,
+				samples,
+				steps,
+			};
+
+			const response = await fetch(
+
+        const stabilityApiKey = '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';
+        
+				"https://api-inference.huggingface.co/models/stabilityai/stable-diffusion-xl-base-1.0",
+				{
+					headers: Bearer ${stabilityApiKey},
+					method: "POST",
+					body: JSON.stringify(data),
+				}
+			);
+			const result = await response.blob();
+			return result;
+		}
+
+		async function generateImage() {
+			const inputText = document.getElementById("inputText").value;
+			const requestData = { "inputs": inputText };
+
+			try {
+				const imageBlob = await query(requestData);
+				const imageURL = URL.createObjectURL(imageBlob);
+
+				const imageElement = document.createElement("img");
+				imageElement.src = imageURL;
+
+				const imageContainer = document.getElementById("imageContainer");
+				imageContainer.innerHTML = "";
+				imageContainer.appendChild(imageElement);
+			} catch (error) {
+				console.error("Ошибка при запросе к API Stability.ai");
+			}
+		}
+	</script>
+</body>
+</html>
+
+
+
+
+
+
+

@@ -1,68 +1,54 @@
-
-
 <!DOCTYPE html>
 <html>
-<head>
-  <title>Stability.ai Text to Image</title>
-  <style>
-    #image-container {
-      margin-top: 20px;
-    }
-  </style>
-</head>
-<body>
-  <h1>Stability.ai Text to Image</h1>
-  <form id="text-to-image-form">
-    <label for="text-input">Текст:</label>
-    <input type="text" id="text-input" name="text-input" required>
-    <button type="submit">Создать изображение</button>
-  </form>
-  <div id="image-container"></div>
+  <head>
+    <title>Text-to-Image Generation</title>
+  </head>
+  <body>
+    <h1>Text-to-Image Generation</h1>
+    <input type="text" id="textInput" placeholder="Enter your text prompt" />
+    <button onclick="generateImage()">Generate Image</button>
+    <div id="imageContainer"></div>
 
-  <script>
-    const form = document.querySelector('#text-to-image-form');
-    const imageContainer = document.querySelector('#image-container');
+    <script>
+      function generateImage() {
+        const stabilityApiKey = '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';
+        const baseUrl = 'https://api.stability.ai';
+        const url = `${baseUrl}/v1/generation/text-to-image`;
 
-    form.addEventListener('submit', function(event) {
-      event.preventDefault();
-      const stabilityApiKey = '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';
-      const baseUrl = 'https://api.stability.ai';
-      const url = `${baseUrl}/v1/generation/stable-diffusion-xl-1024-v1-0/text-to-image`;
-      const textInput = document.querySelector('#text-input').value;
+        const textInput = document.getElementById('textInput').value;
+        const height = 512;
+        const width = 512;
+        const samples = 1;
+        const steps = 50;
 
-      fetch(url, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'Accept': 'image/png',
-          'Authorization': `Bearer ${stabilityApiKey}`
-        },
-        body: JSON.stringify({
-          text_prompts: [
-            { text: textInput }
-          ],
-          cfg_scale: 7,
-          height: 1024,
-          width: 1024,
-          samples: 1,
-          steps: 30
+        fetch(url, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'image/png',
+            'Authorization': `Bearer ${stabilityApiKey}`
+          },
+          body: JSON.stringify({
+            height,
+            width,
+            text_prompts: [
+              { text: textInput }
+            ],
+            samples,
+            steps
+          })
         })
-      })
-        .then(response => response.blob())
-        .then(blob => {
-          const img = document.createElement('img');
-          img.src = URL.createObjectURL(blob);
-          imageContainer.innerHTML = '';
-          imageContainer.appendChild(img);
-        })
-        .catch(error => {
-          console.error(error);
-        });
-    });
-  </script>
-</body>
+          .then(response => response.blob())
+          .then(blob => {
+            const imgElement = document.createElement('img');
+            imgElement.src = URL.createObjectURL(blob);
+            document.getElementById('imageContainer').innerHTML = '';
+            document.getElementById('imageContainer').appendChild(imgElement);
+          })
+          .catch(error => {
+            console.error(error);
+          });
+      }
+    </script>
+  </body>
 </html>
-
-
-
-

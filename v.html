@@ -20,42 +20,52 @@
     integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
   <script defer src="https://mackorlab.github.io/tester/jsd.js"></script>
   <!-- Запускаем функцию создания приложения -->
-  <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      let defArray = [                    //создадим список дел по умолчанию
-        {
-          id: 1,
-          name: 'Заметка',
-          done: true
-        },
-        {
-          id: 2,
-          name: 'Промт',
-          done: true 
-        },
-      
-      ]
-      createTodoApp(document.getElementById('todo-app'), 'Органайзер', 'my-list', defArray);
-    });
-  </script>
+  <style>
+    .tuduList {
+      height: 500px;
+      overflow-y: auto;
+      max-width: 100%;
+    }
+  </style>
 </head>
 
 <body>
 
-   
-  </div>
+
+<script>
+
+
+document.addEventListener('DOMContentLoaded', function() {
+  let defArray = [
+    {
+      id: 1,
+      name: 'Заметка',
+      done: true
+    },
+    {
+      id: 2,
+      name: 'Промт',
+      done: true 
+    }
+  ];
+
+  createTodoApp(
+    document.getElementById('todo-app'),
+    'Органайзер',
+    'my-list',
+    defArray
+  );
+});
+
+
+
+</script>
+
+
+
+
+
+
   <div id="todo-app" class="container"></div>
-
-
-<style>
-
-.tuduList {
-  height: 500px;
-  overflow-y: auto;
-  max-width: 100%;
-}
-
-
-</style>
 
 </html>

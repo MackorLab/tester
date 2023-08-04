@@ -886,7 +886,42 @@ position: fixed;
 </style>
 
 
+<style>
 
+  .overlayBpm {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background-color: #ffffff;
+      display: none;
+    
+    }
+    
+  #closeBpm {
+      position: absolute;
+      top: 35px;
+      right: 20px;
+      cursor: pointer;
+  }
+    .codebpm-container {
+      width: 100%;
+     
+      position: relative;
+      margin-top: 75px;
+     
+  }
+    .codebpm-container iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      
+    }
+    
+  
+  
+  </style>
 
 
 <body>
@@ -1276,8 +1311,13 @@ vkBridge.send('VKWebAppJoinGroup', {
       <input type="checkbox" id="darkMode_H_T">
       <span class="slider round"></span>
     </label>
-    <button id="ShowPromButton" type="button" class="btn btn-outline-dark">📝</button>
-    <button id="ShowCodePenButton" type="button" class="btn btn-outline-dark">👨‍💻</button>
+
+
+
+
+    <button id="showPromButton" type="button" class="btn btn-outline-dark">📝</button>
+    <button id="bpmPromButton" type="button" class="btn btn-outline-dark">📇</button>
+    <button id="showCodePenButton" type="button" class="btn btn-outline-dark">👨‍💻</button>
 
     <button id="totTokBut" type="button" class="btn btn-outline-primary">
       <span id="totalTok" class="badge badge-light">0</span>
@@ -1334,13 +1374,47 @@ vkBridge.send('VKWebAppJoinGroup', {
 
 
 
-    <div class="overlayProm" id="PromOverlay">
+
+
+    <div class="overlayBpm" id="bpmOverlay">
+      <div class="modalBpm">
+        <button id="closeBpm" type="button" class="btn btn-primary btn-sm">Закрыть</button>
+        <div class="codebpm">
+      
+        
+          <iframe height="500" style="width: 100%;" scrolling="no" title="ChatGPT" src="https://mackorlab.github.io/tester/v.html" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
+          
+          
+          </iframe>
+          
+         
+
+
+
+        </div>
+      </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div class="overlayProm" id="promOverlay">
       <div class="modalPen">
         <button id="closeProm" type="button" class="btn btn-primary btn-sm">Закрыть</button>
         <div class="codeprom">
       
         
-          <iframe height="600" style="width: 100%;" scrolling="no" title="ChatGPT" src="https://mackorlab.github.io/tester/v.html" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
+          <iframe height="500" style="width: 100%;" scrolling="no" title="ChatGPT" src="https://mackorlab.github.io/tester/v.html" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
           
           
           </iframe>
@@ -1360,7 +1434,7 @@ vkBridge.send('VKWebAppJoinGroup', {
 
     
 
-    <div class="overlay" id="CodePenOverlay">
+    <div class="overlay" id="codePenOverlay">
       <div class="modalPen">
         <button id="closePen" type="button" class="btn btn-secondary btn-sm">Закрыть</button>
         <div class="codepen-container">

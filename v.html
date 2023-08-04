@@ -29,8 +29,7 @@
 <script>
 
 
-document.addEventListener('DOMContentLoaded', function() {
-  let defArray = [
+ let defArray = [
     {
       id: 1,
       name: 'Заметка',
@@ -42,13 +41,14 @@ document.addEventListener('DOMContentLoaded', function() {
       done: true 
     }
   ];
-
   createTodoApp(
     document.getElementById('todo-app'),
     'Органайзер',
     'my-list',
     defArray
   );
+  let tuduList = document.querySelector('.tuduList');
+  tuduList.classList.add('tuduList');
 });
 
 

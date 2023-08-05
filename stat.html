@@ -3,6 +3,10 @@
 <head>
 <title>Art Generator</title>
 <script>
+
+var apiKey = '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';
+
+  
 async function query(data) {
   const response = await fetch(
     "https://api-inference.huggingface.co/models/stabilityai/stable-diffusion-xl-base-1.0",
@@ -17,12 +21,12 @@ async function query(data) {
 }
 
 function generateArt() {
-  const apiKey = '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';
+ 
   const prompt = 'a dog walking on the beach with sunglasses';
   const numberOfPics = '1';
 
   const bodyInfo = JSON.stringify({
-    "key": apiKey,
+  
     "model_id": "midjourney",
     "prompt": prompt,
     "negative_prompt": "((out of frame)), ((extra fingers)), mutated hands, ((poorly drawn hands)), ((poorly drawn face)), (((mutation))), (((deformed))), (((tiling))), ((naked)), ((tile)), ((fleshpile)), ((ugly)), (((abstract))), blurry, ((bad anatomy)), ((bad proportions)), ((extra limbs)), cloned face, (((skinny))), glitchy, ((extra breasts)), ((double torso)), ((extra arms)), ((extra hands)), ((mangled fingers)), ((missing breasts)), (missing lips), ((ugly face)), ((fat)), ((extra legs)), anime",
@@ -42,6 +46,7 @@ function generateArt() {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
+      Authorization: `Bearer ${apiKey}`,
     },
     body: bodyInfo
   };

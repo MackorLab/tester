@@ -1,62 +1,60 @@
-
-
 <!DOCTYPE html>
 <html>
 <head>
     <title>Art Generator</title>
     <script>
        function generateArt() {
-  const apiKey = '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';
-  const prompt = 'a dog walking on the beach with sunglasses, portrait, ultra realistic, futuristic background , concept art, intricate details, highly detailed';
-  const numberOfPics = '3';
+          const apiKey = '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';
+          const prompt = 'a dog walking on the beach with sunglasses, portrait, ultra realistic, futuristic background , concept art, intricate details, highly detailed';
+          const numberOfPics = '3';
 
-  const bodyInfo = JSON.stringify({
-    "key": apiKey,
-    "model_id": "midjourney",
-    "prompt": prompt,
-    "negative_prompt": "((out of frame)), ((extra fingers)), mutated hands, ((poorly drawn hands)), ((poorly drawn face)), (((mutation))), (((deformed))), (((tiling))), ((naked)), ((tile)), ((fleshpile)), ((ugly)), (((abstract))), blurry, ((bad anatomy)), ((bad proportions)), ((extra limbs)), cloned face, (((skinny))), glitchy, ((extra breasts)), ((double torso)), ((extra arms)), ((extra hands)), ((mangled fingers)), ((missing breasts)), (missing lips), ((ugly face)), ((fat)), ((extra legs)), anime",
-    "width": "512",
-    "height": "512",
-    "samples": numberOfPics,
-    "num_inference_steps": "30",
-    "safety_checker": "no",
-    "enhance_prompt": "yes",
-    "seed": null,
-    "guidance_scale": 7.5,
-    "webhook": null,
-    "track_id": null
-  });
+          const bodyInfo = JSON.stringify({
+            "key": apiKey,
+            "model_id": "midjourney",
+            "prompt": prompt,
+            "negative_prompt": "((out of frame)), ((extra fingers)), mutated hands, ((poorly drawn hands)), ((poorly drawn face)), (((mutation))), (((deformed))), (((tiling))), ((naked)), ((tile)), ((fleshpile)), ((ugly)), (((abstract))), blurry, ((bad anatomy)), ((bad proportions)), ((extra limbs)), cloned face, (((skinny))), glitchy, ((extra breasts)), ((double torso)), ((extra arms)), ((extra hands)), ((mangled fingers)), ((missing breasts)), (missing lips), ((ugly face)), ((fat)), ((extra legs)), anime",
+            "width": "512",
+            "height": "512",
+            "samples": numberOfPics,
+            "num_inference_steps": "30",
+            "safety_checker": "no",
+            "enhance_prompt": "yes",
+            "seed": null,
+            "guidance_scale": 7.5,
+            "webhook": null,
+            "track_id": null
+          });
 
-  const options = {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    body: bodyInfo
-  };
+          const options = {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: bodyInfo
+          };
 
-  fetch('https://stablediffusionapi.com/api/v3/dreambooth', options)
-    .then(response => response.json())
-    .then(data => {
-      const picAmount = data.output.length;
+          fetch('https://stablediffusionapi.com/api/v3/dreambooth', options)
+            .then(response => response.json())
+            .then(data => {
+              const picAmount = data.output.length;
 
-      for (let i = 0; i < picAmount; i++) {
-        const imageUrl = data.output[i];
-        const img = document.createElement('img');
-        img.src = imageUrl;
-        document.body.appendChild(img);
-      }
-    })
-    .catch(error => console.error(error));
-}
+              for (let i = 0; i < picAmount; i++) {
+                const imageUrl = data.output[i];
+                const img = document.createElement('img');
+                img.src = imageUrl;
+                document.getElementById("image-container").appendChild(img);
+              }
+            })
+            .catch(error => console.error(error));
+        }
 
-generateArt();
+        generateArt();
     </script>
 </head>
 <body>
+    <div id="image-container"></div>
 </body>
 </html>
-
 
 
 

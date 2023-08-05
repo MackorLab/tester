@@ -58,8 +58,8 @@ img.src = imageUrl;
 document.getElementById("image-container").appendChild(img);
 }
 })
-.catch(error => {
-console.error(err);
+catch (err) {
+    console.error(err.stack);
 });
 }
 

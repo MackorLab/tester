@@ -1,17 +1,15 @@
-
-
 <!DOCTYPE html>
 <html>
 <head>
     <title>Art Generator</title>
     <script>
-       async function query(data) {
+        async function query(apiKey, prompt) {
             const response = await fetch(
                 "https://api-inference.huggingface.co/models/stabilityai/stable-diffusion-xl-base-1.0",
                 {
-                    headers: { Authorization: "Bearer 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" },
+                    headers: { Authorization: `Bearer ${apiKey}` },
                     method: "POST",
-                    body: JSON.stringify(data),
+                    body: JSON.stringify({ "inputs": prompt }),
                 }
             );
             const result = await response.blob();
@@ -19,8 +17,8 @@
         }
 
         function generateArt() {
-            const apiKey = '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';
-            const prompt = 'a dog walking on the beach with sunglasses, portrait, ultra realistic, futuristic background , concept art, intricate details, highly detailed';
+            const apiKey = document.getElementById("api-key-input").value;
+            const prompt = document.getElementById("prompt-input").value;
             const numberOfPics = '3';
 
             const bodyInfo = JSON.stringify({
@@ -65,16 +63,28 @@
                 });
         }
 
-        query({ "inputs": "Astronaut riding a horse" }).then(response => {
-            const img = document.createElement('img');
-            img.src = URL.createObjectURL(response);
-            document.getElementById("image-container").appendChild(img);
+        document.getElementById("generate-button").addEventListener("click", function () {
+            const apiKey = document.getElementById("api-key-input").value;
+            const prompt = document.getElementById("prompt-input").value;
 
-            generateArt();
+            if (apiKey && prompt) {
+                query(apiKey, prompt).then(response => {
+                    const img = document.createElement('img');
+                    img.src = URL.createObjectURL(response);
+                    document.getElementById("image-container").appendChild(img);
+
+                    generateArt();
+                });
+            } else {
+                alert("Пожалуйста, введите ключ авторизации и запрос");
+            }
         });
     </script>
 </head>
 <body>
+    <input type="text" id="api-key-input" placeholder="Введите ключ авторизации">
+    <input type="text" id="prompt-input" placeholder="Введите запрос на описание картинки">
+    <button id="generate-button">Сгенерировать</button>
     <div id="image-container"></div>
 </body>
 </html>

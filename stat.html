@@ -12,7 +12,7 @@
   <script>
     function startImageGeneration() {
       var text = document.getElementById("text-input").value;
-      
+
       // Отправляем POST-запрос на сервер
       fetch("URL_вашего_сервера", {
         method: "POST",
@@ -30,8 +30,7 @@
 
         // Проверяем состояние генерации каждые 10 секунд
         checkGenerationStatus(data);
-      })
-      .catch(error => console.error(error));
+      });
     }
 
     function checkGenerationStatus(data) {
@@ -55,8 +54,7 @@
             checkGenerationStatus(data);
           }, 10000);
         }
-      })
-      .catch(error => console.error(error));
+      });
     }
 
     function getImage(imageUrl) {
@@ -71,11 +69,15 @@
       })
       .then(response => response.json())
       .then(data => {
-        // Отображаем полученное изображение
+        // Обновляем содержимое изображения
+        var imageElement = document.createElement("img");
+        imageElement.src = data.url;
+        imageElement.width = 300;
+        imageElement.height = 300;
         var imageContainer = document.getElementById("image-container");
-        imageContainer.innerHTML = "<img src='" + data.url + "' width='300' height='300'>";
-      })
-      .catch(error => console.error(error));
+        imageContainer.innerHTML = ""; // Очищаем содержимое контейнера
+        imageContainer.appendChild(imageElement); // Добавляем новое изображение
+      });
     }
   </script>
 </body>

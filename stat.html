@@ -14,7 +14,6 @@
       var text = document.getElementById("text-input").value;
       var API_TOKEN = "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";
 
-      // Отправляем POST-запрос на сервер
       fetch("URL_вашего_сервера/generate-image", {
         method: "POST",
         headers: {
@@ -25,17 +24,14 @@
       })
       .then(response => response.json())
       .then(data => {
-        // Отображаем индикатор активного процесса генерации
         var imageContainer = document.getElementById("image-container");
         imageContainer.innerHTML = "<div style='width: 300px; height: 300px; background-color: red;'></div>";
 
-        // Проверяем состояние генерации каждые 10 секунд
         checkGenerationStatus(data);
       });
     }
 
     function checkGenerationStatus(data) {
-      // Проверяем состояние генерации
       var API_TOKEN = "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";
       fetch("URL_вашего_сервера/check-generation-status", {
         method: "POST",
@@ -48,10 +44,8 @@
       .then(response => response.json())
       .then(data => {
         if (data.status === "генерация_завершена") {
-          // Генерация завершена, получаем изображение
-          getImage(data.image_request);
+          getImage(data.image_base64);
         } else {
-          // Генерация продолжается, повторяем проверку через 10 секунд
           setTimeout(function() {
             checkGenerationStatus(data);
           }, 10000);
@@ -59,28 +53,15 @@
       });
     }
 
-    function getImage(imageUrl) {
-      // Отправляем POST-запрос для получения изображения
-      var API_TOKEN = "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";
-      fetch("URL_вашего_сервера/get-image", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          "Authorization": `Bearer ${API_TOKEN}`
-        },
-        body: JSON.stringify({ "image_request": imageUrl })
-      })
-      .then(response => response.json())
-      .then(data => {
-        // Обновляем содержимое изображения
-        var imageElement = document.createElement("img");
-        imageElement.src = data.url;
-        imageElement.width = 300;
-        imageElement.height = 300;
-        var imageContainer = document.getElementById("image-container");
-        imageContainer.innerHTML = ""; // Очищаем содержимое контейнера
-        imageContainer.appendChild(imageElement); // Добавляем новое изображение
-      });
+    function getImage(image_base64) {
+      var img = new Image();
+      img.src = "data:image/png;base64," + image_base64;
+      img.width = 300;
+      img.height = 300;
+
+      var imageContainer = document.getElementById("image-container");
+      imageContainer.innerHTML = "";
+      imageContainer.appendChild(img);
     }
   </script>
 </body>

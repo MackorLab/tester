@@ -9,16 +9,19 @@
   <input type="text" id="text-input">
   <button onclick="startImageGeneration()">Отправить</button>
 
-  <script>
+ 
+
+<script>
     function startImageGeneration() {
       var text = document.getElementById("text-input").value;
+      var API_TOKEN = "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";
 
       // Отправляем POST-запрос на сервер
-      fetch("https://api-inference.huggingface.co/models/vk_Stable_Diffusion", {
+      fetch("URL_вашего_сервера/generate-image", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-          "API-ключ": "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"
+          "Authorization": `Bearer ${API_TOKEN}`
         },
         body: JSON.stringify({ "запуск": text })
       })
@@ -35,17 +38,18 @@
 
     function checkGenerationStatus(data) {
       // Проверяем состояние генерации
-      fetch("https://api-inference.huggingface.co/models/vk_Stable_Diffusion", {
+      var API_TOKEN = "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";
+      fetch("URL_вашего_сервера/check-generation-status", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-          "API-ключ": "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"
+          "Authorization": `Bearer ${API_TOKEN}`
         },
-        body: JSON.stringify({ "проверка": data.статус })
+        body: JSON.stringify({ "проверка": data.status })
       })
       .then(response => response.json())
       .then(data => {
-        if (data.статус === "генерация_завершена") {
+        if (data.status === "генерация_завершена") {
           // Генерация завершена, получаем изображение
           getImage(data.получение);
         } else {
@@ -59,11 +63,12 @@
 
     function getImage(imageUrl) {
       // Отправляем POST-запрос для получения изображения
-      fetch("URL_вашего_сервера", {
+      var API_TOKEN = "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";
+      fetch("URL_вашего_сервера/get-image", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-          "API-ключ": "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"
+          "Authorization": `Bearer ${API_TOKEN}`
         },
         body: JSON.stringify({ "получение": imageUrl })
       })
@@ -80,5 +85,13 @@
       });
     }
   </script>
+
+
+
+
+
+
+
+  
 </body>
 </html>

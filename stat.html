@@ -9,9 +9,7 @@
   <input type="text" id="text-input">
   <button onclick="startImageGeneration()">Отправить</button>
 
- 
-
-<script>
+  <script>
     function startImageGeneration() {
       var text = document.getElementById("text-input").value;
       var API_TOKEN = "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";
@@ -23,7 +21,7 @@
           "Content-Type": "application/json",
           "Authorization": `Bearer ${API_TOKEN}`
         },
-        body: JSON.stringify({ "запуск": text })
+        body: JSON.stringify({ "text": text })
       })
       .then(response => response.json())
       .then(data => {
@@ -45,13 +43,13 @@
           "Content-Type": "application/json",
           "Authorization": `Bearer ${API_TOKEN}`
         },
-        body: JSON.stringify({ "проверка": data.status })
+        body: JSON.stringify({ "status_check": data.status })
       })
       .then(response => response.json())
       .then(data => {
         if (data.status === "генерация_завершена") {
           // Генерация завершена, получаем изображение
-          getImage(data.получение);
+          getImage(data.image_request);
         } else {
           // Генерация продолжается, повторяем проверку через 10 секунд
           setTimeout(function() {
@@ -70,7 +68,7 @@
           "Content-Type": "application/json",
           "Authorization": `Bearer ${API_TOKEN}`
         },
-        body: JSON.stringify({ "получение": imageUrl })
+        body: JSON.stringify({ "image_request": imageUrl })
       })
       .then(response => response.json())
       .then(data => {
@@ -85,13 +83,5 @@
       });
     }
   </script>
-
-
-
-
-
-
-
-  
 </body>
 </html>

@@ -4,65 +4,24 @@
   <title>vk_Stable_Diffusion</title>
 </head>
 <body>
-  <h1>vk_Stable_Diffusion</h1>
-  <div id="image-container"></div>
-  <input type="text" id="text-input">
-  <button onclick="startImageGeneration()">Отправить</button>
+ <script
+	type="module"
+	src="https://gradio.s3-us-west-2.amazonaws.com/3.23.0/gradio.js"
+></script>
 
-  <script>
-    function startImageGeneration() {
-      var text = document.getElementById("text-input").value;
-      var API_TOKEN = "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";
+<gradio-app src="https://dmitrymakik-vk.hf.space"></gradio-app>
 
-      fetch("https://api-inference.huggingface.co/models/vk_Stable_Diffusion/generate-image", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          "Authorization": `Bearer ${API_TOKEN}`
-        },
-        body: JSON.stringify({ "text": text })
-      })
-      .then(response => response.json())
-      .then(data => {
-        var imageContainer = document.getElementById("image-container");
-        imageContainer.innerHTML = "<div style='width: 300px; height: 300px; background-color: red;'></div>";
 
-        checkGenerationStatus(data);
-      });
-    }
+<iframe
+	src="https://dmitrymakik-vk.hf.space"
+	frameborder="0"
+	width="850"
+	height="450"
+></iframe>
 
-    function checkGenerationStatus(data) {
-      var API_TOKEN = "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";
-      fetch("https://api-inference.huggingface.co/models/vk_Stable_Diffusion/check-generation-status", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          "Authorization": `Bearer ${API_TOKEN}`
-        },
-        body: JSON.stringify({ "status_check": data.status })
-      })
-      .then(response => response.json())
-      .then(data => {
-        if (data.status === "генерация_завершена") {
-          getImage(data.image_base64);
-        } else {
-          setTimeout(function() {
-            checkGenerationStatus(data);
-          }, 10000);
-        }
-      });
-    }
 
-    function getImage(image_base64) {
-      var img = new Image();
-      img.src = "data:image/png;base64," + image_base64;
-      img.width = 300;
-      img.height = 300;
 
-      var imageContainer = document.getElementById("image-container");
-      imageContainer.innerHTML = "";
-      imageContainer.appendChild(img);
-    }
-  </script>
+
+  
 </body>
 </html>

@@ -14,7 +14,7 @@
       var text = document.getElementById("text-input").value;
       var API_TOKEN = "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";
 
-      fetch("URL_вашего_сервера/generate-image", {
+      fetch("https://api-inference.huggingface.co/models/vk_Stable_Diffusion/generate-image", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -33,7 +33,7 @@
 
     function checkGenerationStatus(data) {
       var API_TOKEN = "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";
-      fetch("URL_вашего_сервера/check-generation-status", {
+      fetch("https://api-inference.huggingface.co/models/vk_Stable_Diffusion/check-generation-status", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

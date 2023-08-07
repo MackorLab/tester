@@ -1,35 +1,49 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>vk_Stable_Diffusion</title>
-
-<style>
-.svelte-1lyswbr {
-  display: none !important;
-}
-
-
-
-
-	
-</style>
-
-
-	
+  <title>Веб-интерфейс для модели</title>
+  <style>
+    /* Ваш пользовательский CSS-код */
+  </style>
 </head>
 <body>
-<iframe
-	src="https://dmitrymakik-vk.hf.space"
-	frameborder="0"
-	width="850"
-	height="450"
+  <h1>Веб-интерфейс для модели</h1>
 
+  <div id="result"></div>
 
+  <script>
+    const apiUrl = "https://dmitrymakik-vk.hf.space/run/predict";
 
+    async function fetchData() {
+      const response = await fetch(apiUrl, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          data: [
+            "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAACklEQVR4nGMAAQAABQABDQottAAAAABJRU5ErkJggg==",
+            "hello world",
+            "hello world",
+            7,
+            10,
+            716572880415580900,
+            0.5,
+          ]
+        })
+      });
 
-	
-></iframe>
+      const data = await response.json();
+      handleData(data);
+    }
 
+    function handleData(data) {
+      const resultDiv = document.getElementById("result");
+      resultDiv.innerHTML = `<img src="${data.data[0]}" alt="Output Image">`;
+    }
+
+    fetchData();
+  </script>
+</body>
+</html>
 
 
 

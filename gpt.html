@@ -927,6 +927,38 @@ position: fixed;
 
 
 
+.overSDx1024 {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background-color: #ffffff;
+      display: none;
+    
+    }
+    
+  #closeSDx1024 {
+      position: absolute;
+      top: 35px;
+      right: 20px;
+      cursor: pointer;
+  }
+    .codeSDx1024{
+      width: 100%;
+     
+      position: relative;
+      margin-top: 75px;
+     
+  }
+    .codeSDx1024 iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      
+    }
+    
+  
 
 
   </style>
@@ -1319,9 +1351,36 @@ vkBridge.send('VKWebAppJoinGroup', {
     </label>
 
 
-         <button id="imgSDx1024"  type="button" class="btn btn-outline-dark">
-       <span class="badge badge-light">SDx1024</span>
+   
+
+   
+
+
+
+
+    <button id="imgSDx1024"  type="button" class="btn btn-outline-dark">
+      <span class="badge badge-light">SDx1024</span>
     </button>
+    
+    <div class="overSDx1024" id="SDx1024Overlay">
+      <div class="modalSDx1024">
+        <button id="closeSDx1024" type="button" class="btn btn-primary btn-sm">Закрыть</button>
+        <div class="codeSDx1024">
+          <iframe id="iframeSDx1024" height="500" style="width: 100%;" scrolling="no" title="ChatGPT" src="" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true"></iframe>
+        </div>
+      </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
 
  
 

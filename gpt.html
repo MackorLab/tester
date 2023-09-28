@@ -80,16 +80,6 @@
     padding: 40px 20px;
     overflow: auto;
 }
-.side-panel::before{
-    content: "";
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    background-color: rgba(0,0,0,0.4); /*Добавляем прозрачность 0.4*/
-    display: none;
-}
 .side-title {
     font-size: 20px;
     padding-bottom: 10px;
@@ -237,9 +227,6 @@ a:focus {
         left: -100%;
         width: 100%;
     }
-    .side-panel::before{
-        display: none;
-    }
 }
 /* Медиа-запрос для планшетной версии */
 @media (min-width: 481px) and (max-width: 768px) {
@@ -247,11 +234,7 @@ a:focus {
         left: -100%;
         width: 100%;
     }
-    .side-panel::before{
-        display: none;
-    }
 }
-    
   </style>
 
 

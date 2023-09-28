@@ -89,7 +89,7 @@
 }
 /* Оформление кнопки на странице */
 .side-button-1-wr {
-  /*  text-align: center;  Контейнер для кнопки, чтобы было удобнее ее разместить */
+    /*  text-align: center;  Контейнер для кнопки, чтобы было удобнее ее разместить */
 }
 .side-button-1 .side-b {
     margin: 10px;
@@ -208,8 +208,8 @@ a:focus {
     /* Some padding */
     cursor: pointer;
     /* Pointer/hand icon */
-    width: 100%;
-    /* Изменил ширину кнопки на 100% */
+    width: 50%;
+    /* Set a width if needed */
     display: block;
     /* Make the buttons appear below each other */
 }
@@ -221,7 +221,20 @@ a:focus {
 .btn-group:hover {
     background-color: #3e8e41;
 }
-  
+/* Медиа-запрос для телефонной версии */
+@media (max-width: 480px) {
+    .side-panel {
+        left: 0;
+        width: 100%;
+    }
+}
+/* Медиа-запрос для планшетной версии */
+@media (min-width: 481px) and (max-width: 768px) {
+    .side-panel {
+        left: calc(-100vw + 100%);
+        width: 100%;
+    }
+}
     
   </style>
 
